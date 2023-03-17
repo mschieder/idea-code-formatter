@@ -1,5 +1,7 @@
 # idea-code-formatter
 
+[![Java CI with Maven](https://github.com/mschieder/idea-code-formatter/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/mschieder/idea-code-formatter/actions/workflows/maven.yml)
+
 is a "smaller" (200 MB) standalone version of the [IntelliJ
 IDEA command line formatter](https://www.jetbrains.com/help/idea/command-line-formatter.html)
 
