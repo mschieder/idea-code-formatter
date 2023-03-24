@@ -19,13 +19,6 @@
         <idea.version>2022.3.3</idea.version>
     </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/mschieder/idea-code-formatter</url>
-        </repository>
-    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -33,98 +26,98 @@
             <artifactId>3rd-party-rt</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/3rd-party-rt.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/3rd-party-rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>app</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/app.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/app.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>external-system-rt</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/external-system-rt.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/external-system-rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>forms_rt</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/forms_rt.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/forms_rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>groovy</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/groovy.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/groovy.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>jps-model</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/jps-model.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/jps-model.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>jsp-base</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/jsp-base.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/jsp-base.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>protobuf</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/protobuf.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/protobuf.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>rd</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/rd.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/rd.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>stats</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/stats.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/stats.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>util</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/util.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/util.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>util_rt</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/util_rt.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/util_rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>xml-dom</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/xml-dom.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/xml-dom.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>xml-dom-impl</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/target/ide/lib/xml-dom-impl.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/xml-dom-impl.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -149,7 +142,7 @@
     <build>
         <resources>
             <resource>
-                <directory>${project.build.directory}/generated-resources</directory>
+                <directory>${project.basedir}/downloaded_jars/repackaged</directory>
             </resource>
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
@@ -157,6 +150,23 @@
         </resources>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>downloaded_jars</directory>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
