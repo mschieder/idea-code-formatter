@@ -13,9 +13,7 @@ class Utils {
 
     public static void deleteDir(Path dir) throws IOException {
         try (Stream<Path> walk = Files.walk(dir)) {
-            walk.sorted(Comparator.reverseOrder())
-                    .map(Path::toFile)
-                    .forEach(File::delete);
+            walk.sorted(Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
         }
     }
 
@@ -37,8 +35,7 @@ class Utils {
                     entryDestination.mkdirs();
                 } else {
                     entryDestination.getParentFile().mkdirs();
-                    try (InputStream in = zipFile.getInputStream(entry);
-                         OutputStream out = new FileOutputStream(entryDestination)) {
+                    try (InputStream in = zipFile.getInputStream(entry); OutputStream out = new FileOutputStream(entryDestination)) {
                         in.transferTo(out);
                     }
                 }
@@ -46,4 +43,20 @@ class Utils {
         }
     }
 
+    public static String getJarName() {
+        return getJarName(Utils.class);
+    }
+
+    public static boolean isPackagedInJar() {
+        return getJarName().endsWith("jar");
+    }
+
+
+    public static String getJarName(Class theClass) {
+        return new File(theClass.getProtectionDomain().getCodeSource().getLocation().getPath()).getName();
+    }
+
+    public static String getJarPath(Class theClass) {
+        return theClass.getProtectionDomain().getCodeSource().getLocation().getPath();
+    }
 }

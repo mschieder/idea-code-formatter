@@ -1,5 +1,6 @@
 package com.github.mschieder.idea.formatter;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -47,6 +48,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
 
     public int format(String[] args) throws Exception {
+        System.out.println("JAR: " + Utils.getJarName());
+        System.out.println("JAR-PATH: " + new File(Utils.getJarPath(Utils.class)));
         return doFormat(tmpFormatterRoot, args);
     }
 
@@ -60,7 +63,14 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
         String classpathSeparator = System.getProperty("path.separator");
 
-        String classpath = Arrays.stream(LIB_JARS).map(j -> ideHome + "/lib/" + j).collect(Collectors.joining(classpathSeparator));
+        String classpath = null;
+        if (Utils.isPackagedInJar()) {
+            classpath = new File(Utils.getJarPath(Utils.class)).toString();
+        } else {
+            // add the current classpath (for unit testing)
+            classpath = Arrays.stream(LIB_JARS).map(j -> ideHome + "/lib/" + j).collect(Collectors.joining(classpathSeparator));
+            classpath = System.getProperty("java.class.path");
+        }
 
         String mainClass = "com.intellij.idea.Main";
 
