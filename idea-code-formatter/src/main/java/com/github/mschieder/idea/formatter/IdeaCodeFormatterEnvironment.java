@@ -1,5 +1,10 @@
 package com.github.mschieder.idea.formatter;
 
+import com.google.common.base.Stopwatch;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -7,26 +12,10 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
-    private static final String[] LIB_JARS = {
-            "3rd-party-rt.jar",
-            "app.jar",
-            "external-system-rt.jar",
-            "forms_rt.jar",
-            "groovy.jar",
-            "jps-model.jar",
-            "jsp-base.jar",
-            "protobuf.jar",
-            "rd.jar",
-            "stats.jar",
-            "util.jar",
-            "util_rt.jar",
-            "xml-dom.jar",
-            "xml-dom-impl.jar"
-    };
+    private static final Logger log = LoggerFactory.getLogger(IdeaCodeFormatterEnvironment.class);
     private final Path tmpFormatterRoot;
 
     public IdeaCodeFormatterEnvironment() throws IOException {
@@ -41,7 +30,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     private Path extractPortableIde() throws IOException {
         Path tmpFormatterRoot = Files.createTempDirectory("formatterRoot");
         InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/ide.zip");
-        Utils.unzip(f, tmpFormatterRoot.toFile());
+        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot.toFile());
         return tmpFormatterRoot;
     }
 
@@ -58,11 +47,13 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         String appdata = formatterRoot.resolve("appdata").toString();
         String localAppdata = formatterRoot.resolve("localAppdata").toString();
 
-        String classpathSeparator = System.getProperty("path.separator");
-
-        String classpath = Arrays.stream(LIB_JARS).map(j -> ideHome + "/lib/" + j).collect(Collectors.joining(classpathSeparator));
-
-        String mainClass = "com.intellij.idea.Main";
+        String classpath = null;
+        if (Utils.isPackagedInJar()) {
+            classpath = new File(Utils.getJarPath(Utils.class)).toString();
+        } else {
+            // add the current classpath (for unit testing)
+            classpath = System.getProperty("java.class.path");
+        }
 
         List<String> command = new ArrayList<>();
         command.add(javaBin);
@@ -118,7 +109,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         command.add("--add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED");
 
 
-        command.add(mainClass);
+        command.add("com.intellij.idea.Main");
         command.add("format");
         command.addAll(Arrays.asList(args));
 
@@ -126,6 +117,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         builder.environment().put("APPDATA", appdata);
         builder.environment().put("LOCALAPPDATA", localAppdata);
 
+        Stopwatch sw = Stopwatch.createStarted();
         Process process = builder
                 //       .inheritIO()
                 .redirectInput(ProcessBuilder.Redirect.INHERIT)
@@ -133,6 +125,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
                 .redirectError(ProcessBuilder.Redirect.to(formatterRoot.resolve("error.log").toFile()))
                 .start();
         process.waitFor();
+        sw.stop();
+        log.info("process finished after {} ms", sw.elapsed().toMillis());
         return process.exitValue();
     }
 }
