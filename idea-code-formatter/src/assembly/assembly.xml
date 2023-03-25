@@ -14,10 +14,8 @@
             <scope>system</scope>
             <unpackOptions>
                 <excludes>
-                    <exclude>org/apache/**/*.*</exclude>
                     <exclude>com/ibm/**/*.*</exclude>
                     <exclude>org/bouncycastle/**/*.*</exclude>
-                    <exclude>com/intellij/codeInsight/**/*.*</exclude>
                     <exclude>com/intellij/documentation/**/*.*</exclude>
                     <exclude>**/*.html</exclude>
                     <exclude>**/*.aut</exclude>
