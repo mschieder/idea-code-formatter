@@ -1,16 +1,75 @@
-# idea-code-formatter
+# idea-code-formatter-maven-plugin
 
 [![Java CI with Maven](https://github.com/mschieder/idea-code-formatter/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/mschieder/idea-code-formatter/actions/workflows/maven.yml)
 
-is a "smaller" (200 MB) standalone version of the [IntelliJ
+a maven plugin that uses and bundles a standalone version of the [IntelliJ
 IDEA command line formatter](https://www.jetbrains.com/help/idea/command-line-formatter.html)
 
-build:
-mvn install
+This plugin can validate and reformat your code from the command line via maven.
+
+No installed IntelliJ IDEA is required, so you can use this plugin in your CI pipelines.
+
+minimal config example: validate all .java files recursively in src/main/java and src/test/java using the IntelliJ IDEAs default code format settings:
+
+```xml
+<plugin>
+    <groupId>com.github.mschieder</groupId>
+    <artifactId>idea-code-formatter-maven-plugin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>validate</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+more complex example: 
+validate all .java and .xml files recursively in target/generated-sources/java, src/main/java and src/main/resources using the code style settings file conf/Default.xml.
+
+```xml
+ <plugin>
+    <groupId>com.github.mschieder</groupId>
+    <artifactId>idea-code-formatter-maven-plugin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <configuration>
+        <directories>
+            <directory>target/generated-sources/java</directory>
+            <directory>src/main/java</directory>
+            <directory>src/main/resources</directory>
+        </directories>
+        <codestyleSettingsFile>conf/Default.xml</codestyleSettingsFile>
+        <masks>
+            <mask>.java</mask>
+            <mask>.xml</mask>
+        </masks>
+        <recursive>true</recursive>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>validate</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+example: format from the command line
+
+```bash
+mvn mvn idea-code-formatter-maven-plugin:format
+```
+
+## idea-code-formatter
+is the "smaller" (225 MB) standalone version of the [IntelliJ
+IDEA command line formatter](https://www.jetbrains.com/help/idea/command-line-formatter.html)
 
 usage:
 
-```
+```bash
 $ java -jar idea-code-formatter-1.0.0-SNAPSHOT.jar
 IntelliJ IDEA 2022.3.3, build IC-223.8836.41 Formatter
 
@@ -26,4 +85,10 @@ be used as a primary one regardless to the surrounding project settings
 is not not set and file doesn't belong to any IDEA project. Otherwise file will
 be ignored.
 path<n>        A path to a file or a directory.
+```
+
+## Building
+
+```bash
+mvn install
 ```

@@ -26,6 +26,7 @@
     </distributionManagement>
     <modules>
         <module>idea-code-formatter</module>
+        <module>idea-code-formatter-maven-plugin</module>
     </modules>
 
     <build>

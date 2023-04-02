@@ -14,9 +14,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.9.2</junit.version>
-        <assertj.version>3.24.2</assertj.version>
-        <idea.version>2022.3.3</idea.version>
     </properties>
 
 
