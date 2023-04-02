@@ -36,10 +36,30 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
 
     public int format(String[] args) throws Exception {
-        return doFormat(tmpFormatterRoot, args);
+        return doFormat(tmpFormatterRoot, args, new StringBuilder());
     }
 
-    private int doFormat(Path formatterRoot, String[] args) throws Exception {
+    public int validate(String[] args) throws Exception {
+        List<String> argsList = new ArrayList<>(Arrays.asList(args));
+        if (!argsList.contains("-d") && !argsList.contains("-dry")){
+            argsList.add(0, "-dry");
+        }
+
+        StringBuilder output =  new StringBuilder();
+        int returnCode =  doFormat(tmpFormatterRoot, argsList.toArray(new String[0]), output);
+
+        if (returnCode == 0){
+            if (!output.toString().contains("...Needs reformatting")){
+                return 0;
+            }
+            else{
+                return -1;
+            }
+        }
+        return returnCode;
+    }
+
+    private int doFormat(Path formatterRoot, String[] args, StringBuilder output) throws Exception {
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
 
@@ -121,9 +141,12 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         Process process = builder
                 //       .inheritIO()
                 .redirectInput(ProcessBuilder.Redirect.INHERIT)
-                .redirectOutput(ProcessBuilder.Redirect.INHERIT)
+                .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .redirectError(ProcessBuilder.Redirect.to(formatterRoot.resolve("error.log").toFile()))
                 .start();
+
+        output.append(new String(process.getInputStream().readAllBytes()));
+        log.info(output.toString());
         process.waitFor();
         sw.stop();
         log.info("process finished after {} ms", sw.elapsed().toMillis());
