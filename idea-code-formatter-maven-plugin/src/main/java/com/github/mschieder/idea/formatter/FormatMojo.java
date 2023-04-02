@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.List;
 
 @Mojo(name = "format", defaultPhase = LifecyclePhase.PROCESS_SOURCES)
-public class IdeaCodeFormatterMojo extends AbstractMojo {
+public class FormatMojo extends AbstractMojo {
     /**
      * Perform a dry run: no file modifications, only exit status.
      */

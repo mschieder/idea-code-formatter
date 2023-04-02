@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.List;
 
 @Mojo(name = "validate", defaultPhase = LifecyclePhase.VALIDATE)
-public class ValidateMojo extends IdeaCodeFormatterMojo {
+public class ValidateMojo extends AbstractMojo {
     @Parameter(property = "validate.masks", defaultValue = "*.java")
     private List<String> masks;
 
