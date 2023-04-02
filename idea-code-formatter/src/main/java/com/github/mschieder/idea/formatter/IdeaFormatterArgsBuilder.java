@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 public class IdeaFormatterArgsBuilder {
 
     private boolean dryRun = false;
+
+    private boolean recursive = false;
     private File codestyleSettingsFile;
 
     private List<String> masks = new ArrayList<>();
@@ -24,6 +26,11 @@ public class IdeaFormatterArgsBuilder {
 
     public IdeaFormatterArgsBuilder dryRun(boolean dryRun) {
         this.dryRun = dryRun;
+        return this;
+    }
+
+    public IdeaFormatterArgsBuilder recursive(boolean recursive) {
+        this.recursive = recursive;
         return this;
     }
 
@@ -50,6 +57,9 @@ public class IdeaFormatterArgsBuilder {
         List<String> args = new ArrayList<>();
         if (dryRun) {
             args.add("-dry");
+        }
+        if (recursive) {
+            args.add("-r");
         }
         if (!masks.isEmpty()){
             args.add("-mask");

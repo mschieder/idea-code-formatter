@@ -17,6 +17,12 @@ public class FormatMojo extends AbstractMojo {
     @Parameter(property = "format.dryRun", defaultValue = "false")
     private boolean dryRun;
 
+    /**
+     * Scan directories recursively.
+     */
+    @Parameter(property = "format.recursive", defaultValue = "true")
+    private boolean recursive;
+
     @Parameter(property = "format.masks", defaultValue = "*.java")
     private List<String> masks;
 
@@ -40,8 +46,9 @@ public class FormatMojo extends AbstractMojo {
         getLog().debug("masks: " + masks);
 
 
-        try (IdeaCodeFormatterEnvironment environment = new IdeaCodeFormatterEnvironment()){
-            environment.format(new IdeaFormatterArgsBuilder().charset(charset).masks(masks).dryRun(dryRun).directories(directories).codestyleSettingsFile(codestyleSettingsFile).build());
+        try (IdeaCodeFormatterEnvironment environment = new IdeaCodeFormatterEnvironment()) {
+            environment.format(new IdeaFormatterArgsBuilder().charset(charset).masks(masks).dryRun(dryRun).recursive(recursive)
+                    .directories(directories).codestyleSettingsFile(codestyleSettingsFile).build());
         } catch (Exception e) {
             throw new MojoExecutionException(e);
         }

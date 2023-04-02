@@ -11,6 +11,12 @@ import java.util.List;
 
 @Mojo(name = "validate", defaultPhase = LifecyclePhase.VALIDATE)
 public class ValidateMojo extends AbstractMojo {
+    /**
+     * Scan directories recursively.
+     */
+    @Parameter(property = "validate.recursive", defaultValue = "true")
+    private boolean recursive;
+
     @Parameter(property = "validate.masks", defaultValue = "*.java")
     private List<String> masks;
 
@@ -34,8 +40,8 @@ public class ValidateMojo extends AbstractMojo {
         getLog().debug("masks: " + masks);
 
         var returnCode = -1;
-        try (IdeaCodeFormatterEnvironment environment = new IdeaCodeFormatterEnvironment()){
-            returnCode = environment.validate(new IdeaFormatterArgsBuilder().charset(charset).masks(masks)
+        try (IdeaCodeFormatterEnvironment environment = new IdeaCodeFormatterEnvironment()) {
+            returnCode = environment.validate(new IdeaFormatterArgsBuilder().recursive(recursive).charset(charset).masks(masks)
                     .dryRun(true).directories(directories).codestyleSettingsFile(codestyleSettingsFile).build());
         } catch (Exception e) {
             throw new MojoExecutionException(e);
