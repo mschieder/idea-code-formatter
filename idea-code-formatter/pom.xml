@@ -21,85 +21,61 @@
             <groupId>com.intellij</groupId>
             <artifactId>3rd-party-rt</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/3rd-party-rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>app</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/app.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>external-system-rt</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/external-system-rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>forms_rt</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/forms_rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>groovy</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/groovy.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>jps-model</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/jps-model.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>protobuf</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/protobuf.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>rd</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/rd.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>stats</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/stats.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>util</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/util.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>util_rt</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/util_rt.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>util-8</artifactId>
             <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/util-8.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -162,8 +138,8 @@
                         <configuration>
                             <skip>true</skip>
                         </configuration>
-
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -179,6 +155,7 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.5.0</version>
                 <executions>

@@ -11,7 +11,7 @@
         <dependencySet>
             <outputDirectory>/</outputDirectory>
             <unpack>true</unpack>
-            <scope>system</scope>
+            <scope>runtime</scope>
             <unpackOptions>
                 <excludes>
                     <exclude>com/ibm/**/*.*</exclude>
