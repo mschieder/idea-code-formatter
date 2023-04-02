@@ -11,7 +11,18 @@
         <dependencySet>
             <outputDirectory>/</outputDirectory>
             <unpack>true</unpack>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <unpackOptions>
+                <excludes>
+                    <exclude>com/ibm/**/*.*</exclude>
+                    <exclude>org/bouncycastle/**/*.*</exclude>
+                    <exclude>com/intellij/documentation/**/*.*</exclude>
+                    <exclude>**/*.html</exclude>
+                    <exclude>**/*.aut</exclude>
+                    <exclude>**/*.svg</exclude>
+                    <exclude>**/*.png</exclude>
+                </excludes>
+            </unpackOptions>
         </dependencySet>
     </dependencySets>
 </assembly>
