@@ -93,7 +93,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         command.add("-Didea.home.path=" + ideHome);
         command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
         command.add("-Didea.vendor.name=JetBrains");
-        command.add("-Didea.paths.selector=IdeaIC2022.3");
+        command.add("-Didea.paths.selector=IdeaIC2023.1");
         command.add("-Djna.nosys=true");
         command.add("-Djna.noclasspath=true");
         command.add("-Didea.platform.prefix=Idea");

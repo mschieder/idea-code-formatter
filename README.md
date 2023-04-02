@@ -64,14 +64,14 @@ mvn mvn idea-code-formatter-maven-plugin:format
 ```
 
 ## idea-code-formatter
-is the "smaller" (225 MB) standalone version of the [IntelliJ
+is the "smaller" (234 MB) standalone version of the [IntelliJ
 IDEA command line formatter](https://www.jetbrains.com/help/idea/command-line-formatter.html)
 
 usage:
 
 ```bash
 $ java -jar idea-code-formatter-1.0.0-SNAPSHOT.jar
-IntelliJ IDEA 2022.3.3, build IC-223.8836.41 Formatter
+IntelliJ IDEA 2023.1, build IC-231.8109.175 Formatter
 
 Usage: format [-h] [-r|-R] [-d|-dry] [-s|-settings settingsPath] [-charset charsetName] [-allowDefaults] path1 path2...
 -h|-help         Show a help message and exit.

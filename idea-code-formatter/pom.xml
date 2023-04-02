@@ -16,7 +16,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>com.intellij</groupId>
@@ -62,13 +61,6 @@
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
-            <artifactId>jsp-base</artifactId>
-            <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/jsp-base.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.intellij</groupId>
             <artifactId>protobuf</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
@@ -104,17 +96,10 @@
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
-            <artifactId>xml-dom</artifactId>
+            <artifactId>util-8</artifactId>
             <version>${idea.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/xml-dom.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.intellij</groupId>
-            <artifactId>xml-dom-impl</artifactId>
-            <version>${idea.version}</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/downloaded_jars/ide/lib/xml-dom-impl.jar</systemPath>
+            <systemPath>${basedir}/downloaded_jars/ide/lib/util-8.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
