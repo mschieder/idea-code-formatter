@@ -26,6 +26,37 @@ minimal config example: validate all .java files recursively in src/main/java an
 </plugin>
 ```
 
+more complex example: 
+validate all .java and .xml files recursively in target/generated-sources/java, src/main/java and src/main/resources using the code style settings file conf/Default.xml.
+
+```xml
+ <plugin>
+    <groupId>com.github.mschieder</groupId>
+    <artifactId>idea-code-formatter-maven-plugin</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <configuration>
+        <directories>
+            <directory>target/generated-sources/java</directory>
+            <directory>src/main/java</directory>
+            <directory>src/main/resources</directory>
+        </directories>
+        <codestyleSettingsFile>conf/Default.xml</codestyleSettingsFile>
+        <masks>
+            <mask>.java</mask>
+            <mask>.xml</mask>
+        </masks>
+        <recursive>true</recursive>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>validate</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
 example: format from the command line
 
 ```bash
