@@ -1,6 +1,7 @@
 package com.github.mschieder.idea.formatter;
 
 import com.google.common.base.Stopwatch;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,30 +37,39 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
 
     public int format(String[] args) throws Exception {
-        return doFormat(tmpFormatterRoot, args, new StringBuilder());
+        List<String> outputLines = new ArrayList<>();
+        int returnCode = doFormat(tmpFormatterRoot, args, outputLines);
+        outputLines.forEach(log::info);
+        return returnCode;
+
     }
 
     public int validate(String[] args) throws Exception {
         List<String> argsList = new ArrayList<>(Arrays.asList(args));
-        if (!argsList.contains("-d") && !argsList.contains("-dry")){
+        if (!argsList.contains("-d") && !argsList.contains("-dry")) {
             argsList.add(0, "-dry");
         }
 
-        StringBuilder output =  new StringBuilder();
-        int returnCode =  doFormat(tmpFormatterRoot, argsList.toArray(new String[0]), output);
+        List<String> outputLines = new ArrayList<>();
+        int returnCode = doFormat(tmpFormatterRoot, argsList.toArray(new String[0]), outputLines);
 
-        if (returnCode == 0){
-            if (!output.toString().contains("...Needs reformatting")){
-                return 0;
+        boolean validationOk = true;
+        for (String line : outputLines) {
+            if (line.contains("...Needs reformatting")) {
+                log.error(line);
+                validationOk = false;
+            } else {
+                log.info(line);
             }
-            else{
-                return -1;
-            }
+        }
+
+        if (returnCode == 0) {
+            return validationOk ? 0 : -1;
         }
         return returnCode;
     }
 
-    private int doFormat(Path formatterRoot, String[] args, StringBuilder output) throws Exception {
+    private int doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
 
@@ -145,8 +155,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
                 .redirectError(ProcessBuilder.Redirect.to(formatterRoot.resolve("error.log").toFile()))
                 .start();
 
-        output.append(new String(process.getInputStream().readAllBytes()));
-        log.info(output.toString());
+        outputLines.addAll(IOUtils.readLines(process.getInputStream()));
+
         process.waitFor();
         sw.stop();
         log.info("process finished after {} ms", sw.elapsed().toMillis());
