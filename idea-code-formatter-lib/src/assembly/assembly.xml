@@ -13,7 +13,150 @@
             <unpack>true</unpack>
             <scope>system</scope>
             <unpackOptions>
+                <includes>
+
+                    <include>com/intellij/*.*</include>
+                    <include>com/intellij/workspaceModel/**/*.*</include>
+                    <include>com/intellij/troubleshooting/**/*.*</include>
+                    <include>com/intellij/xml/**/*.*</include>
+                    <include>com/intellij/uiDesigner/**/*.*</include>
+                    <include>com/intellij/xdebugger/**/*.*</include>
+                    <include>com/intellij/unscramble/**/*.*</include>
+                    <include>com/intellij/semantic/**/*.*</include>
+                    <include>com/intellij/profile/**/*.*</include>
+                    <include>com/intellij/tools/**/*.*</include>
+                    <include>com/intellij/smRunner/**/*.*</include>
+                    <include>com/intellij/psi/**/*.*</include>
+                    <include>com/intellij/tracing/**/*.*</include>
+                    <include>com/intellij/security/**/*.*</include>
+                    <include>com/intellij/serviceContainer/**/*.*</include>
+                    <include>com/intellij/slicer/**/*.*</include>
+                    <include>com/intellij/smartUpdate/**/*.*</include>
+                    <include>com/intellij/properties/**/*.*</include>
+                    <include>com/intellij/ssh/**/*.*</include>
+                    <include>com/intellij/reference/**/*.*</include>
+                    <include>com/intellij/structuralsearch/**/*.*</include>
+                    <include>com/intellij/spellchecker/**/*.*</include>
+                    <include>com/intellij/patterns/**/*.*</include>
+                    <include>com/intellij/remote/**/*.*</include>
+                    <include>com/intellij/project/**/*.*</include>
+                    <include>com/intellij/projectImport/**/*.*</include>
+                    <include>com/intellij/navigation/**/*.*</include>
+                    <include>com/intellij/mvstore/**/*.*</include>
+                    <include>com/intellij/projectModel/**/*.*</include>
+                     <include>com/intellij/options/**/*.*</include>
+                    <include>com/intellij/lang/**/*.*</include>
+                    <include>com/intellij/peer/**/*.*</include>
+                    <include>com/intellij/packageDependencies/**/*.*</include>
+                    <include>com/intellij/openapi/**/*.*</include>
+                    <include>com/intellij/problems/**/*.*</include>
+                    <include>com/intellij/lexer/**/*.*</include>
+                    <include>com/intellij/licensecommon/**/*.*</include>
+                    <include>com/intellij/indentation/**/*.*</include>
+                    <include>com/intellij/largeFilesEditor/**/*.*</include>
+                    <include>com/intellij/notification/**/*.*</include>
+                    <include>com/intellij/notebook/**/*.*</include>
+                    <include>com/intellij/jna/**/*.*</include>
+                    <include>com/intellij/jdkEx/**/*.*</include>
+                    <include>com/intellij/moduleDependencies/**/*.*</include>
+                    <include>com/intellij/idea/**/*.*</include>
+                    <include>com/intellij/injected/**/*.*</include>
+                    <include>com/intellij/impl/**/*.*</include>
+                    <include>com/intellij/jsonpath/**/*.*</include>
+                    <include>com/intellij/json/**/*.*</include>
+                    <include>com/intellij/jps/**/*.*</include>
+                    <include>com/intellij/history/**/*.*</include>
+                    <include>com/intellij/help/**/*.*</include>
+                    <include>com/intellij/javascript/**/*.*</include>
+                    <include>com/intellij/ide/**/*.*</include>
+                    <include>com/intellij/icons/**/*.*</include>
+                    <include>com/intellij/html/**/*.*</include>
+                    <include>com/intellij/framework/**/*.*</include>
+                    <include>com/intellij/filename/**/*.*</include>
+                    <include>com/intellij/feedback/**/*.*</include>
+                    <include>com/intellij/featureStatistics/**/*.*</include>
+                    <include>com/intellij/facet/**/*.*</include>
+                    <include>com/intellij/externalSystem/**/*.*</include>
+                    <include>com/intellij/externalProcessAuthHelper/**/*.*</include>
+                    <include>com/intellij/externalDependencies/**/*.*</include>
+                    <include>com/intellij/extapi/**/*.*</include>
+                    <include>com/intellij/errorreport/**/*.*</include>
+                    <include>com/intellij/diagnostic/**/*.*</include>
+                    <include>com/intellij/designer/**/*.*</include>
+                    <include>com/intellij/dependencytoolwindow/**/*.*</include>
+                    <include>com/intellij/credentialStore/**/*.*</include>
+                    <include>com/intellij/coverage/**/*.*</include>
+                    <include>com/intellij/core/**/*.*</include>
+                    <include>com/intellij/conversion/**/*.*</include>
+                    <include>com/intellij/collaboration/**/*.*</include>
+                    <include>com/intellij/codeWithMe/**/*.*</include>
+                    <include>com/intellij/codeStyle/**/*.*</include>
+                    <include>com/intellij/codeInspection/**/*.*</include>
+
+
+                    <!-- required -->
+                    <include>com/intellij/codeHighlighting/**/*.*</include>
+                    <include>com/intellij/util/**/*.*</include>
+                    <include>com/intellij/formatting/**/*.*</include>
+                    <include>com/intellij/model/**/*.*</include>
+                    <include>com/intellij/embedding/**/*.*</include>
+                    <include>com/intellij/configurationStore/**/*.*</include>
+                    <include>com/intellij/application/**/*.*</include>
+                    <include>com/intellij/serialization/**/*.*</include>
+                    <include>com/intellij/testFramework/**/*.*</include>
+                    <include>com/intellij/codeInsight/**/*.*</include>
+                    <include>com/intellij/execution/**/*.*</include>
+                    <include>com/intellij/ui/**/*.*</include>
+                    <include>com/intellij/pom/**/*.*</include>
+                    <include>com/intellij/internal/**/*.*</include>
+                    <include>com/intellij/concurrency/**/*.*</include>
+                    <include>com/intellij/analysis/**/*.*</include>
+                    <include>com/intellij/platform/**/*.*</include>
+
+
+                    <include>com/jetbrains/infra/**/*.*</include>
+                    <include>com/google/common/**/*.*</include>
+                    <include>com/google/protobuf/**/*.*</include>
+                    <include>com/sun/**/*.*</include>
+                    <include>com/fasterxml/aalto/**/*.*</include>
+                    <include>com/github/benmanes/caffeine/**/*.*</include>
+                    <include>com/esotericsoftware/**/*.*</include>
+                    <include>org/apache/oro/**/*.*</include>
+                    <include>org/apache/commons/**/*.*</include>
+                    <include>org/jetbrains/**/*.*</include>
+                    <include>org/intellij/**/*.*</include>
+                    <include>org/codehaus/stax2/**/*.*</include>
+                    <include>org/jdom/**/*.*</include>
+                    <include>org/HdrHistogram/**/*.*</include>
+                    <include>org/slf4j/**/*.*</include>
+                    <include>org/xml/**/*.*</include>
+                    <include>org/picocontainer/**/*.*</include>
+                    <include>io/**/*.*</include>
+                    <include>kotlinx/**/*.*</include>
+                    <include>kotlin/**/*.*</include>
+                    <include>net/**/*.*</include>
+                    <include>META-INF/**/*.*</include>
+                    <include>google/**/*.*</include>
+                    <include>it/**/*.*</include>
+                    <include>one/**/*.*</include>
+                    <include>messages/**/*.*</include>
+                    <include>gnu/**/*.*</include>
+                    <include>jetbrains/**/*.*</include>
+                    <include>idea/**/*.*</include>
+                    <include>misc/**/*.*</include>
+                    <include>codeStyle/**/*.*</include>
+                    <include>*.class</include>
+                    <include>*.xml</include>
+                    <include>*.properties</include>
+                    <include>*.json</include>
+
+
+                </includes>
+                <!--
                 <excludes>
+                    <exclude>META-INF/native/**/*.*</exclude>
+                    <exclude>META-INF/versions/**/*.*</exclude>
+                    <exclude>META-INF/native-image/**/*.*</exclude>
                     <exclude>com/ibm/**/*.*</exclude>
                     <exclude>org/bouncycastle/**/*.*</exclude>
                     <exclude>com/intellij/documentation/**/*.*</exclude>
@@ -21,7 +164,13 @@
                     <exclude>**/*.aut</exclude>
                     <exclude>**/*.svg</exclude>
                     <exclude>**/*.png</exclude>
+                    <exclude>**/*.dll</exclude>
+                    <exclude>**/*.exe</exclude>
+                    <exclude>**/*.ico</exclude>
+                    <exclude>**/*.js</exclude>
+                    <exclude>**/__index__</exclude>
                 </excludes>
+                -->
             </unpackOptions>
         </dependencySet>
     </dependencySets>
