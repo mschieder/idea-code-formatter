@@ -64,7 +64,7 @@ mvn mvn idea-code-formatter-maven-plugin:format
 ```
 
 ## idea-code-formatter
-is the "smaller" (234 MB) standalone version of the [IntelliJ
+is the "smaller" (165 MB) standalone version of the [IntelliJ
 IDEA command line formatter](https://www.jetbrains.com/help/idea/command-line-formatter.html)
 
 usage:
