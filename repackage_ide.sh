@@ -38,14 +38,12 @@ unzip -o $DOWNLOAD_FILE "lib/external-system-rt.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/forms_rt.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/groovy.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/jps-model.jar" -d ide
-unzip -o $DOWNLOAD_FILE "lib/jsp-base.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/protobuf.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/rd.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/stats.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/util.jar" -d ide
 unzip -o $DOWNLOAD_FILE "lib/util_rt.jar" -d ide
-unzip -o $DOWNLOAD_FILE "lib/xml-dom.jar" -d ide
-unzip -o $DOWNLOAD_FILE "lib/xml-dom-impl.jar" -d ide
+unzip -o $DOWNLOAD_FILE "lib/util-8.jar" -d ide
 
 echo do the cleanup
 rm $DOWNLOAD_FILE

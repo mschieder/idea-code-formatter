@@ -6,7 +6,7 @@ public class IdeaCodeFormatterMain {
     public static void main(String[] args) throws Exception {
         int exitStatus;
         try (IdeaCodeFormatterEnvironment formatter = new IdeaCodeFormatterEnvironment()) {
-            exitStatus = formatter.format(args);
+            exitStatus = formatter.format(args, lines -> lines.forEach(System.out::println));
         }
         System.exit(exitStatus);
     }

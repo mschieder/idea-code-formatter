@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
         <assertj.version>3.24.2</assertj.version>
-        <idea.version>2022.3.3</idea.version>
+        <idea.version>2023.1</idea.version>
     </properties>
 
     <distributionManagement>
@@ -25,6 +25,7 @@
         </repository>
     </distributionManagement>
     <modules>
+        <module>idea-code-formatter-lib</module>
         <module>idea-code-formatter</module>
         <module>idea-code-formatter-maven-plugin</module>
     </modules>
@@ -63,6 +64,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
     <profiles>

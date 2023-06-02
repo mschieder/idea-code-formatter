@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
@@ -35,13 +36,15 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return tmpFormatterRoot;
     }
 
-
     public int format(String[] args) throws Exception {
+    return this.format(args, outputLines -> outputLines.forEach(log::info));
+    }
+
+    public int format(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
         List<String> outputLines = new ArrayList<>();
         int returnCode = doFormat(tmpFormatterRoot, args, outputLines);
-        outputLines.forEach(log::info);
+        outputLinePrinter.accept(outputLines);
         return returnCode;
-
     }
 
     public int validate(String[] args) throws Exception {
@@ -93,7 +96,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         command.add("-Didea.home.path=" + ideHome);
         command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
         command.add("-Didea.vendor.name=JetBrains");
-        command.add("-Didea.paths.selector=IdeaIC2022.3");
+        command.add("-Didea.paths.selector=IdeaIC2023.1");
         command.add("-Djna.nosys=true");
         command.add("-Djna.noclasspath=true");
         command.add("-Didea.platform.prefix=Idea");
