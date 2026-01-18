@@ -32,11 +32,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B install --file pom.xml
-    - name: test the jar
+    - name: test (format a single .java file)
       # try to format a single .java file
       run: |
         echo "public class Test{    }" > Test.java
-        LINES=$(java -jar idea-code-formatter/target/idea-code-formatter-*.jar Test2.java | tee /dev/tty)
+        LINES=$(java -jar idea-code-formatter/target/idea-code-formatter-*.jar Test.java)
+        echo $LINES
         if [[ $LINES == *"1 file(s) formatted."* ]]; 
           then TEST_EXITCODE=0
         else TEST_EXITCODE=1
