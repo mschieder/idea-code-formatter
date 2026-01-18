@@ -36,7 +36,7 @@ jobs:
       # try to format a single .java file
       run: |
         echo "public class Test{    }" > Test.java
-        LINES=$(java -jar idea-code-formatter/target/idea-code-formatter-*.jar Test.java)
+        LINES=$(java -jar idea-code-formatter/target/idea-code-formatter-*.jar Test2.java)
         echo $LINES
         if [[ $LINES == *"1 file(s) formatted."* ]]; 
           then TEST_EXITCODE=0
