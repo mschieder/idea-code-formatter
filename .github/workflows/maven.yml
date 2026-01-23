@@ -36,13 +36,14 @@ jobs:
       # try to format a single .java file
       run: |
         echo "public class Test{    }" > Test.java
-        LINES=$(java -jar idea-code-formatter/target/idea-code-formatter-*.jar Test.java)
-        echo $LINES
-        if [[ $LINES == *"1 file(s) formatted."* ]]; 
+        java -jar idea-code-formatter/target/idea-code-formatter-*.jar -allowDefaults Test.java
+        echo "d48d83fd8ed599c6da79ea93ace6f90f Test.java" > Test.java.formatted.md5
+        if md5sum -c Test.java.formatted.md5;
           then TEST_EXITCODE=0
         else TEST_EXITCODE=1
         fi
         rm Test.java
+        rm Test.java.formatted.md5
         exit $TEST_EXITCODE
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
