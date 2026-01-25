@@ -1,23 +1,18 @@
 package com.github.mschieder.idea.formatter;
 
-import com.google.common.base.Stopwatch;
-import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
-    private static final Logger log = LoggerFactory.getLogger(IdeaCodeFormatterEnvironment.class);
+    private static final Logger log = Logger.getLogger(IdeaCodeFormatterEnvironment.class.getName());
     private final Path tmpFormatterRoot;
 
     public IdeaCodeFormatterEnvironment() throws IOException {
@@ -37,12 +32,13 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     }
 
     public int format(String[] args) throws Exception {
-    return this.format(args, outputLines -> outputLines.forEach(log::info));
+        return this.format(args, outputLines -> outputLines.forEach(log::info));
     }
 
     public int format(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
         List<String> outputLines = new ArrayList<>();
-        int returnCode = doFormat(tmpFormatterRoot, args, outputLines);
+        int returnCode =
+                doFormat(tmpFormatterRoot, args, outputLines);
         outputLinePrinter.accept(outputLines);
         return returnCode;
     }
@@ -59,7 +55,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         boolean validationOk = true;
         for (String line : outputLines) {
             if (line.contains("...Needs reformatting")) {
-                log.error(line);
+                log.log(Level.SEVERE, line);
                 validationOk = false;
             } else {
                 log.info(line);
@@ -80,7 +76,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         String appdata = formatterRoot.resolve("appdata").toString();
         String localAppdata = formatterRoot.resolve("localAppdata").toString();
 
-        String classpath = null;
+        String classpath;
         if (Utils.isPackagedInJar()) {
             classpath = new File(Utils.getJarPath(Utils.class)).toString();
         } else {
@@ -150,19 +146,20 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         builder.environment().put("APPDATA", appdata);
         builder.environment().put("LOCALAPPDATA", localAppdata);
 
-        Stopwatch sw = Stopwatch.createStarted();
+
+        long started = System.currentTimeMillis();
         Process process = builder
-                //       .inheritIO()
                 .redirectInput(ProcessBuilder.Redirect.INHERIT)
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
                 .redirectError(ProcessBuilder.Redirect.to(formatterRoot.resolve("error.log").toFile()))
                 .start();
 
-        outputLines.addAll(IOUtils.readLines(process.getInputStream()));
-
-        process.waitFor();
-        sw.stop();
-        log.info("process finished after {} ms", sw.elapsed().toMillis());
-        return process.exitValue();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            process.waitFor();
+            reader.lines().forEach(outputLines::add);
+            process.waitFor();
+            log.log(Level.FINE, "process finished after {0} ms", System.currentTimeMillis() - started);
+            return process.exitValue();
+        }
     }
 }
