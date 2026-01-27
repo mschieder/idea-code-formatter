@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 
 class Utils {
 
@@ -23,7 +24,7 @@ class Utils {
 
     public static void unzipZippedFileFromResource(InputStream is, File outputDir) throws IOException {
         long started = System.currentTimeMillis();
-        File zippedFile = new File(outputDir, "ide.zip");
+        File zippedFile = new File(outputDir, "idea.zip");
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(zippedFile))) {
             is.transferTo(os);
         }
@@ -48,7 +49,24 @@ class Utils {
                 }
             }
         }
+    }
 
+    public static void unzipZippedFileFromResource(final InputStream inputStream, final Path outputDir) throws IOException {
+        final long start = System.currentTimeMillis();
+        try (ZipInputStream zipStream = new ZipInputStream(inputStream)) {
+            ZipEntry entry;
+            while ((entry = zipStream.getNextEntry()) != null) {
+                final Path entryDestination = outputDir.resolve(entry.getName());
+                if (entry.isDirectory()) {
+                    Files.createDirectories(entryDestination);
+                } else {
+                    Files.createDirectories(entryDestination.getParent());
+                    Files.copy(zipStream, entryDestination);
+                }
+                zipStream.closeEntry();
+            }
+        }
+        log.info("unzipped in " + (System.currentTimeMillis() - start) + " ms");
     }
 
     public static String getJarName() {

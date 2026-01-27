@@ -1,6 +1,9 @@
 package com.github.mschieder.idea.formatter;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
@@ -26,8 +30,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
     private Path extractPortableIde() throws IOException {
         Path tmpFormatterRoot = Files.createTempDirectory("formatterRoot");
-        InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/ide.zip");
-        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot.toFile());
+        InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/idea.zip");
+        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot);
         return tmpFormatterRoot;
     }
 
@@ -72,24 +76,22 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
 
-        String ideHome = formatterRoot.resolve("ide").toString();
+        String ideaHome = formatterRoot.resolve("idea").toString();
         String appdata = formatterRoot.resolve("appdata").toString();
         String localAppdata = formatterRoot.resolve("localAppdata").toString();
 
-        String classpath;
-        if (Utils.isPackagedInJar()) {
-            classpath = new File(Utils.getJarPath(Utils.class)).toString();
-        } else {
-            // add the current classpath (for unit testing)
-            classpath = System.getProperty("java.class.path");
-        }
+        String classpath = Files.list(tmpFormatterRoot.resolve("idea/lib"))
+                .filter(Files::isRegularFile)
+                .map(Path::toString)
+                .collect(Collectors.joining(":"));
 
         List<String> command = new ArrayList<>();
         command.add(javaBin);
         command.add("-cp");
+
         command.add(classpath);
 
-        command.add("-Didea.home.path=" + ideHome);
+        command.add("-Didea.home.path=" + ideaHome);
         command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
         command.add("-Didea.vendor.name=JetBrains");
         command.add("-Didea.paths.selector=IdeaIC2023.1");
