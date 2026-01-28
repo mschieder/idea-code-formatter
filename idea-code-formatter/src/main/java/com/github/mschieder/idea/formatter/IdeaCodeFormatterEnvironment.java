@@ -1,9 +1,6 @@
 package com.github.mschieder.idea.formatter;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -72,26 +69,30 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return returnCode;
     }
 
+    private String buildClasspath() {
+        try (var allFiles = Files.walk(tmpFormatterRoot.resolve("idea"))) {
+            return allFiles.map(Path::toString)
+                    .filter(string -> string.endsWith(".jar"))
+                    .collect(Collectors.joining(":"));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
     private int doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
-
-        String ideaHome = formatterRoot.resolve("idea").toString();
         String appdata = formatterRoot.resolve("appdata").toString();
         String localAppdata = formatterRoot.resolve("localAppdata").toString();
 
-        String classpath = Files.list(tmpFormatterRoot.resolve("idea/lib"))
-                .filter(Files::isRegularFile)
-                .map(Path::toString)
-                .collect(Collectors.joining(":"));
 
         List<String> command = new ArrayList<>();
         command.add(javaBin);
         command.add("-cp");
+        command.add(buildClasspath());
 
-        command.add(classpath);
+        command.add("-Didea.home.path=" + Files.createTempDirectory("ideaHome").toAbsolutePath());
 
-        command.add("-Didea.home.path=" + ideaHome);
         command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
         command.add("-Didea.vendor.name=JetBrains");
         command.add("-Didea.paths.selector=IdeaIC2023.1");
