@@ -12,12 +12,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.mschieder</groupId>
-            <artifactId>idea-code-formatter-lib</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
@@ -37,7 +31,7 @@
     <build>
         <resources>
             <resource>
-                <directory>${project.basedir}/downloaded_jars/repackaged</directory>
+                <directory>${project.basedir}/target/repackaged</directory>
             </resource>
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
@@ -81,30 +75,6 @@
                             <mainClass>com.github.mschieder.idea.formatter.IdeaCodeFormatterMain</mainClass>
                         </manifest>
                     </archive>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.github.mschieder.idea.formatter.IdeaCodeFormatterMain</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptors>
-                        <descriptor>src/assembly/assembly.xml</descriptor>
-                    </descriptors>
-                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
             </plugin>
         </plugins>

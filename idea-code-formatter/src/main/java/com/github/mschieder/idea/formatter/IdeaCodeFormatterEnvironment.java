@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
@@ -26,8 +27,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
     private Path extractPortableIde() throws IOException {
         Path tmpFormatterRoot = Files.createTempDirectory("formatterRoot");
-        InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/ide.zip");
-        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot.toFile());
+        InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/idea.zip");
+        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot);
         return tmpFormatterRoot;
     }
 
@@ -68,28 +69,30 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return returnCode;
     }
 
+    private String buildClasspath() {
+        try (var allFiles = Files.walk(tmpFormatterRoot.resolve("idea"))) {
+            return allFiles.map(Path::toString)
+                    .filter(string -> string.endsWith(".jar"))
+                    .collect(Collectors.joining(":"));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
     private int doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
-
-        String ideHome = formatterRoot.resolve("ide").toString();
         String appdata = formatterRoot.resolve("appdata").toString();
         String localAppdata = formatterRoot.resolve("localAppdata").toString();
 
-        String classpath;
-        if (Utils.isPackagedInJar()) {
-            classpath = new File(Utils.getJarPath(Utils.class)).toString();
-        } else {
-            // add the current classpath (for unit testing)
-            classpath = System.getProperty("java.class.path");
-        }
 
         List<String> command = new ArrayList<>();
         command.add(javaBin);
         command.add("-cp");
-        command.add(classpath);
+        command.add(buildClasspath());
 
-        command.add("-Didea.home.path=" + ideHome);
+        command.add("-Didea.home.path=" + Files.createTempDirectory("ideaHome").toAbsolutePath());
+
         command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
         command.add("-Didea.vendor.name=JetBrains");
         command.add("-Didea.paths.selector=IdeaIC2023.1");
