@@ -10,38 +10,10 @@
     </parent>
 
     <artifactId>idea-code-formatter-lib</artifactId>
-    <repositories>
-        <repository>
-            <id>intellij</id>
-            <url>https://packages.jetbrains.team/maven/p/ij/intellij-dependencies/</url>
-            <!--   <url> https://www.jetbrains.com/intellij-repository/releases</url>-->
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>intellij2</id>
-            <url>https://www.jetbrains.com/intellij-repository/releases</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
             <artifactId>lang-impl</artifactId>
-            <version>253.29346.308</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

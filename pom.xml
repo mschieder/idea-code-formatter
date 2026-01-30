@@ -17,6 +17,7 @@
         <junit.version>6.0.2</junit.version>
         <assertj.version>3.27.7</assertj.version>
         <idea.version>2023.1</idea.version>
+        <idea.platform.version>253.29346.308</idea.platform.version>
     </properties>
 
     <distributionManagement>
@@ -31,7 +32,24 @@
         <module>idea-code-formatter</module>
         <module>idea-code-formatter-maven-plugin</module>
     </modules>
-
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>intellij</id>
+            <name>IntelliJ Release repository</name>
+            <url>https://www.jetbrains.com/intellij-repository/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -45,6 +63,18 @@
                 <artifactId>maven-plugin-annotations</artifactId>
                 <version>3.15.2</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.jetbrains.intellij.platform</groupId>
+                <artifactId>lang-impl</artifactId>
+                <version>${idea.platform.version}</version>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
