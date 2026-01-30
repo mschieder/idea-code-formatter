@@ -10,7 +10,54 @@
     </parent>
 
     <artifactId>idea-code-formatter-lib</artifactId>
+    <repositories>
+        <repository>
+            <id>intellij</id>
+            <url>https://packages.jetbrains.team/maven/p/ij/intellij-dependencies/</url>
+            <!--   <url> https://www.jetbrains.com/intellij-repository/releases</url>-->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>intellij2</id>
+            <url>https://www.jetbrains.com/intellij-repository/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>com.jetbrains.intellij.platform</groupId>
+            <artifactId>lang-impl</artifactId>
+            <version>253.29346.308</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
 
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
     <profiles>
         <profile>
             <!-- truncate and package the ide jars (default) -->
@@ -33,12 +80,13 @@
                         <artifactId>exec-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>repackage</id>
+                                <id>package_ide</id>
                                 <phase>generate-resources</phase>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
+                                    <skip>false</skip>
                                     <executable>bash</executable>
                                     <commandlineArgs>src/assembly/minimal/package_ide.sh</commandlineArgs>
                                 </configuration>
@@ -68,12 +116,13 @@
                         <artifactId>exec-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>repackage2</id>
+                                <id>package_ide2</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
+                                    <skip>false</skip>
                                     <executable>bash</executable>
                                     <commandlineArgs>src/assembly/minimal/package_ide2.sh</commandlineArgs>
                                 </configuration>
@@ -97,11 +146,12 @@
                         <executions>
                             <execution>
                                 <id>repackage</id>
-                                <phase>generate-resources</phase>
+                                <phase>package</phase>
                                 <goals>
                                     <goal>exec</goal>
                                 </goals>
                                 <configuration>
+                                    <skip>false</skip>
                                     <executable>bash</executable>
                                     <commandlineArgs>src/assembly/full/package_ide.sh</commandlineArgs>
                                 </configuration>

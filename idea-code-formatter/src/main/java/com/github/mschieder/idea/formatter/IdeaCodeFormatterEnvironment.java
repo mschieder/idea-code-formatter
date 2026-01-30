@@ -16,6 +16,19 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     private static final Logger log = Logger.getLogger(IdeaCodeFormatterEnvironment.class.getName());
     private final Path tmpFormatterRoot;
 
+    enum ClasspathType {
+        IDEA_LIB("idea/lib"), IDEA_FULL("idea");
+        private final String dir;
+
+        ClasspathType(String dir) {
+            this.dir = dir;
+        }
+
+        public String getDir() {
+            return dir;
+        }
+    }
+
     public IdeaCodeFormatterEnvironment() throws IOException {
         tmpFormatterRoot = extractPortableIde();
     }
@@ -33,7 +46,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     }
 
     public int format(String[] args) throws Exception {
-        return this.format(args, outputLines -> outputLines.forEach(log::info));
+        return this.format(args, outputLines -> outputLines.forEach(System.out::println));
     }
 
     public int format(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
@@ -69,9 +82,14 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return returnCode;
     }
 
-    private String buildClasspath() {
-        try (var allFiles = Files.walk(tmpFormatterRoot.resolve("idea"))) {
-            return allFiles.map(Path::toString)
+    private String buildClasspath(ClasspathType classpathType) throws IOException {
+        String additionalClasspath = "";
+        if (!Utils.isPackagedInJar()) {
+            // add the classpath to run inside IDEA
+            additionalClasspath = Utils.class.getProtectionDomain().getCodeSource().getLocation() + ":";
+        }
+        try (var allFiles = Files.walk(tmpFormatterRoot.resolve(classpathType.getDir()))) {
+            return additionalClasspath + allFiles.map(Path::toString)
                     .filter(string -> string.endsWith(".jar"))
                     .collect(Collectors.joining(":"));
         } catch (IOException e) {
@@ -89,11 +107,34 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         List<String> command = new ArrayList<>();
         command.add(javaBin);
         command.add("-cp");
-        command.add(buildClasspath());
 
-        command.add("-Didea.home.path=" + Files.createTempDirectory("ideaHome").toAbsolutePath());
+        if (System.getProperty("idea.classpath.type", "FULL").equals("FULL")) {
+            // idea libs and idea plugins are in classpath
+            command.add(buildClasspath(ClasspathType.IDEA_FULL));
+            // we don't need idea home path, everything is accessible via class path
+            command.add("-Didea.home.path=" + Files.createTempDirectory("ideaHome").toAbsolutePath());
 
-        command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
+        } else {
+            // idea libs are in classpath, idea plugin are loaded from the plugins directory
+            command.add(buildClasspath(ClasspathType.IDEA_LIB));
+            // we need the idea home to get access to the plugin directory to load the jars later
+            command.add("-Didea.home.path=" + tmpFormatterRoot.resolve("idea").toAbsolutePath());
+        }
+
+        // add all -D-xxxx system properties as vmargs (-D-X... => -X... , -D-Dxxx => -Dxxx)
+        command.addAll(filterSystemProperties());
+
+        if (System.getProperty("classloader.log.dir") != null) {
+            // enable idea classpath logging
+            command.add("-Dclassloader.log.dir=" + System.getProperty("classloader.log.dir"));
+            command.add("-Djava.system.class.loader=com.github.mschieder.idea.formatter.LoggingClassLoader");
+            command.add("-Didea.record.classpath.info=true");
+
+        } else {
+            command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
+        }
+
+
         command.add("-Didea.vendor.name=JetBrains");
         command.add("-Didea.paths.selector=IdeaIC2023.1");
         command.add("-Djna.nosys=true");
@@ -160,9 +201,14 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             process.waitFor();
             reader.lines().forEach(outputLines::add);
-            process.waitFor();
             log.log(Level.FINE, "process finished after {0} ms", System.currentTimeMillis() - started);
             return process.exitValue();
         }
+    }
+
+    private List<String> filterSystemProperties() {
+        return System.getProperties().entrySet().stream().filter(entry -> entry.getKey().toString()
+                .startsWith("-")).map(entry -> entry.getKey() + "=" + entry.getValue()).toList();
+
     }
 }

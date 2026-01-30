@@ -17,6 +17,13 @@ else
      cp $DOWNLOAD_FILE $DOWNLOAD_DIR/$DOWNLOAD_FILE
 fi
 
+# extract all lib and plugin jars
+: <<'END_COMMENT'
+echo unzipping idea plugin files
+unzip -o $DOWNLOAD_FILE "plugins/**/*.jar" -d $DEST_DIR
+echo unzipping idea lib files
+unzip -o $DOWNLOAD_FILE "lib/*.jar" -d $DEST_DIR
+END_COMMENT
 
 echo unzipping idea plugin files
 unzip -o $DOWNLOAD_FILE "plugins/java/lib/*" -d $DEST_DIR
@@ -27,10 +34,7 @@ unzip -o $DOWNLOAD_FILE "lib/3rd-party-rt.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/app.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/external-system-rt.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/forms_rt.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/groovy.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/jps-model.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/protobuf.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/rd.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/stats.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/util.jar" -d $DEST_DIR
 unzip -o $DOWNLOAD_FILE "lib/util_rt.jar" -d $DEST_DIR

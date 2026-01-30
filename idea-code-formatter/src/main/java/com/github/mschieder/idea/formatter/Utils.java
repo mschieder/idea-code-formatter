@@ -66,7 +66,7 @@ class Utils {
                 zipStream.closeEntry();
             }
         }
-        log.info("unzipped in " + (System.currentTimeMillis() - start) + " ms");
+        log.fine("unzipped in " + (System.currentTimeMillis() - start) + " ms");
     }
 
     public static String getJarName() {
