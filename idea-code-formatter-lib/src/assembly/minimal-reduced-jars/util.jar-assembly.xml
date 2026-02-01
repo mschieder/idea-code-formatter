@@ -18,7 +18,7 @@
                 <include>org/jetbrains/**</include>
 
                 <!--
-                grep lib/util.jar classes.txt | cut -f2 -d " " |sed "s/\./\//g" | sort -u | sed "s/^/<include>/g" | sed "s/$/.class<\/include>/g"
+                grep util.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
                 -->
 
                 <!-- util.jar -->
@@ -701,6 +701,7 @@
                 <include>com/intellij/psi/codeStyle/DocCommentSettings.class</include>
                 <include>com/intellij/psi/codeStyle/FormattingModeAwareIndentAdjuster.class</include>
                 <include>com/intellij/psi/codeStyle/Indent.class</include>
+                <include>com/intellij/psi/ContributedReferenceHost.class</include>
                 <include>com/intellij/psi/FilePropertyKey.class</include>
                 <include>com/intellij/psi/FileResolveScopeProvider.class</include>
                 <include>com/intellij/psi/FileViewProvider.class</include>
@@ -740,18 +741,28 @@
                 <include>com/intellij/psi/PsiManager.class</include>
                 <include>com/intellij/psi/PsiNamedElement.class</include>
                 <include>com/intellij/psi/PsiNameIdentifierOwner.class</include>
+                <include>com/intellij/psi/PsiPolyVariantReference.class</include>
                 <include>com/intellij/psi/PsiQualifiedNamedElement.class</include>
+                <include>com/intellij/psi/PsiQualifiedReference.class</include>
+                <include>com/intellij/psi/PsiQualifiedReferenceElement.class</include>
                 <include>com/intellij/psi/PsiRecursiveElementVisitor.class</include>
                 <include>com/intellij/psi/PsiRecursiveElementWalkingVisitor.class</include>
                 <include>com/intellij/psi/PsiRecursiveVisitor.class</include>
+                <include>com/intellij/psi/PsiReference.class</include>
                 <include>com/intellij/psi/PsiTarget.class</include>
                 <include>com/intellij/psi/PsiTreeChangeAdapter.class</include>
                 <include>com/intellij/psi/PsiTreeChangeEvent.class</include>
                 <include>com/intellij/psi/PsiTreeChangeListener.class</include>
+                <include>com/intellij/psi/PsiWalkingState$PsiTreeGuide.class</include>
+                <include>com/intellij/psi/PsiWalkingState.class</include>
                 <include>com/intellij/psi/PsiWhiteSpace.class</include>
+                <include>com/intellij/psi/ResolveResult.class</include>
+                <include>com/intellij/psi/scope/PsiScopeProcessor$Event.class</include>
+                <include>com/intellij/psi/scope/PsiScopeProcessor.class</include>
                 <include>com/intellij/psi/search/DelegatingGlobalSearchScope.class</include>
                 <include>com/intellij/psi/search/EverythingGlobalScope.class</include>
                 <include>com/intellij/psi/search/GlobalSearchScope.class</include>
+                <include>com/intellij/psi/search/LocalSearchScope.class</include>
                 <include>com/intellij/psi/search/ProjectAwareFileFilter.class</include>
                 <include>com/intellij/psi/search/PsiElementProcessor$CollectElements.class</include>
                 <include>com/intellij/psi/search/PsiElementProcessor$FindElement.class</include>
@@ -769,6 +780,7 @@
                 <include>com/intellij/psi/stubs/IndexSink.class</include>
                 <include>com/intellij/psi/stubs/IStubElementType.class</include>
                 <include>com/intellij/psi/stubs/MaterialStubList.class</include>
+                <include>com/intellij/psi/stubs/NamedStub.class</include>
                 <include>com/intellij/psi/stubs/ObjectStubBase.class</include>
                 <include>com/intellij/psi/stubs/ObjectStubSerializer.class</include>
                 <include>com/intellij/psi/stubs/PsiFileStub.class</include>
@@ -783,6 +795,7 @@
                 <include>com/intellij/psi/stubs/StubList.class</include>
                 <include>com/intellij/psi/stubs/StubOutputStream.class</include>
                 <include>com/intellij/psi/stubs/StubSerializer.class</include>
+                <include>com/intellij/psi/SyntheticElement.class</include>
                 <include>com/intellij/psi/templateLanguages/ITemplateDataElementType.class</include>
                 <include>com/intellij/psi/templateLanguages/TemplateLanguageFileViewProvider.class</include>
                 <include>com/intellij/psi/TokenType$1.class</include>
@@ -936,7 +949,9 @@
                 <include>com/intellij/util/containers/ConcurrentWeakKeySoftValueHashMap$HardKey.class</include>
                 <include>com/intellij/util/containers/ConcurrentWeakKeySoftValueHashMap$KeyReference.class</include>
                 <include>com/intellij/util/containers/ConcurrentWeakKeySoftValueHashMap$ValueReference.class</include>
+                <include>com/intellij/util/containers/ConcurrentWeakKeySoftValueHashMap$WeakKey.class</include>
                 <include>com/intellij/util/containers/ConcurrentWeakKeySoftValueHashMap.class</include>
+                <include>com/intellij/util/containers/ConcurrentWeakKeyWeakValueHashMap$WeakValue.class</include>
                 <include>com/intellij/util/containers/ConcurrentWeakKeyWeakValueHashMap.class</include>
                 <include>com/intellij/util/containers/ConcurrentWeakValueHashMap$MyWeakReference.class</include>
                 <include>com/intellij/util/containers/ConcurrentWeakValueHashMap.class</include>

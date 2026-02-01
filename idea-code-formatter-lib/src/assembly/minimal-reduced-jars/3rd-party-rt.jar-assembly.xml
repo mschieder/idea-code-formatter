@@ -13,9 +13,12 @@
             <directory>target/3rd-party-rt</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
+                <include>kotlin/**</include>
+                <include>kotlinx/**</include>
+
                 <!-- 3rd-party-rt.jar -->
                 <!--
-                grep 3rd-party-rt.jar idea_loaded_classes_and_resources.txt | sort | cut -f1 -d " " | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                grep 3rd-party-rt.jar idea_loaded_classes_and_resources.txt |  cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
 
                 -->
                 <include>com/fasterxml/aalto/impl/CommonConfig.class</include>
@@ -583,7 +586,6 @@
                 <include>io/netty/util/ResourceLeakHint.class</include>
                 <include>io/netty/util/ResourceLeakTracker.class</include>
                 <include>kotlin/annotation/annotation.kotlin_builtins</include>
-                <include>kotlin/annotation/annotation.kotlin_builtins</include>
                 <include>kotlin/annotation/AnnotationRetention.class</include>
                 <include>kotlin/annotation/AnnotationTarget.class</include>
                 <include>kotlin/annotation/MustBeDocumented.class</include>
@@ -614,9 +616,6 @@
                 <include>kotlin/collections/builders/ListBuilderKt.class</include>
                 <include>kotlin/collections/builders/MapBuilder$Companion.class</include>
                 <include>kotlin/collections/builders/MapBuilder.class</include>
-                <include>kotlin/collections/collections.kotlin_builtins</include>
-                <include>kotlin/collections/collections.kotlin_builtins</include>
-                <include>kotlin/collections/collections.kotlin_builtins</include>
                 <include>kotlin/collections/collections.kotlin_builtins</include>
                 <include>kotlin/collections/CollectionsKt.class</include>
                 <include>kotlin/collections/CollectionsKt___CollectionsJvmKt.class</include>
@@ -677,7 +676,6 @@
                 <include>kotlin/coroutines/CoroutineContext$plus$1.class</include>
                 <include>kotlin/coroutines/CoroutineContext.class</include>
                 <include>kotlin/coroutines/coroutines.kotlin_builtins</include>
-                <include>kotlin/coroutines/coroutines.kotlin_builtins</include>
                 <include>kotlin/coroutines/EmptyCoroutineContext.class</include>
                 <include>kotlin/coroutines/intrinsics/CoroutineSingletons.class</include>
                 <include>kotlin/coroutines/intrinsics/IntrinsicsKt.class</include>
@@ -696,7 +694,6 @@
                 <include>kotlin/enums/EnumEntries.class</include>
                 <include>kotlin/Function.class</include>
                 <include>kotlin/InitializedLazyImpl.class</include>
-                <include>kotlin/internal/internal.kotlin_builtins</include>
                 <include>kotlin/internal/internal.kotlin_builtins</include>
                 <include>kotlin/internal/jdk7/JDK7PlatformImplementations.class</include>
                 <include>kotlin/internal/jdk8/JDK8PlatformImplementations$ReflectSdkVersion.class</include>
@@ -792,9 +789,6 @@
                 <include>kotlin/jvm/JvmInline.class</include>
                 <include>kotlin/jvm/KotlinReflectionNotSupportedError.class</include>
                 <include>kotlin/kotlin.kotlin_builtins</include>
-                <include>kotlin/kotlin.kotlin_builtins</include>
-                <include>kotlin/kotlin.kotlin_builtins</include>
-                <include>kotlin/kotlin.kotlin_builtins</include>
                 <include>kotlin/KotlinNothingValueException.class</include>
                 <include>kotlin/KotlinNullPointerException.class</include>
                 <include>kotlin/KotlinVersion$Companion.class</include>
@@ -837,7 +831,6 @@
                 <include>kotlin/ranges/LongRange$Companion.class</include>
                 <include>kotlin/ranges/LongRange.class</include>
                 <include>kotlin/ranges/OpenEndRange.class</include>
-                <include>kotlin/ranges/ranges.kotlin_builtins</include>
                 <include>kotlin/ranges/ranges.kotlin_builtins</include>
                 <include>kotlin/ranges/RangesKt.class</include>
                 <include>kotlin/ranges/RangesKt___RangesKt.class</include>
@@ -3104,7 +3097,6 @@
                 <include>kotlin/reflect/KType.class</include>
                 <include>kotlin/reflect/KTypeParameter.class</include>
                 <include>kotlin/reflect/reflect.kotlin_builtins</include>
-                <include>kotlin/reflect/reflect.kotlin_builtins</include>
                 <include>kotlin/Result$Companion.class</include>
                 <include>kotlin/Result$Failure.class</include>
                 <include>kotlin/Result.class</include>
@@ -3508,7 +3500,6 @@
                 <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/ByteBuddyAgent$ProcessProvider.class
                 </include>
                 <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/ByteBuddyAgent.class</include>
-                <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/Installer.class</include>
                 <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/Installer.class</include>
                 <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/VirtualMachine$AbstractBase.class</include>
                 <include>

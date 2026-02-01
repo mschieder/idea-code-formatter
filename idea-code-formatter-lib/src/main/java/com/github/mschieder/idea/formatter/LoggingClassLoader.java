@@ -7,6 +7,7 @@ import com.intellij.util.lang.UrlClassLoader;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.logging.Logger;
 
 public class LoggingClassLoader extends ClassLoader {
@@ -21,7 +22,7 @@ public class LoggingClassLoader extends ClassLoader {
                 try {
                     log.info("total number of loaded classes and resources: " + ClassPath.getLoadedClasses().size());
                     Files.write(Path.of(LogLoadedClasses.getInstance().getLogDir() + "/idea_loaded_classes_and_resources.txt"),
-                            ClassPath.getLoadedClasses().stream().map(e -> e.getKey() + " " + e.getValue()).toList());
+                            ClassPath.getLoadedClasses().stream().map(e -> e.getKey() + " " + e.getValue()).toList(), StandardOpenOption.APPEND);
                 } catch (Throwable e) {
                     log.severe("error while proc " + e.getMessage());
                 }

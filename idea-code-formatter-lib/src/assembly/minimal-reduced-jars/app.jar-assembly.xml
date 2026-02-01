@@ -14,10 +14,9 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>com/intellij/**</include>
-
                 <!-- java-impl.jar -->
                 <!--
-                grep app.jar idea_loaded_classes_and_resources.txt | sort | cut -f1 -d " " | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                grep app.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
                 -->
                 <include>ai/grazie/DataHolder$Key.class</include>
                 <include>ai/grazie/nlp/patterns/AggregatedPattern.class</include>
@@ -660,10 +659,10 @@
                 <include>com/fasterxml/jackson/databind/ext/OptionalHandlerFactory.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AccessorNamingStrategy$Provider.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AccessorNamingStrategy.class</include>
+                <include>com/fasterxml/jackson/databind/introspect/Annotated.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AnnotatedClass$Creators.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AnnotatedClass.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AnnotatedClassResolver.class</include>
-                <include>com/fasterxml/jackson/databind/introspect/Annotated.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AnnotatedConstructor.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AnnotatedCreatorCollector.class</include>
                 <include>com/fasterxml/jackson/databind/introspect/AnnotatedField.class</include>
@@ -1809,6 +1808,8 @@
                 <include>com/intellij/execution/ui/RunContentManager.class</include>
                 <include>com/intellij/execution/ui/RunContentWithExecutorListener.class</include>
                 <include>com/intellij/extapi/psi/ASTDelegatePsiElement.class</include>
+                <include>com/intellij/extapi/psi/StubBasedPsiElementBase$1.class</include>
+                <include>com/intellij/extapi/psi/StubBasedPsiElementBase.class</include>
                 <include>com/intellij/externalDependencies/impl/CheckRequiredPluginsActivity$1.class</include>
                 <include>com/intellij/externalDependencies/impl/CheckRequiredPluginsActivity$2.class</include>
                 <include>com/intellij/externalDependencies/impl/CheckRequiredPluginsActivity.class</include>
@@ -1863,6 +1864,14 @@
                 <include>com/intellij/formatting/AbstractBlockWrapper.class</include>
                 <include>com/intellij/formatting/AdjustFormatRangesState.class</include>
                 <include>com/intellij/formatting/Alignment$Anchor.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentInColumnsConfig.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentInColumnsHelper$1.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentInColumnsHelper$2.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentInColumnsHelper$NodeProcessor.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentInColumnsHelper.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentStrategy$AlignmentPerTypeStrategy.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentStrategy$SharedAlignmentStrategy.class</include>
+                <include>com/intellij/formatting/alignment/AlignmentStrategy.class</include>
                 <include>com/intellij/formatting/Alignment.class</include>
                 <include>com/intellij/formatting/AlignmentCyclesDetector$OffsetPair.class</include>
                 <include>com/intellij/formatting/AlignmentCyclesDetector.class</include>
@@ -1875,6 +1884,7 @@
                 <include>com/intellij/formatting/Block.class</include>
                 <include>com/intellij/formatting/BlockEx.class</include>
                 <include>com/intellij/formatting/CaretPositionKeeper.class</include>
+                <include>com/intellij/formatting/ChildAttributes.class</include>
                 <include>com/intellij/formatting/commandLine/CodeStyleProcessorBuilder.class</include>
                 <include>com/intellij/formatting/commandLine/CodeStyleProcessorBuildException$ArgumentsException.class
                 </include>
@@ -1933,6 +1943,7 @@
                 <include>com/intellij/formatting/FormatterImpl$FormattingModelInconsistencyException.class</include>
                 <include>com/intellij/formatting/FormatterImpl$MyFormattingTask.class</include>
                 <include>com/intellij/formatting/FormatterImpl.class</include>
+                <include>com/intellij/formatting/FormatterIterationMonitor.class</include>
                 <include>com/intellij/formatting/FormatterTagHandler$1.class</include>
                 <include>com/intellij/formatting/FormatterTagHandler$EnabledRangesCollector$FormatterTagInfo.class
                 </include>
@@ -2635,6 +2646,7 @@
                 <include>com/intellij/lang/impl/MarkerOptionalData.class</include>
                 <include>com/intellij/lang/impl/MarkerPool.class</include>
                 <include>com/intellij/lang/impl/MarkerProduction.class</include>
+                <include>com/intellij/lang/impl/PsiBuilderAdapter.class</include>
                 <include>com/intellij/lang/impl/PsiBuilderFactoryImpl.class</include>
                 <include>com/intellij/lang/impl/PsiBuilderImpl$ASTConverter.class</include>
                 <include>com/intellij/lang/impl/PsiBuilderImpl$ConvertFromTokensToASTBuilder.class</include>
@@ -2666,6 +2678,7 @@
                 <include>com/intellij/lang/PerFileMappingsBase.class</include>
                 <include>com/intellij/lang/PerFileMappings.class</include>
                 <include>com/intellij/lang/PerFileMappingsEx.class</include>
+                <include>com/intellij/lang/PsiBuilderUtil.class</include>
                 <include>com/intellij/lang/TokenWrapper.class</include>
                 <include>com/intellij/lang/WhitespacesBinders$1.class</include>
                 <include>com/intellij/lang/WhitespacesBinders$2.class</include>
@@ -4672,6 +4685,7 @@
                 <include>com/intellij/psi/impl/include/FileIncludeIndex$StringSetDescriptor.class</include>
                 <include>com/intellij/psi/impl/include/FileIncludeIndex.class</include>
                 <include>com/intellij/psi/impl/include/FileIncludeProvider.class</include>
+                <include>com/intellij/psi/impl/light/LightElement.class</include>
                 <include>com/intellij/psi/impl/PsiCachedValue.class</include>
                 <include>com/intellij/psi/impl/PsiCachedValueImpl.class</include>
                 <include>com/intellij/psi/impl/PsiCachedValuesFactory.class</include>
@@ -4759,9 +4773,15 @@
                 </include>
                 <include>com/intellij/psi/impl/source/resolve/reference/impl/providers/XsdRegExpParserDefinition.class
                 </include>
+                <include>com/intellij/psi/impl/source/resolve/ResolveCache$AbstractResolver.class</include>
+                <include>com/intellij/psi/impl/source/resolve/ResolveCache$PolyVariantContextResolver.class</include>
+                <include>com/intellij/psi/impl/source/resolve/ResolveCache$PolyVariantResolver.class</include>
                 <include>com/intellij/psi/impl/source/SourceTreeToPsiMap.class</include>
                 <include>com/intellij/psi/impl/source/SpineRef.class</include>
                 <include>com/intellij/psi/impl/source/StubbedSpine.class</include>
+                <include>com/intellij/psi/impl/source/SubstrateRef$1.class</include>
+                <include>com/intellij/psi/impl/source/SubstrateRef$2.class</include>
+                <include>com/intellij/psi/impl/source/SubstrateRef$StubRef.class</include>
                 <include>com/intellij/psi/impl/source/SubstrateRef.class</include>
                 <include>com/intellij/psi/impl/source/tree/AstBufferUtil$BufferVisitor.class</include>
                 <include>com/intellij/psi/impl/source/tree/AstBufferUtil.class</include>
@@ -4773,6 +4793,7 @@
                 <include>com/intellij/psi/impl/source/tree/FileElement.class</include>
                 <include>com/intellij/psi/impl/source/tree/ForeignLeafPsiElement.class</include>
                 <include>com/intellij/psi/impl/source/tree/HtmlFileElement.class</include>
+                <include>com/intellij/psi/impl/source/tree/ICodeFragmentElementType.class</include>
                 <include>com/intellij/psi/impl/source/tree/injected/ClassMapCachingNulls.class</include>
                 <include>
                     com/intellij/psi/impl/source/tree/injected/ConcatenationInjectorManager$BaseConcatenation2InjectorAdapter.class
@@ -4793,6 +4814,7 @@
                 <include>com/intellij/psi/impl/source/tree/injected/XmlAttributeLiteralEscaper.class</include>
                 <include>com/intellij/psi/impl/source/tree/injected/XmlTextLiteralEscaper.class</include>
                 <include>com/intellij/psi/impl/source/tree/LazyParseableElement.class</include>
+                <include>com/intellij/psi/impl/source/tree/LazyParseablePsiElement.class</include>
                 <include>com/intellij/psi/impl/source/tree/LeafElement.class</include>
                 <include>com/intellij/psi/impl/source/tree/LeafPsiElement.class</include>
                 <include>com/intellij/psi/impl/source/tree/PsiCommentImpl.class</include>
@@ -4839,6 +4861,11 @@
                 <include>com/intellij/psi/impl/source/xml/XmlTagImpl.class</include>
                 <include>com/intellij/psi/impl/source/xml/XmlTextImpl.class</include>
                 <include>com/intellij/psi/impl/source/xml/XmlTokenImpl.class</include>
+                <include>com/intellij/psi/jsp/JspClassLevelDeclarationStatementType.class</include>
+                <include>com/intellij/psi/jsp/JspCodeBlockType.class</include>
+                <include>com/intellij/psi/jsp/JspCommentType.class</include>
+                <include>com/intellij/psi/jsp/JspJavaCodeType.class</include>
+                <include>com/intellij/psi/jsp/JspScriptletType.class</include>
                 <include>com/intellij/psi/LanguageInjector.class</include>
                 <include>com/intellij/psi/search/FilenameIndex.class</include>
                 <include>com/intellij/psi/search/FilenameIndexImpl.class</include>
@@ -4942,6 +4969,7 @@
                 <include>com/intellij/psi/text/BlockSupport$ReparsedSuccessfullyException.class</include>
                 <include>com/intellij/psi/text/BlockSupport.class</include>
                 <include>com/intellij/psi/tree/DefaultRoleFinder.class</include>
+                <include>com/intellij/psi/tree/IErrorCounterReparseableElementType.class</include>
                 <include>com/intellij/psi/tree/ILightStubFileElementType.class</include>
                 <include>com/intellij/psi/tree/IStubFileElementType$1.class</include>
                 <include>com/intellij/psi/tree/IStubFileElementType.class</include>
@@ -5936,6 +5964,7 @@
                 </include>
                 <include>com/intellij/workspaceModel/core/fileIndex/impl/LibraryRootFileIndexContributor.class</include>
                 <include>com/intellij/workspaceModel/core/fileIndex/impl/ModuleContentOrSourceRootData.class</include>
+                <include>com/intellij/workspaceModel/core/fileIndex/impl/ModuleOrLibrarySourceRootData.class</include>
                 <include>com/intellij/workspaceModel/core/fileIndex/impl/MultipleWorkspaceFileSets.class</include>
                 <include>com/intellij/workspaceModel/core/fileIndex/impl/NonExistingWorkspaceRootsRegistry.class
                 </include>
@@ -6913,7 +6942,6 @@
                 <include>dictionary/en.dic</include>
                 <include>euaCommunity.html</include>
                 <include>idea/FindViewColorsScheme.xml</include>
-                <include>idea/FindViewColorsScheme.xml</include>
                 <include>idea/LangActions.xml</include>
                 <include>idea/PlatformActions.xml</include>
                 <include>idea/PlatformLangActionManager.xml</include>
@@ -7096,14 +7124,22 @@
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/Aggregator.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/AggregatorFactory.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/AggregatorHandle.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/aggregator/AutoValue_DoubleAccumulation.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/aggregator/AutoValue_LongAccumulation.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/aggregator/DoubleAccumulation.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/DoubleLastValueAggregator$Handle.class
                 </include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/DoubleLastValueAggregator.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/aggregator/LongAccumulation.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/LongLastValueAggregator$Handle.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/LongLastValueAggregator.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/LongSumAggregator$Handle.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/LongSumAggregator.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/aggregator/MetricDataUtils.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/concurrent/AdderUtil.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/concurrent/DoubleAdder.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/concurrent/JreLongAdder.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/concurrent/LongAdder.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/debug/DebugConfig.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/debug/NoSourceInfo.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/debug/SourceInfo.class</include>
@@ -7117,7 +7153,12 @@
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/AlwaysOffFilter.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/ExemplarFilter.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/ExemplarReservoir.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/exemplar/FilteredExemplarReservoir.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/FixedSizeExemplarReservoir.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/exemplar/NoopExemplarReservoir.class</include>
+                <include>
+                    io/opentelemetry/sdk/metrics/internal/exemplar/RandomFixedSizeExemplarReservoir$RandomCellSelector.class
+                </include>
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/RandomFixedSizeExemplarReservoir.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/ReservoirCell.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/exemplar/ReservoirCellSelector.class</include>
@@ -7132,6 +7173,7 @@
                 <include>io/opentelemetry/sdk/metrics/internal/state/MeterSharedState.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorage.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorageRegistry.class</include>
+                <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorageUtils.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/SdkObservableMeasurement.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/TemporalMetricStorage.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/WriteableMetricStorage.class</include>
@@ -7205,9 +7247,6 @@
                 <include>keymaps/$default.xml</include>
                 <include>keymaps/Default</include>
                 <include>keymaps/Mac</include>
-                <include>keymaps/Mac</include>
-                <include>messages/ActionsBundle.properties</include>
-                <include>messages/ActionsBundle.properties</include>
                 <include>messages/ActionsBundle.properties</include>
                 <include>messages/AnalysisBundle.properties</include>
                 <include>messages/ApplicationBundle.properties</include>
@@ -7660,17 +7699,12 @@
                 <include>standardSchemas/plugin-repository.dtd</include>
                 <include>standardSchemas/xhtml11/xhtml11.dtd</include>
                 <include>standardSchemas/xhtml1-frameset.dtd</include>
-                <include>standardSchemas/xhtml1-frameset.dtd</include>
-                <include>standardSchemas/xhtml1-strict.dtd</include>
                 <include>standardSchemas/xhtml1-strict.dtd</include>
                 <include>standardSchemas/xhtml1-strict.xsd</include>
                 <include>standardSchemas/xhtml1-transitional.dtd</include>
-                <include>standardSchemas/xhtml1-transitional.dtd</include>
-                <include>standardSchemas/xhtml1-transitional.xsd</include>
                 <include>standardSchemas/xhtml1-transitional.xsd</include>
                 <include>standardSchemas/xhtml-mobile/xhtml-mobile10.dtd</include>
                 <include>standardSchemas/xhtml-mobile/xhtml-mobile10-flat.dtd</include>
-                <include>standardSchemas/xhtml-mobile/xhtml-mobile12.dtd</include>
                 <include>standardSchemas/xhtml-mobile/xhtml-mobile12.dtd</include>
                 <include>standardSchemas/xinclude.xsd</include>
                 <include>standardSchemas/xlink.dtd</include>
@@ -7679,8 +7713,6 @@
                 <include>standardSchemas/XMLSchema-instance.xsd</include>
                 <include>standardSchemas/XMLSchema-versioning.xsd</include>
                 <include>standardSchemas/XMLSchema.xsd</include>
-                <include>standardSchemas/XMLSchema.xsd</include>
-                <include>standardSchemas/xml.xsd</include>
                 <include>standardSchemas/xml.xsd</include>
                 <include>standardSchemas/xslt-1_0.xsd</include>
                 <include>standardSchemas/xslt-2_0.xsd</include>

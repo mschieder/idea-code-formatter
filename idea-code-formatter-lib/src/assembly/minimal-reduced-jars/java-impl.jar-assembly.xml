@@ -17,7 +17,7 @@
 
                 <!-- java-impl.jar -->
                 <!--
-                grep java-impl.jar idea_loaded_classes_and_resources.txt | sort | cut -f1 -d " " | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                grep java-impl.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u |sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
                 -->
                 <include>com/intellij/application/options/GenerationSettingsProvider.class</include>
                 <include>com/intellij/application/options/JavaIndentOptionsEditor.class</include>
@@ -506,6 +506,7 @@
                 <include>com/intellij/psi/impl/source/Constants.class</include>
                 <include>com/intellij/psi/impl/source/javadoc/PsiDocTagValueImpl.class</include>
                 <include>com/intellij/psi/impl/source/javadoc/PsiDocTokenImpl.class</include>
+                <include>com/intellij/psi/impl/source/JavaDummyHolder.class</include>
                 <include>com/intellij/psi/impl/source/JavaFileElementType.class</include>
                 <include>com/intellij/psi/impl/source/JavaLightStubBuilder.class</include>
                 <include>com/intellij/psi/impl/source/JavaStubPsiElement.class</include>
@@ -538,6 +539,8 @@
                 <include>com/intellij/psi/impl/source/SourceJavaCodeReference.class</include>
                 <include>com/intellij/psi/impl/source/tree/ChildRole.class</include>
                 <include>com/intellij/psi/impl/source/tree/ElementType.class</include>
+                <include>com/intellij/psi/impl/source/tree/injected/JavaConcatenationToInjectorAdapter.class</include>
+                <include>com/intellij/psi/impl/source/tree/injected/JavadocInjector.class</include>
                 <include>com/intellij/psi/impl/source/tree/injected/StringLiteralEscaper.class</include>
                 <include>com/intellij/psi/impl/source/tree/java/AnnotationMethodElement.class</include>
                 <include>com/intellij/psi/impl/source/tree/java/AnonymousClassElementBase.class</include>
@@ -600,6 +603,7 @@
                 <include>com/intellij/psi/javadoc/PsiDocTagValue.class</include>
                 <include>com/intellij/psi/javadoc/PsiDocToken.class</include>
                 <include>com/intellij/psi/javadoc/PsiInlineDocTag.class</include>
+                <include>com/intellij/psi/javadoc/PsiSnippetDocTag.class</include>
                 <include>com/intellij/psi/JavaDocTokenType.class</include>
                 <include>com/intellij/psi/JavaElementVisitor.class</include>
                 <include>com/intellij/psi/JavaRecursiveElementVisitor.class</include>
@@ -775,13 +779,9 @@
                 <include>intellij.java.structuralSearch.xml</include>
                 <include>messages/JavaAnalysisBundle.properties</include>
                 <include>messages/JavaBundle.properties</include>
-                <include>messages/JavaBundle.properties</include>
                 <include>messages/JavaCompilerBundle.properties</include>
-                <include>messages/JavaCompilerBundle.properties</include>
-                <include>messages/JavaDebuggerBundle.properties</include>
                 <include>messages/JavaDebuggerBundle.properties</include>
                 <include>messages/JavaPsiBundle.properties</include>
-                <include>messages/JavaUiBundle.properties</include>
                 <include>messages/JavaUiBundle.properties</include>
                 <include>messages/ManifestBundle.properties</include>
                 <include>META-INF/DesignerCorePlugin.xml</include>

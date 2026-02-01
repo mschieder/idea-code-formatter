@@ -19,8 +19,8 @@
 
                 <!-- util-8.jar -->
                 <!--
-                grep util-8.jar idea_loaded_classes_and_resources.txt | sort | cut -f1 -d " " | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
+                grep util-8.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                 -->
                 <include>com/intellij/util/UrlUtilRt.class</include>
                 <include>com/intellij/util/xml/dom/NoOpXmlInterner.class</include>
                 <include>com/intellij/util/xml/dom/StaxFactory.class</include>
