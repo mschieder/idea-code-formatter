@@ -8,37 +8,30 @@ mkdir -p $DEST_DIR
 
 echo downloading IntelliJ IDEA CE $VERSION
 DOWNLOAD_FILE=ideaIC-$VERSION.win.zip
+DOWNLOAD_FILE2=idea-code-formatter-lib/target/idea.original.zip
+
 if test -f "$DOWNLOAD_DIR/$DOWNLOAD_FILE"; then
     echo "download already exists. copying $DOWNLOAD_DIR/$DOWNLOAD_FILE"
-    cp $DOWNLOAD_DIR/$DOWNLOAD_FILE $DOWNLOAD_FILE
+
 else
      mkdir $DOWNLOAD_DIR
-     wget --progress=bar:force:noscroll https://download-cdn.jetbrains.com/idea/$DOWNLOAD_FILE
-     cp $DOWNLOAD_FILE $DOWNLOAD_DIR/$DOWNLOAD_FILE
+     wget --progress=bar:force:noscroll https://download-cdn.jetbrains.com/idea/$DOWNLOAD_FILE -O $DOWNLOAD_DIR/$DOWNLOAD_FILE
 fi
+ cp $DOWNLOAD_DIR/$DOWNLOAD_FILE $DOWNLOAD_FILE2
 
-# extract all lib and plugin jars
-: <<'END_COMMENT'
-echo unzipping idea plugin files
-unzip -o $DOWNLOAD_FILE "plugins/**/*.jar" -d $DEST_DIR
-echo unzipping idea lib files
-unzip -o $DOWNLOAD_FILE "lib/*.jar" -d $DEST_DIR
-END_COMMENT
 
 echo unzipping idea plugin files
-unzip -o $DOWNLOAD_FILE "plugins/java/lib/*" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "plugins/java-ide-customization/lib/*" -d $DEST_DIR
+
+for jar in aether-dependency-resolver.jar java-impl.jar jps-builders-6.jar jps-builders.jar rt/protobuf-java6.jar;
+  do unzip -o $DOWNLOAD_FILE2 "plugins/java/lib/${jar}" -d $DEST_DIR
+done;
+
+unzip -o $DOWNLOAD_FILE2 "plugins/java-ide-customization/lib/java-ide-customization.jar" -d $DEST_DIR
 
 echo unzipping idea lib files
-unzip -o $DOWNLOAD_FILE "lib/3rd-party-rt.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/app.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/external-system-rt.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/forms_rt.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/jps-model.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/stats.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/util.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/util_rt.jar" -d $DEST_DIR
-unzip -o $DOWNLOAD_FILE "lib/util-8.jar" -d $DEST_DIR
+for jar in 3rd-party-rt.jar app.jar external-system-rt.jar forms_rt.jar jps-model.jar stats.jar util.jar util_rt.jar util-8.jar;
+  do unzip -o $DOWNLOAD_FILE2 "lib/${jar}" -d $DEST_DIR
+done;
 
 echo do the cleanup
-rm $DOWNLOAD_FILE
+#rm $DOWNLOAD_FILE2

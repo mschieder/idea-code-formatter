@@ -66,15 +66,13 @@
             </dependency>
             <dependency>
                 <groupId>com.jetbrains.intellij.platform</groupId>
-                <artifactId>lang-impl</artifactId>
+                <artifactId>util-class-loader</artifactId>
                 <version>${idea.platform.version}</version>
-                <scope>provided</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.jetbrains.intellij.platform</groupId>
+                <artifactId>boot</artifactId>
+                <version>${idea.platform.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
