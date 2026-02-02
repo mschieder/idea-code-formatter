@@ -10,6 +10,15 @@ name: Java CI with Maven
 
 on:
   workflow_dispatch:
+    inputs:
+      profile:
+        type: choice
+        description: build with specific maven profile
+        required: false
+        options:
+          - full
+          - minimal-jars
+          - minimal-reduced-jars
   push:
     branches: [ "main" ]
   pull_request:
@@ -21,7 +30,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -30,8 +38,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B install --file pom.xml
+    - if: "${{ github.event.inputs.profile == '' }}"
+      name: Build with Maven
+      run: mvn -B install
+    - if: "${{ github.event.inputs.profile != '' }}"
+      name: Build with Maven profile ${{ github.event.inputs.profile }}
+      run: mvn -B install -P${{ github.event.inputs.profile }}
+
     - name: test (format a single .java file)
       # try to format a single .java file
       run: |
