@@ -13,8 +13,18 @@
             <directory>target/3rd-party-rt</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
+                <include>META-INF/*.*</include>
                 <include>kotlin/**</include>
                 <include>kotlinx/**</include>
+
+
+                <include>*.*</include>
+                <include>com/**</include>
+                <include>org/**</include>
+                <include>pure/**</include>
+                <include>net/**</include>
+                <include>jtermios/**</include>
+
 
                 <!-- 3rd-party-rt.jar -->
                 <!--
