@@ -16,3 +16,4 @@ pushd target
 zip -r idea.zip idea
 popd
 mv target/idea.zip $DEST_DIR
+echo idea.zip file list md5sum: $(zipinfo -1 $DEST_DIR/idea.zip | md5sum)
