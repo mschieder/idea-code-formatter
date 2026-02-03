@@ -90,6 +90,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         try (var allFiles = Files.walk(tmpFormatterRoot.resolve(classpathType.getDir()))) {
             allFiles.map(Path::toString)
                     .filter(string -> string.endsWith(".jar"))
+                    .sorted()
                     .forEach(classpath::add);
             log.info(("built classpath: " + classpath));
             return String.join(":", classpath);
