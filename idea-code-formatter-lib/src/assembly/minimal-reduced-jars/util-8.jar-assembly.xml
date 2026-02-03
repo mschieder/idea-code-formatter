@@ -13,10 +13,10 @@
             <directory>target/util-8</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-
+                <include>META-INF/**</include>
                 <include>com/intellij/**</include>
                 <include>org/jetbrains/**</include>
-                <include>META-INF/**</include>
+                <include>it/unimi/**</include>
 
                 <!-- util-8.jar -->
                 <!--
