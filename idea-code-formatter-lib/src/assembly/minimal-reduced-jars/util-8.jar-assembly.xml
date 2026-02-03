@@ -17,7 +17,7 @@
                 <include>com/intellij/**</include>
                 <include>org/jetbrains/**</include>
                 <include>it/unimi/**</include>
-                <include>org/jdom/**</include>
+                <include>META-INF/**</include>
 
                 <!-- util-8.jar -->
                 <!--
