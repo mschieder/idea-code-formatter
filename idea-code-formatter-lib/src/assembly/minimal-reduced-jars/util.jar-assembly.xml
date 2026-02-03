@@ -14,8 +14,8 @@
             <outputDirectory>/</outputDirectory>
             <includes>
 
-                <include>com/intellij/**</include>
-                <include>org/jetbrains/**</include>
+                <include>com/intellij/**/*.class</include>
+                <include>org/jetbrains/**/*.class</include>
 
                 <!--
                 grep util.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"

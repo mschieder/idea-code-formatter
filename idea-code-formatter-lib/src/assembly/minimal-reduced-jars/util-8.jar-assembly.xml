@@ -14,9 +14,9 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>META-INF/**</include>
-                <include>com/intellij/**</include>
-                <include>org/jetbrains/**</include>
-                <include>it/unimi/**</include>
+                <include>com/intellij/**/*.class</include>
+                <include>org/jetbrains/**/*.class</include>
+                <include>it/unimi/**/*.class</include>
 
                 <!-- util-8.jar -->
                 <!--

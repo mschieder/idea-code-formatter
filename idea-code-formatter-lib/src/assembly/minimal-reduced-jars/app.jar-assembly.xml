@@ -13,7 +13,7 @@
             <directory>target/app</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <include>com/intellij/**</include>
+                <include>com/intellij/**/*.class</include>
                 <!-- java-impl.jar -->
                 <!--
                 grep app.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
