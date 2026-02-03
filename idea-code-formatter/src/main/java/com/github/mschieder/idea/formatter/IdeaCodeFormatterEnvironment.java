@@ -82,7 +82,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return returnCode;
     }
 
-    private String buildClasspath(ClasspathType classpathType) throws IOException {
+    private String buildClasspath(ClasspathType classpathType) {
         String additionalClasspath = "";
         if (!Utils.isPackagedInJar()) {
             // add the classpath to run inside IDEA
@@ -190,6 +190,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         builder.environment().put("APPDATA", appdata);
         builder.environment().put("LOCALAPPDATA", localAppdata);
 
+        log.info("build command: " + command);
 
         long started = System.currentTimeMillis();
         Process process = builder
