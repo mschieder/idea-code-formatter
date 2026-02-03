@@ -111,7 +111,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         command.add(javaBin);
         command.add("-cp");
 
-        if (System.getProperty("idea.classpath.type", "FULL").equals("FULL")) {
+        if (System.getProperty("idea.classpath.type", "FULL").equals("LIB")) {
             // idea libs and idea plugins are in classpath
             command.add(buildClasspath(ClasspathType.IDEA_FULL));
             // we don't need idea home path, everything is accessible via class path
