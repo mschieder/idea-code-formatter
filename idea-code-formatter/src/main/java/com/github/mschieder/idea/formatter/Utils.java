@@ -1,6 +1,7 @@
 package com.github.mschieder.idea.formatter;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -12,7 +13,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
-class Utils {
+public class Utils {
 
     private static final Logger log = Logger.getLogger(Utils.class.getName());
 
@@ -85,4 +86,13 @@ class Utils {
     public static String getJarPath(Class<?> theClass) {
         return theClass.getProtectionDomain().getCodeSource().getLocation().getPath();
     }
+
+    public static String toString(Path path) {
+        try {
+            return new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
 }
