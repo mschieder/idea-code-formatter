@@ -113,7 +113,6 @@
                                     <appendAssemblyId>true</appendAssemblyId>
                                 </configuration>
                             </execution>
-                            -->
                             <execution>
                                 <id>util-8</id>
                                 <phase>package</phase>
@@ -130,6 +129,7 @@
                                     <appendAssemblyId>true</appendAssemblyId>
                                 </configuration>
                             </execution>
+                            -->
                             <execution>
                                 <id>app</id>
                                 <phase>package</phase>
