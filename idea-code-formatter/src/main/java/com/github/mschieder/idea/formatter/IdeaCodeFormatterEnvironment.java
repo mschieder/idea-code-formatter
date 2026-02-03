@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
@@ -83,15 +82,18 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     }
 
     private String buildClasspath(ClasspathType classpathType) {
-        String additionalClasspath = "";
+        List<String> classpath = new ArrayList<>();
         if (!Utils.isPackagedInJar()) {
             // add the classpath to run inside IDEA
-            additionalClasspath = Utils.class.getProtectionDomain().getCodeSource().getLocation() + ":";
+            classpath.add(Utils.class.getProtectionDomain().getCodeSource().getLocation().toString());
         }
         try (var allFiles = Files.walk(tmpFormatterRoot.resolve(classpathType.getDir()))) {
-            return additionalClasspath + allFiles.map(Path::toString)
+            allFiles.map(Path::toString)
                     .filter(string -> string.endsWith(".jar"))
-                    .collect(Collectors.joining(":"));
+                    .forEach(classpath::add);
+            log.info(("built classpath: " + classpath));
+            return String.join(":", classpath);
+
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -189,8 +191,6 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         ProcessBuilder builder = new ProcessBuilder(command);
         builder.environment().put("APPDATA", appdata);
         builder.environment().put("LOCALAPPDATA", localAppdata);
-
-        log.info("build command: " + command);
 
         long started = System.currentTimeMillis();
         Process process = builder
