@@ -98,6 +98,39 @@
                                 </configuration>
                             </execution>
                             <execution>
+                                <id>external-system-rt</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>
+                                            src/assembly/minimal-reduced-jars/external-system-rt.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>external-system-rt</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>forms_rt</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/forms_rt.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>forms_rt</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>util</id>
                                 <phase>package</phase>
                                 <goals>
@@ -209,6 +242,24 @@
                                 </configuration>
                             </execution>
                             <execution>
+                                <id>aether-dependency-resolver</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>
+                                            src/assembly/minimal-reduced-jars/aether-dependency-resolver.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>aether-dependency-resolver</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/plugins/java/lib
+                                    </outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>jps-builders</id>
                                 <phase>package</phase>
                                 <goals>
@@ -259,10 +310,28 @@
                                     <appendAssemblyId>true</appendAssemblyId>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>java-ide-customization</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>
+                                            src/assembly/minimal-reduced-jars/java-ide-customization.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>java-ide-customization</finalName>
+                                    <outputDirectory>
+                                        ${project.build.directory}/idea-reduced/plugins/java-ide-customization/lib
+                                    </outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
                         </executions>
 
                     </plugin>
-
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>exec-maven-plugin</artifactId>

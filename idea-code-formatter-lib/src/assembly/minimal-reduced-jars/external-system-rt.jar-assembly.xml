@@ -1,0 +1,24 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+    <id>reduced</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/external-system-rt</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <!-- forms_rt.jar -->
+                <!--
+                grep external-system-rt.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                 -->
+                <include>com/intellij/openapi/externalSystem/model/ExternalSystemException.class</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
