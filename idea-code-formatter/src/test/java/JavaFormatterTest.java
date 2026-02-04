@@ -1,5 +1,4 @@
 import com.github.mschieder.idea.formatter.IdeaCodeFormatterEnvironment;
-import com.github.mschieder.idea.formatter.Utils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -49,7 +48,7 @@ public class JavaFormatterTest {
 
     void assertJavaDefaultsSame(String javaFilename) {
         Path expected = new File(this.getClass().getResource("/testfiles/java/expected/defaults/" + javaFilename).getFile()).toPath();
-        assertThat(javaFile.toPath()).content().isEqualTo(Utils.toString(expected));
+        assertThat(javaFile.toPath()).hasSameBinaryContentAs(expected);
     }
 
 
