@@ -1,0 +1,68 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+    <id>reduced</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/util_rt</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <!-- util-rt.jar -->
+                <!--
+                grep util_rt.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                 -->
+                <include>com/intellij/openapi/util/Comparing.class</include>
+                <include>com/intellij/openapi/util/Condition$1.class</include>
+                <include>com/intellij/openapi/util/Condition$2.class</include>
+                <include>com/intellij/openapi/util/Condition$3.class</include>
+                <include>com/intellij/openapi/util/Condition.class</include>
+                <include>com/intellij/openapi/util/Couple.class</include>
+                <include>com/intellij/openapi/util/io/DataInputOutputUtilRt.class</include>
+                <include>com/intellij/openapi/util/io/FileTooBigException.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt$1.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt$2.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt$FilesToDeleteHolder$1.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt$FilesToDeleteHolder.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt$RepeatableIOOperation.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt$SymlinkResolver.class</include>
+                <include>com/intellij/openapi/util/io/FileUtilRt.class</include>
+                <include>com/intellij/openapi/util/io/NullAppendable.class</include>
+                <include>com/intellij/openapi/util/Pair$NonNull.class</include>
+                <include>com/intellij/openapi/util/Pair.class</include>
+                <include>com/intellij/openapi/util/Ref.class</include>
+                <include>com/intellij/openapi/util/SystemInfoRt.class</include>
+                <include>com/intellij/openapi/util/text/StringUtilRt.class</include>
+                <include>com/intellij/openapi/util/ThrowableComputable.class</include>
+                <include>com/intellij/util/ArrayUtilRt.class</include>
+                <include>com/intellij/util/Consumer.class</include>
+                <include>com/intellij/util/containers/ContainerUtilRt$EmptyList.class</include>
+                <include>com/intellij/util/containers/ContainerUtilRt.class</include>
+                <include>com/intellij/util/containers/EmptyIterator.class</include>
+                <include>com/intellij/util/containers/Stack.class</include>
+                <include>com/intellij/util/ExceptionUtilRt$1.class</include>
+                <include>com/intellij/util/ExceptionUtilRt.class</include>
+                <include>com/intellij/util/Function$Mono.class</include>
+                <include>com/intellij/util/Function.class</include>
+                <include>com/intellij/util/io/LimitedInputStream.class</include>
+                <include>com/intellij/util/NotNullFunction.class</include>
+                <include>com/intellij/util/NullableFunction.class</include>
+                <include>com/intellij/util/PathUtilRt$Platform.class</include>
+                <include>com/intellij/util/PathUtilRt.class</include>
+                <include>com/intellij/util/ReflectionUtilRt$MySecurityManager.class</include>
+                <include>com/intellij/util/ReflectionUtilRt.class</include>
+                <include>com/intellij/util/text/OrdinalFormat$EnglishOrdinalFormat.class</include>
+                <include>com/intellij/util/text/OrdinalFormat.class</include>
+                <include>com/intellij/util/ThrowableConsumer.class</include>
+                <include>com/intellij/util/ThrowableRunnable.class</include>
+                <include>gnu/trove/Equality.class</include>
+                <include>gnu/trove/TObjectHashingStrategy.class</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
