@@ -193,6 +193,23 @@
                                     <appendAssemblyId>true</appendAssemblyId>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>protobuf-java6</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/protobuf-java6.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>protobuf-java6</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/plugins/java/lib/rt
+                                    </outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
                         </executions>
 
                     </plugin>

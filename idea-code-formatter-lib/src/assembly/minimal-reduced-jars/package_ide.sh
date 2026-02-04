@@ -26,6 +26,8 @@ mkdir -p target/java-impl
 unzip -o -q "$IDEA_DIR/plugins/java/lib/java-impl.jar" -d target/java-impl
 mkdir -p target/jps-builders
 unzip -o -q "$IDEA_DIR/plugins/java/lib/jps-builders.jar" -d target/jps-builders
+mkdir -p target/protobuf-java6
+unzip -o -q "$IDEA_DIR/plugins/java/lib/rt/protobuf-java6.jar" -d target/protobuf-java6
 
 #copy the original jars to the IDEA_REDUCED_DIR
 cp -r $IDEA_DIR $IDEA_REDUCED_DIR
@@ -37,3 +39,4 @@ rm $IDEA_REDUCED_DIR/lib/util_rt.jar
 rm $IDEA_REDUCED_DIR/lib/app.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/java-impl.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/jps-builders.jar
+rm $IDEA_REDUCED_DIR/plugins/java/lib/rt/protobuf-java6.jar
