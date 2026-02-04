@@ -14,10 +14,9 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>com/intellij/**/*.class</include>
-                <!-- java-impl.jar -->
-                <!--
-                grep app.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
+
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>ai/grazie/DataHolder$Key.class</include>
                 <include>ai/grazie/nlp/patterns/AggregatedPattern.class</include>
                 <include>ai/grazie/nlp/patterns/AhoCorasickPattern$AhoCorasickBuilder$AutomataBuilderNode.class
@@ -2624,6 +2623,8 @@
                 <include>com/intellij/lang/cacheBuilder/DefaultWordsScanner.class</include>
                 <include>com/intellij/lang/cacheBuilder/SimpleWordsScanner.class</include>
                 <include>com/intellij/lang/cacheBuilder/VersionedWordsScanner.class</include>
+                <include>com/intellij/lang/cacheBuilder/WordOccurrence$Kind.class</include>
+                <include>com/intellij/lang/cacheBuilder/WordOccurrence.class</include>
                 <include>com/intellij/lang/cacheBuilder/WordsScanner.class</include>
                 <include>com/intellij/lang/DefaultASTFactory.class</include>
                 <include>com/intellij/lang/DefaultASTFactoryImpl.class</include>
@@ -4618,9 +4619,11 @@
                 <include>com/intellij/psi/impl/BlockSupportImpl.class</include>
                 <include>com/intellij/psi/impl/BooleanRunnable.class</include>
                 <include>com/intellij/psi/impl/cache/impl/BaseFilterLexer.class</include>
+                <include>com/intellij/psi/impl/cache/impl/BaseFilterLexerUtil.class</include>
                 <include>com/intellij/psi/impl/cache/impl/IdAndToDoScannerBasedOnFilterLexer.class</include>
                 <include>com/intellij/psi/impl/cache/impl/idCache/XmlFilterLexer.class</include>
                 <include>com/intellij/psi/impl/cache/impl/idCache/XmlIdIndexer.class</include>
+                <include>com/intellij/psi/impl/cache/impl/id/IdDataConsumer.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/IdIndex$1.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/IdIndex$2.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/IdIndex$3.class</include>
@@ -4636,13 +4639,17 @@
                 <include>com/intellij/psi/impl/cache/impl/id/IdTableBuilding.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/LexerBasedIdIndexer.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/LexingIdIndexer.class</include>
+                <include>com/intellij/psi/impl/cache/impl/id/PlainTextIdIndexer$1.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/PlainTextIdIndexer.class</include>
+                <include>com/intellij/psi/impl/cache/impl/id/ScanningIdIndexer$1.class</include>
                 <include>com/intellij/psi/impl/cache/impl/id/ScanningIdIndexer.class</include>
+                <include>com/intellij/psi/impl/cache/impl/OccurrenceConsumer.class</include>
                 <include>com/intellij/psi/impl/cache/impl/todo/TodoIndex$1.class</include>
                 <include>com/intellij/psi/impl/cache/impl/todo/TodoIndex$2.class</include>
                 <include>com/intellij/psi/impl/cache/impl/todo/TodoIndex$3.class</include>
                 <include>com/intellij/psi/impl/cache/impl/todo/TodoIndex$4.class</include>
                 <include>com/intellij/psi/impl/cache/impl/todo/TodoIndex.class</include>
+                <include>com/intellij/psi/impl/cache/impl/todo/TodoIndexers.class</include>
                 <include>com/intellij/psi/impl/ChangedPsiRangeUtil.class</include>
                 <include>com/intellij/psi/impl/CheckUtil$1.class</include>
                 <include>com/intellij/psi/impl/CheckUtil.class</include>
@@ -7173,7 +7180,6 @@
                 <include>io/opentelemetry/sdk/metrics/internal/state/MeterSharedState.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorage.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorageRegistry.class</include>
-                <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorageUtils.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/SdkObservableMeasurement.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/TemporalMetricStorage.class</include>
                 <include>io/opentelemetry/sdk/metrics/internal/state/WriteableMetricStorage.class</include>
@@ -7717,6 +7723,7 @@
                 <include>standardSchemas/xslt-1_0.xsd</include>
                 <include>standardSchemas/xslt-2_0.xsd</include>
                 <include>VcsProductivityFeatures.xml</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

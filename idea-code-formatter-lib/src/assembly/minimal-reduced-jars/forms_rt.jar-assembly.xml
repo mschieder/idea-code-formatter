@@ -13,16 +13,15 @@
             <directory>target/forms_rt</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <!-- forms_rt.jar -->
-                <!--
-                grep forms_rt.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                 -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/intellij/uiDesigner/core/AbstractLayout.class</include>
                 <include>com/intellij/uiDesigner/core/DimensionInfo.class</include>
                 <include>com/intellij/uiDesigner/core/GridConstraints.class</include>
                 <include>com/intellij/uiDesigner/core/GridLayoutManager.class</include>
                 <include>com/intellij/uiDesigner/core/HorizontalInfo.class</include>
                 <include>com/intellij/uiDesigner/core/VerticalInfo.class</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

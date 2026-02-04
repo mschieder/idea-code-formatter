@@ -25,12 +25,8 @@
                 <include>net/**</include>
                 <include>jtermios/**</include>
 
-
-                <!-- 3rd-party-rt.jar -->
-                <!--
-                grep 3rd-party-rt.jar idea_loaded_classes_and_resources.txt |  cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-
-                -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/fasterxml/aalto/impl/CommonConfig.class</include>
                 <include>com/fasterxml/aalto/impl/IoStreamException.class</include>
                 <include>com/fasterxml/aalto/impl/StreamExceptionBase.class</include>
@@ -3835,6 +3831,7 @@
                 <include>org/eclipse/aether/RepositoryException.class</include>
                 <include>org/eclipse/aether/transfer/TransferCancelledException.class</include>
                 <include>org/jetbrains/org/objectweb/asm/ClassVisitor.class</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

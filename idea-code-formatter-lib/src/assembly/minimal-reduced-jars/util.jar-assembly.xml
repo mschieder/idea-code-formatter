@@ -13,18 +13,10 @@
             <directory>target/util</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-
                 <include>com/intellij/**/*.class</include>
                 <include>org/jetbrains/**/*.class</include>
-
-                <!--
-                grep util.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
-
-                <!-- util.jar -->
-                <!--
-                grep util.jar idea_loaded_classes_and_resources.txt | sort | cut -f1 -d " " | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/intellij/AbstractBundle$MyResourceControl.class</include>
                 <include>com/intellij/AbstractBundle.class</include>
                 <include>com/intellij/BundleBase.class</include>
@@ -524,6 +516,13 @@
                 <include>com/intellij/openapi/util/text/StringUtil$1.class</include>
                 <include>com/intellij/openapi/util/text/StringUtil$Splitters.class</include>
                 <include>com/intellij/openapi/util/text/StringUtil.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder$1$1$1$1.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder$1$1$1.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder$1$1.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder$1.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder$AddonlyIntSet$1.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder$AddonlyIntSet.class</include>
+                <include>com/intellij/openapi/util/text/TrigramBuilder.class</include>
                 <include>com/intellij/openapi/util/ThreadLocalCachedByteArray.class</include>
                 <include>com/intellij/openapi/util/ThreadLocalCachedIntArray.class</include>
                 <include>com/intellij/openapi/util/ThreadLocalCachedValue.class</include>
@@ -1006,6 +1005,7 @@
                 <include>com/intellij/util/containers/HashSetQueue$QueueEntry.class</include>
                 <include>com/intellij/util/containers/HashSetQueue.class</include>
                 <include>com/intellij/util/containers/IdentityHashingStrategy.class</include>
+                <include>com/intellij/util/containers/ImmutableList$1.class</include>
                 <include>com/intellij/util/containers/ImmutableList$Itr.class</include>
                 <include>com/intellij/util/containers/ImmutableList$Singleton.class</include>
                 <include>com/intellij/util/containers/ImmutableList$SubList.class</include>
@@ -1286,6 +1286,7 @@
                 <include>com/intellij/util/io/InlineKeyDescriptor.class</include>
                 <include>com/intellij/util/io/IntInlineKeyDescriptor.class</include>
                 <include>com/intellij/util/io/IntToIntBtree$BtreeDataStorage.class</include>
+                <include>com/intellij/util/io/IntToIntBtree$BtreeIndexNodeView$HashLeafData.class</include>
                 <include>com/intellij/util/io/IntToIntBtree$BtreeIndexNodeView.class</include>
                 <include>com/intellij/util/io/IntToIntBtree$BtreeRootNode.class</include>
                 <include>com/intellij/util/io/IntToIntBtree$KeyValueProcessor.class</include>
@@ -1390,6 +1391,7 @@
                 <include>com/intellij/util/io/stats/PersistentHashMapStatistics.class</include>
                 <include>com/intellij/util/io/stats/StorageStatsRegistrar.class</include>
                 <include>com/intellij/util/io/storage/AbstractRecordsTable.class</include>
+                <include>com/intellij/util/io/storage/AbstractStorage$AppenderStream.class</include>
                 <include>com/intellij/util/io/storage/AbstractStorage$StorageDataOutput.class</include>
                 <include>com/intellij/util/io/storage/AbstractStorage.class</include>
                 <include>com/intellij/util/io/storage/CapacityAllocationPolicy$1.class</include>
@@ -1605,6 +1607,7 @@
                 <include>org/jetbrains/concurrency/Promise.class</include>
                 <include>org/picocontainer/ComponentAdapter.class</include>
                 <include>org/picocontainer/PicoContainer.class</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

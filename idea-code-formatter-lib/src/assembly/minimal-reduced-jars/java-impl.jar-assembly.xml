@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
@@ -15,10 +16,8 @@
             <includes>
                 <include>META-INF/*.*</include>
 
-                <!-- java-impl.jar -->
-                <!--
-                grep java-impl.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u |sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/intellij/application/options/GenerationSettingsProvider.class</include>
                 <include>com/intellij/application/options/JavaIndentOptionsEditor.class</include>
                 <include>
@@ -823,7 +822,7 @@
                 <include>org/jetbrains/uast/UastLanguagePlugin$Companion.class</include>
                 <include>org/jetbrains/uast/UastLanguagePlugin.class</include>
                 <include>org/jetbrains/uast/UElement.class</include>
-
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

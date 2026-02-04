@@ -14,10 +14,8 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>META-INF/**</include>
-                <!-- jps-model.jar -->
-                <!--
-                grep jps-model.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " |  sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/intellij/openapi/application/PathMacroFilter.class</include>
                 <include>com/intellij/openapi/components/ExpandMacroToPathMap.class</include>
                 <include>com/intellij/openapi/components/PathMacroMap.class</include>
@@ -61,6 +59,7 @@
                 <include>org/jetbrains/jps/service/JpsServiceManager$InstanceHolder.class</include>
                 <include>org/jetbrains/jps/service/JpsServiceManager.class</include>
                 <include>org/jetbrains/jps/util/JpsPathUtil.class</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

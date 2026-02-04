@@ -13,15 +13,14 @@
             <directory>target/jps-builders</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <!-- jps-builders.jar -->
-                <!--
-                grep jps-builders.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                 -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>org/jetbrains/jps/api/CmdlineRemoteProto$Message.class</include>
                 <include>org/jetbrains/jps/api/CmdlineRemoteProto$MessageOrBuilder.class</include>
                 <include>org/jetbrains/jps/api/RequestFuture$CancelAction.class</include>
                 <include>org/jetbrains/jps/api/TaskFuture.class</include>
                 <include>org/jetbrains/jps/builders/impl/java/EclipseCompilerTool.class</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

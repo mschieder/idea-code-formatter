@@ -13,11 +13,8 @@
             <directory>target/stats</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-
-                <!-- stats.jar -->
-                <!--
-                grep stats.jar idea_loaded_classes_and_resources.txt | sort | cut -f1 -d " " | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/intellij/internal/statistic/collectors/fus/ClassNameRuleValidator.class</include>
                 <include>com/intellij/internal/statistic/collectors/fus/MethodNameRuleValidator.class</include>
                 <include>com/intellij/internal/statistic/collectors/fus/PluginInfoValidationRule.class</include>
@@ -185,6 +182,7 @@
                 <include>com/intellij/internal/statistic/utils/StatisticsUploadAssistant.class</include>
                 <include>com/intellij/internal/statistic/utils/StatisticsUtil.class</include>
                 <include>messages/StatisticsBundle.properties</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>

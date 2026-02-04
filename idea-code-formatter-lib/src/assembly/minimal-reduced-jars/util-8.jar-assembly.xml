@@ -17,11 +17,8 @@
                 <include>com/intellij/**/*.class</include>
                 <include>org/jetbrains/**/*.class</include>
                 <include>it/unimi/**/*.class</include>
-
-                <!-- util-8.jar -->
-                <!--
-                grep util-8.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
-                 -->
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
                 <include>com/intellij/util/UrlUtilRt.class</include>
                 <include>com/intellij/util/xml/dom/NoOpXmlInterner.class</include>
                 <include>com/intellij/util/xml/dom/StaxFactory.class</include>
@@ -70,8 +67,11 @@
                 <include>it/unimi/dsi/fastutil/ints/AbstractInt2LongFunction.class</include>
                 <include>it/unimi/dsi/fastutil/ints/AbstractInt2LongMap.class</include>
                 <include>it/unimi/dsi/fastutil/ints/AbstractInt2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2ObjectMap$1$1.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2ObjectMap$1.class</include>
                 <include>it/unimi/dsi/fastutil/ints/AbstractInt2ObjectMap.class</include>
                 <include>it/unimi/dsi/fastutil/ints/AbstractIntCollection.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractIntIterator.class</include>
                 <include>it/unimi/dsi/fastutil/ints/AbstractIntList.class</include>
                 <include>it/unimi/dsi/fastutil/ints/AbstractIntSet.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2IntFunction.class</include>
@@ -88,9 +88,16 @@
                 <include>it/unimi/dsi/fastutil/ints/Int2LongMap.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2LongOpenHashMap.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectFunctions$EmptyFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMap$Entry.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectMap$FastEntrySet.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMaps$EmptyMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMaps.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$1.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$FastEntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$MapEntrySet.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$MapIterator.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$ValueIterator.class</include>
                 <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap.class</include>
@@ -105,6 +112,7 @@
                 <include>it/unimi/dsi/fastutil/ints/IntArrays.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntArraySet.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntBidirectionalIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntBinaryOperator.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntCollection.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntCollections$EmptyCollection.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntCollections$SynchronizedCollection.class</include>
@@ -125,6 +133,7 @@
                 <include>it/unimi/dsi/fastutil/ints/IntLists$SynchronizedList.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntLists$SynchronizedRandomAccessList.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntLists.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntObjectPair.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntOpenHashSet$SetIterator.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntOpenHashSet.class</include>
                 <include>it/unimi/dsi/fastutil/ints/IntSet.class</include>
@@ -179,6 +188,7 @@
                 <include>it/unimi/dsi/fastutil/objects/AbstractObject2ObjectMap.class</include>
                 <include>it/unimi/dsi/fastutil/objects/AbstractObject2ObjectSortedMap.class</include>
                 <include>it/unimi/dsi/fastutil/objects/AbstractObjectCollection.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectIterator.class</include>
                 <include>it/unimi/dsi/fastutil/objects/AbstractObjectList.class</include>
                 <include>it/unimi/dsi/fastutil/objects/AbstractObjectSet.class</include>
                 <include>it/unimi/dsi/fastutil/objects/AbstractObjectSortedSet.class</include>
@@ -202,6 +212,7 @@
                 <include>it/unimi/dsi/fastutil/objects/Object2IntMaps$UnmodifiableMap.class</include>
                 <include>it/unimi/dsi/fastutil/objects/Object2IntMaps.class</include>
                 <include>it/unimi/dsi/fastutil/objects/Object2IntOpenCustomHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$EntryIterator.class</include>
                 <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$FastEntryIterator.class</include>
                 <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$KeyIterator.class</include>
                 <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$KeySet.class</include>
@@ -327,6 +338,7 @@
                 <include>org/jdom/Parent.class</include>
                 <include>org/jdom/Text.class</include>
                 <include>org/jdom/Verifier.class</include>
+                <!-- END generated includes -->
             </includes>
         </fileSet>
     </fileSets>
