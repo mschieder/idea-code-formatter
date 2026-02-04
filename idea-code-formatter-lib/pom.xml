@@ -226,6 +226,23 @@
                                 </configuration>
                             </execution>
                             <execution>
+                                <id>jps-builders-6</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/jps-builders-6.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>jps-builders-6</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/plugins/java/lib
+                                    </outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>protobuf-java6</id>
                                 <phase>package</phase>
                                 <goals>

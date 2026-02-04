@@ -1,0 +1,25 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+    <id>reduced</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/jps-builders-6</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <!-- jps-builders-6.jar -->
+                <!--
+                grep jps-builders-6.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " | sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"
+                 -->
+                <include>org/jetbrains/jps/builders/java/CannotCreateJavaCompilerException.class</include>
+                <include>org/jetbrains/jps/builders/java/JavaCompilingTool.class</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

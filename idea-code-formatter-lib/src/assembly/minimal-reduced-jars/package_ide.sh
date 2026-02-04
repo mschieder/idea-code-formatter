@@ -30,6 +30,8 @@ mkdir -p target/stats
 unzip -o -q "$IDEA_DIR/lib/stats.jar" -d target/stats
 mkdir -p target/jps-builders
 unzip -o -q "$IDEA_DIR/plugins/java/lib/jps-builders.jar" -d target/jps-builders
+mkdir -p target/jps-builders-6
+unzip -o -q "$IDEA_DIR/plugins/java/lib/jps-builders-6.jar" -d target/jps-builders-6
 mkdir -p target/protobuf-java6
 unzip -o -q "$IDEA_DIR/plugins/java/lib/rt/protobuf-java6.jar" -d target/protobuf-java6
 
@@ -45,4 +47,5 @@ rm $IDEA_REDUCED_DIR/lib/jps-model.jar
 rm $IDEA_REDUCED_DIR/lib/stats.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/java-impl.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/jps-builders.jar
+rm $IDEA_REDUCED_DIR/plugins/java/lib/jps-builders-6.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/rt/protobuf-java6.jar

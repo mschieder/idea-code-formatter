@@ -22,8 +22,6 @@
                 <include>org/jetbrains/jps/api/RequestFuture$CancelAction.class</include>
                 <include>org/jetbrains/jps/api/TaskFuture.class</include>
                 <include>org/jetbrains/jps/builders/impl/java/EclipseCompilerTool.class</include>
-                <include>org/jetbrains/jps/builders/java/CannotCreateJavaCompilerException.class</include>
-                <include>org/jetbrains/jps/builders/java/JavaCompilingTool.class</include>
             </includes>
         </fileSet>
     </fileSets>
