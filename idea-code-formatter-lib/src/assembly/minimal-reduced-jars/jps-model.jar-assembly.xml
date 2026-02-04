@@ -13,7 +13,7 @@
             <directory>target/jps-model</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-
+                <include>META-INF/**</include>
                 <!-- jps-model.jar -->
                 <!--
                 grep jps-model.jar idea_loaded_classes_and_resources.txt | cut -f1 -d " " |  sort -u | sed "s/^/<include>/g" | sed "s/$/<\/include>/g"

@@ -41,6 +41,7 @@ rm $IDEA_REDUCED_DIR/lib/util.jar
 rm $IDEA_REDUCED_DIR/lib/util-8.jar
 rm $IDEA_REDUCED_DIR/lib/util_rt.jar
 rm $IDEA_REDUCED_DIR/lib/app.jar
+rm $IDEA_REDUCED_DIR/lib/jps-model.jar
 rm $IDEA_REDUCED_DIR/lib/stats.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/java-impl.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/jps-builders.jar
