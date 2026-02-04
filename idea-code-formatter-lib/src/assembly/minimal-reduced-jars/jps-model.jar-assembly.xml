@@ -1,0 +1,66 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+    <id>reduced</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/jps-model</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>META-INF/**</include>
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <include>com/intellij/openapi/application/PathMacroFilter.class</include>
+                <include>com/intellij/openapi/components/ExpandMacroToPathMap.class</include>
+                <include>com/intellij/openapi/components/PathMacroMap.class</include>
+                <include>com/intellij/openapi/fileTypes/ExactFileNameMatcher.class</include>
+                <include>com/intellij/openapi/fileTypes/ExtensionFileNameMatcher.class</include>
+                <include>com/intellij/openapi/fileTypes/FileNameMatcher.class</include>
+                <include>com/intellij/openapi/fileTypes/impl/FileTypeAssocTable$ConcurrentCharSequenceMapBuilder.class
+                </include>
+                <include>com/intellij/openapi/fileTypes/impl/FileTypeAssocTable.class</include>
+                <include>com/intellij/openapi/fileTypes/impl/IgnoredPatternSet.class</include>
+                <include>com/intellij/openapi/fileTypes/WildcardFileNameMatcher$MaskMatcher.class</include>
+                <include>com/intellij/openapi/fileTypes/WildcardFileNameMatcher$SuffixMatcher.class</include>
+                <include>com/intellij/openapi/fileTypes/WildcardFileNameMatcher.class</include>
+                <include>org/jetbrains/jps/model/ex/JpsElementTypeBase.class</include>
+                <include>org/jetbrains/jps/model/fileTypes/FileNameMatcherFactory.class</include>
+                <include>org/jetbrains/jps/model/fileTypes/impl/FileNameMatcherFactoryImpl.class</include>
+                <include>org/jetbrains/jps/model/java/compiler/AnnotationProcessingConfiguration.class</include>
+                <include>org/jetbrains/jps/model/java/compiler/CompilerOptions.class</include>
+                <include>org/jetbrains/jps/model/java/compiler/ProcessorConfigProfile.class</include>
+                <include>org/jetbrains/jps/model/java/impl/compiler/ProcessorConfigProfileImpl.class</include>
+                <include>org/jetbrains/jps/model/java/impl/compiler/ResourcePatterns.class</include>
+                <include>org/jetbrains/jps/model/java/JavaResourceRootType.class</include>
+                <include>org/jetbrains/jps/model/java/JavaSourceRootType.class</include>
+                <include>org/jetbrains/jps/model/JpsElementChildRole.class</include>
+                <include>org/jetbrains/jps/model/JpsElementType.class</include>
+                <include>org/jetbrains/jps/model/JpsElementTypeWithDefaultProperties.class</include>
+                <include>org/jetbrains/jps/model/module/JpsModuleSourceRootType.class</include>
+                <include>
+                    org/jetbrains/jps/model/serialization/java/compiler/AnnotationProcessorProfileSerializer.class
+                </include>
+                <include>
+                    org/jetbrains/jps/model/serialization/java/compiler/JpsJavaCompilerConfigurationSerializer.class
+                </include>
+                <include>org/jetbrains/jps/model/serialization/JpsElementExtensionSerializerBase.class</include>
+                <include>org/jetbrains/jps/model/serialization/JpsProjectExtensionSerializer.class</include>
+                <include>org/jetbrains/jps/model/serialization/PathMacroUtil.class</include>
+                <include>org/jetbrains/jps/plugin/JpsPluginManager.class</include>
+                <include>org/jetbrains/jps/service/impl/JpsServiceManagerImpl$SingleClassLoaderPluginManager.class
+                </include>
+                <include>org/jetbrains/jps/service/impl/JpsServiceManagerImpl.class</include>
+                <include>org/jetbrains/jps/service/JpsServiceManager$InstanceHolder.class</include>
+                <include>org/jetbrains/jps/service/JpsServiceManager.class</include>
+                <include>org/jetbrains/jps/util/JpsPathUtil.class</include>
+                <!-- END generated includes -->
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

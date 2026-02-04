@@ -15,6 +15,19 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     private static final Logger log = Logger.getLogger(IdeaCodeFormatterEnvironment.class.getName());
     private final Path tmpFormatterRoot;
 
+    enum ClasspathType {
+        IDEA_LIB("idea/lib"), IDEA_FULL("idea");
+        private final String dir;
+
+        ClasspathType(String dir) {
+            this.dir = dir;
+        }
+
+        public String getDir() {
+            return dir;
+        }
+    }
+
     public IdeaCodeFormatterEnvironment() throws IOException {
         tmpFormatterRoot = extractPortableIde();
     }
@@ -26,13 +39,13 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
     private Path extractPortableIde() throws IOException {
         Path tmpFormatterRoot = Files.createTempDirectory("formatterRoot");
-        InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/ide.zip");
-        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot.toFile());
+        InputStream f = IdeaCodeFormatterMain.class.getResourceAsStream("/idea.zip");
+        Utils.unzipZippedFileFromResource(f, tmpFormatterRoot);
         return tmpFormatterRoot;
     }
 
     public int format(String[] args) throws Exception {
-        return this.format(args, outputLines -> outputLines.forEach(log::info));
+        return this.format(args, outputLines -> outputLines.forEach(System.out::println));
     }
 
     public int format(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
@@ -68,29 +81,63 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return returnCode;
     }
 
+    private String buildClasspath(ClasspathType classpathType) {
+        List<String> classpath = new ArrayList<>();
+        if (!Utils.isPackagedInJar()) {
+            // add the classpath to run inside IDEA
+            classpath.add(Utils.class.getProtectionDomain().getCodeSource().getLocation().toString());
+        }
+        try (var allFiles = Files.walk(tmpFormatterRoot.resolve(classpathType.getDir()))) {
+            allFiles.map(Path::toString)
+                    .filter(string -> string.endsWith(".jar"))
+                    .sorted()
+                    .forEach(classpath::add);
+            log.fine(("built classpath: " + classpath));
+            return String.join(":", classpath);
+
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
     private int doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
-
-        String ideHome = formatterRoot.resolve("ide").toString();
         String appdata = formatterRoot.resolve("appdata").toString();
         String localAppdata = formatterRoot.resolve("localAppdata").toString();
 
-        String classpath;
-        if (Utils.isPackagedInJar()) {
-            classpath = new File(Utils.getJarPath(Utils.class)).toString();
-        } else {
-            // add the current classpath (for unit testing)
-            classpath = System.getProperty("java.class.path");
-        }
 
         List<String> command = new ArrayList<>();
         command.add(javaBin);
         command.add("-cp");
-        command.add(classpath);
 
-        command.add("-Didea.home.path=" + ideHome);
-        command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
+        if (System.getProperty("idea.classpath.type", "FULL").equals("FULL")) {
+            // idea libs and idea plugins are in classpath
+            command.add(buildClasspath(ClasspathType.IDEA_FULL));
+            // we don't need idea home path, everything is accessible via class path
+            command.add("-Didea.home.path=" + Files.createTempDirectory("ideaHome").toAbsolutePath());
+
+        } else {
+            // idea libs are in classpath, idea plugin are loaded from the plugins directory
+            command.add(buildClasspath(ClasspathType.IDEA_LIB));
+            // we need the idea home to get access to the plugin directory to load the jars later
+            command.add("-Didea.home.path=" + tmpFormatterRoot.resolve("idea").toAbsolutePath());
+        }
+
+        // add all -D-xxxx system properties as vmargs (-D-X... => -X... , -D-Dxxx => -Dxxx)
+        command.addAll(filterSystemProperties());
+
+        if (System.getProperty("classloader.log.dir") != null) {
+            // enable idea classpath logging
+            command.add("-Dclassloader.log.dir=" + System.getProperty("classloader.log.dir"));
+            command.add("-Djava.system.class.loader=com.github.mschieder.idea.formatter.LoggingClassLoader");
+            command.add("-Didea.record.classpath.info=true");
+
+        } else {
+            command.add("-Djava.system.class.loader=com.intellij.util.lang.PathClassLoader");
+        }
+
+
         command.add("-Didea.vendor.name=JetBrains");
         command.add("-Didea.paths.selector=IdeaIC2023.1");
         command.add("-Djna.nosys=true");
@@ -146,7 +193,6 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         builder.environment().put("APPDATA", appdata);
         builder.environment().put("LOCALAPPDATA", localAppdata);
 
-
         long started = System.currentTimeMillis();
         Process process = builder
                 .redirectInput(ProcessBuilder.Redirect.INHERIT)
@@ -157,9 +203,14 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             process.waitFor();
             reader.lines().forEach(outputLines::add);
-            process.waitFor();
             log.log(Level.FINE, "process finished after {0} ms", System.currentTimeMillis() - started);
             return process.exitValue();
         }
+    }
+
+    private List<String> filterSystemProperties() {
+        return System.getProperties().entrySet().stream().filter(entry -> entry.getKey().toString()
+                .startsWith("-")).map(entry -> entry.getKey() + "=" + entry.getValue()).toList();
+
     }
 }

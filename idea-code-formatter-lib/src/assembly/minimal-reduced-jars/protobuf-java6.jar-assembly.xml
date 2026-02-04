@@ -1,0 +1,26 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+    <id>reduced</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>target/protobuf-java6</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <!-- BEGIN generated includes -->
+                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <include>com/google/protobuf/AbstractMessageLite.class</include>
+                <include>com/google/protobuf/GeneratedMessageLite.class</include>
+                <include>com/google/protobuf/MessageLite.class</include>
+                <include>com/google/protobuf/MessageLiteOrBuilder.class</include>
+                <!-- END generated includes -->
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

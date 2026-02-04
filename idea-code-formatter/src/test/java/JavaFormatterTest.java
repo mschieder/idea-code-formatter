@@ -1,5 +1,4 @@
 import com.github.mschieder.idea.formatter.IdeaCodeFormatterEnvironment;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,6 +8,8 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class JavaFormatterTest {
     private static IdeaCodeFormatterEnvironment formatter;
@@ -32,9 +33,7 @@ public class JavaFormatterTest {
 
 
     public static String[] javaTestFiles() {
-        return new String[]{
-                "SimpleTestClass.java"
-        };
+        return new String[]{"SimpleTestClass.java"};
     }
 
     @ParameterizedTest
@@ -49,7 +48,7 @@ public class JavaFormatterTest {
 
     void assertJavaDefaultsSame(String javaFilename) {
         Path expected = new File(this.getClass().getResource("/testfiles/java/expected/defaults/" + javaFilename).getFile()).toPath();
-        Assertions.assertThat(javaFile.toPath()).hasSameBinaryContentAs(expected);
+        assertThat(javaFile.toPath()).hasSameBinaryContentAs(expected);
     }
 
 
