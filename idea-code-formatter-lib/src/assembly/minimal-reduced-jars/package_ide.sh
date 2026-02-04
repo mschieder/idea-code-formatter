@@ -22,6 +22,8 @@ mkdir -p target/util_rt
 unzip -o -q "$IDEA_DIR/lib/util_rt.jar" -d target/util_rt
 mkdir -p target/app
 unzip -o -q "$IDEA_DIR/lib/app.jar" -d target/app
+mkdir -p target/jps-model
+unzip -o -q "$IDEA_DIR/lib/jps-model.jar" -d target/jps-model
 mkdir -p target/java-impl
 unzip -o -q "$IDEA_DIR/plugins/java/lib/java-impl.jar" -d target/java-impl
 mkdir -p target/stats
