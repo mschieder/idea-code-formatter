@@ -160,6 +160,22 @@
                                 </configuration>
                             </execution>
                             <execution>
+                                <id>stats</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/stats.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>stats</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                    <appendAssemblyId>true</appendAssemblyId>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>java-impl</id>
                                 <phase>package</phase>
                                 <goals>

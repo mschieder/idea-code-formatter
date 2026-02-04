@@ -24,6 +24,8 @@ mkdir -p target/app
 unzip -o -q "$IDEA_DIR/lib/app.jar" -d target/app
 mkdir -p target/java-impl
 unzip -o -q "$IDEA_DIR/plugins/java/lib/java-impl.jar" -d target/java-impl
+mkdir -p target/stats
+unzip -o -q "$IDEA_DIR/lib/stats.jar" -d target/stats
 mkdir -p target/jps-builders
 unzip -o -q "$IDEA_DIR/plugins/java/lib/jps-builders.jar" -d target/jps-builders
 mkdir -p target/protobuf-java6
@@ -37,6 +39,7 @@ rm $IDEA_REDUCED_DIR/lib/util.jar
 rm $IDEA_REDUCED_DIR/lib/util-8.jar
 rm $IDEA_REDUCED_DIR/lib/util_rt.jar
 rm $IDEA_REDUCED_DIR/lib/app.jar
+rm $IDEA_REDUCED_DIR/lib/stats.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/java-impl.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/jps-builders.jar
 rm $IDEA_REDUCED_DIR/plugins/java/lib/rt/protobuf-java6.jar
