@@ -14,13 +14,14 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/openapi/util/Comparing.class</include>
                 <include>com/intellij/openapi/util/Condition$1.class</include>
                 <include>com/intellij/openapi/util/Condition$2.class</include>
                 <include>com/intellij/openapi/util/Condition$3.class</include>
                 <include>com/intellij/openapi/util/Condition.class</include>
                 <include>com/intellij/openapi/util/Couple.class</include>
+                <include>com/intellij/openapi/util/io/ContentTooBigException.class</include>
                 <include>com/intellij/openapi/util/io/DataInputOutputUtilRt.class</include>
                 <include>com/intellij/openapi/util/io/FileTooBigException.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$1.class</include>
@@ -44,6 +45,7 @@
                 <include>com/intellij/util/containers/EmptyIterator.class</include>
                 <include>com/intellij/util/containers/Stack.class</include>
                 <include>com/intellij/util/ExceptionUtilRt$1.class</include>
+                <include>com/intellij/util/ExceptionUtilRt$RethrownStack.class</include>
                 <include>com/intellij/util/ExceptionUtilRt.class</include>
                 <include>com/intellij/util/Function$Mono.class</include>
                 <include>com/intellij/util/Function.class</include>

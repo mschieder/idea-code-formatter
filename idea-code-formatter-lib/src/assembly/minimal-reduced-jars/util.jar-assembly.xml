@@ -16,7 +16,7 @@
                 <include>com/intellij/**/*.class</include>
                 <include>org/jetbrains/**/*.class</include>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/AbstractBundle$MyResourceControl.class</include>
                 <include>com/intellij/AbstractBundle.class</include>
                 <include>com/intellij/BundleBase.class</include>
@@ -220,6 +220,7 @@
                 <include>com/intellij/openapi/diagnostic/RollingFileHandler.class</include>
                 <include>com/intellij/openapi/diagnostic/RuntimeExceptionWithAttachments.class</include>
                 <include>com/intellij/openapi/diagnostic/ThrottledLogger.class</include>
+                <include>com/intellij/openapi/diagnostic/UntraceableException.class</include>
                 <include>com/intellij/openapi/Disposable$Default.class</include>
                 <include>com/intellij/openapi/Disposable$Parent.class</include>
                 <include>com/intellij/openapi/Disposable.class</include>
@@ -255,6 +256,7 @@
                 <include>com/intellij/openapi/extensions/BaseExtensionPointName.class</include>
                 <include>com/intellij/openapi/extensions/CustomLoadingExtensionPointBean.class</include>
                 <include>com/intellij/openapi/extensions/DefaultPluginDescriptor.class</include>
+                <include>com/intellij/openapi/extensions/ExtensionDescriptor$Os$WhenMappings.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionDescriptor$Os.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionDescriptor.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionNotApplicableException.class</include>
@@ -266,22 +268,31 @@
                 <include>com/intellij/openapi/extensions/ExtensionPointListener.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionPointName$Companion.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionPointName.class</include>
+                <include>com/intellij/openapi/extensions/ExtensionPointNameKt$useOrLogError$1.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionPointNameKt.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionPointPriorityListener.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionPointUtil$1.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionPointUtil.class</include>
                 <include>com/intellij/openapi/extensions/ExtensionsArea.class</include>
                 <include>com/intellij/openapi/extensions/Extensions.class</include>
+                <include>com/intellij/openapi/extensions/impl/AdapterWithCustomAttributes.class</include>
                 <include>com/intellij/openapi/extensions/impl/BeanExtensionPoint.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionComponentAdapter$Companion.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionComponentAdapter.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionPointImpl$1.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionPointImpl$4.class</include>
+                <include>com/intellij/openapi/extensions/impl/ExtensionPointImpl$Companion.class</include>
+                <include>
+                    com/intellij/openapi/extensions/impl/ExtensionPointImpl$doAddChangeListener$listenerAdapter$1.class
+                </include>
+                <include>com/intellij/openapi/extensions/impl/ExtensionPointImpl$iterator$2.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionPointImpl$ObjectComponentAdapter.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionPointImpl.class</include>
+                <include>com/intellij/openapi/extensions/impl/ExtensionPointImplKt.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionProcessingHelper.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionsAreaImpl$Companion.class</include>
                 <include>com/intellij/openapi/extensions/impl/ExtensionsAreaImpl.class</include>
+                <include>com/intellij/openapi/extensions/impl/ExtensionsAreaImplKt.class</include>
                 <include>com/intellij/openapi/extensions/impl/ImplementationClassResolver.class</include>
                 <include>
                     com/intellij/openapi/extensions/impl/InterfaceExtensionImplementationClassResolver$Companion.class
@@ -289,20 +300,29 @@
                 <include>com/intellij/openapi/extensions/impl/InterfaceExtensionImplementationClassResolver.class
                 </include>
                 <include>com/intellij/openapi/extensions/impl/InterfaceExtensionPoint.class</include>
+                <include>com/intellij/openapi/extensions/impl/SimpleConstructorInjectionAdapter.class</include>
                 <include>com/intellij/openapi/extensions/impl/XmlExtensionAdapter$Companion.class</include>
                 <include>
                     com/intellij/openapi/extensions/impl/XmlExtensionAdapter$SimpleConstructorInjectionAdapter.class
                 </include>
                 <include>com/intellij/openapi/extensions/impl/XmlExtensionAdapter.class</include>
+                <include>com/intellij/openapi/extensions/impl/XmlExtensionAdapterKt.class</include>
                 <include>com/intellij/openapi/extensions/InternalIgnoreDependencyViolation.class</include>
+                <include>com/intellij/openapi/extensions/LazyExtension.class</include>
+                <include>com/intellij/openapi/extensions/LazyExtensionImpl.class</include>
+                <include>com/intellij/openapi/extensions/LazyExtensionSequence$iterator$1.class</include>
+                <include>com/intellij/openapi/extensions/LazyExtensionSequence.class</include>
                 <include>com/intellij/openapi/extensions/LoadingOrder$1.class</include>
                 <include>com/intellij/openapi/extensions/LoadingOrder$2.class</include>
                 <include>com/intellij/openapi/extensions/LoadingOrder$Companion$sort$graph$1.class</include>
+                <include>com/intellij/openapi/extensions/LoadingOrder$Companion$sortByLoadingOrder$graph$1.class
+                </include>
                 <include>com/intellij/openapi/extensions/LoadingOrder$Companion.class</include>
                 <include>com/intellij/openapi/extensions/LoadingOrder$Orderable.class</include>
                 <include>com/intellij/openapi/extensions/LoadingOrder.class</include>
                 <include>com/intellij/openapi/extensions/PluginAware.class</include>
                 <include>com/intellij/openapi/extensions/PluginDescriptor.class</include>
+                <include>com/intellij/openapi/extensions/PluginId$Companion.class</include>
                 <include>com/intellij/openapi/extensions/PluginId.class</include>
                 <include>com/intellij/openapi/extensions/ProjectExtensionPointName.class</include>
                 <include>com/intellij/openapi/extensions/RequiredElement.class</include>
@@ -509,6 +529,7 @@
                 <include>com/intellij/openapi/util/text/HtmlChunk$Element.class</include>
                 <include>com/intellij/openapi/util/text/HtmlChunk.class</include>
                 <include>com/intellij/openapi/util/text/LineTokenizer.class</include>
+                <include>com/intellij/openapi/util/text/NaturalComparator.class</include>
                 <include>com/intellij/openapi/util/text/Pluralizer.class</include>
                 <include>com/intellij/openapi/util/TextRange.class</include>
                 <include>com/intellij/openapi/util/TextRangeScalarUtil.class</include>
@@ -1292,6 +1313,7 @@
                 <include>com/intellij/util/io/IntToIntBtree$KeyValueProcessor.class</include>
                 <include>com/intellij/util/io/IntToIntBtree.class</include>
                 <include>com/intellij/util/io/IOCancellationCallback.class</include>
+                <include>com/intellij/util/io/IOCancellationCallbackHolder$loadSingleCallback$2.class</include>
                 <include>com/intellij/util/io/IOCancellationCallbackHolder$usedIoCallback$2.class</include>
                 <include>com/intellij/util/io/IOCancellationCallbackHolder.class</include>
                 <include>com/intellij/util/io/IOStatistics.class</include>
@@ -1590,9 +1612,251 @@
                 <include>com/intellij/util/xmlb/XmlSerializerImpl.class</include>
                 <include>com/intellij/util/xmlb/XmlSerializerUtil.class</include>
                 <include>com/intellij/xml/util/XmlStringUtil.class</include>
+                <include>com/jetbrains/Extensions.class</include>
+                <include>com/jetbrains/JBR$Jstack__Holder.class</include>
+                <include>com/jetbrains/JBR.class</include>
+                <include>com/jetbrains/Jstack.class</include>
+                <include>intellij.libraries.fastutil.xml</include>
+                <include>it/unimi/dsi/fastutil/Arrays$ForkJoinGenericQuickSort.class</include>
+                <include>it/unimi/dsi/fastutil/Arrays.class</include>
+                <include>it/unimi/dsi/fastutil/BidirectionalIterator.class</include>
+                <include>it/unimi/dsi/fastutil/floats/FloatCollection.class</include>
+                <include>it/unimi/dsi/fastutil/floats/FloatIterable.class</include>
+                <include>it/unimi/dsi/fastutil/Function.class</include>
+                <include>it/unimi/dsi/fastutil/Hash$Strategy.class</include>
+                <include>it/unimi/dsi/fastutil/Hash.class</include>
+                <include>it/unimi/dsi/fastutil/HashCommon.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2IntFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2IntMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2LongFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2LongMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractInt2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractIntCollection.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractIntList$IntRandomAccessSubList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractIntList$IntSubList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractIntList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/AbstractIntSet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2IntFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2IntMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2IntMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2IntMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2IntOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2LongFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2LongMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2LongMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2LongMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2LongOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectFunctions$EmptyFunction.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMaps$EmptyMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectMaps.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$FastEntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$MapEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/Int2ObjectOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrayList$1.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrayList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays$ArrayHashStrategy.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays$ForkJoinQuickSort2.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays$ForkJoinQuickSort.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays$ForkJoinQuickSortComp.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays$ForkJoinQuickSortIndirect.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays$Segment.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArrays.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntArraySet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntBidirectionalIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntCollection.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntCollections$EmptyCollection.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntCollections$SynchronizedCollection.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntCollections$UnmodifiableCollection.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntIterable.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntIterators$EmptyIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntIterators.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntListIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntLists$EmptyList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntLists$SynchronizedList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntLists$SynchronizedRandomAccessList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntLists$UnmodifiableList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntLists$UnmodifiableRandomAccessList.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntLists.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntObjectPair.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntOpenHashSet$SetIterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntOpenHashSet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntSet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntSets$EmptySet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntSets$SynchronizedSet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntSets$UnmodifiableSet.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntSets.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntSpliterator.class</include>
+                <include>it/unimi/dsi/fastutil/ints/IntStack.class</include>
+                <include>it/unimi/dsi/fastutil/longs/AbstractLong2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/longs/AbstractLong2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/AbstractLong2ObjectSortedMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/AbstractLongCollection.class</include>
+                <include>it/unimi/dsi/fastutil/longs/AbstractLongSet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectFunctions$EmptyFunction.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectLinkedOpenHashMap$1.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectLinkedOpenHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectLinkedOpenHashMap$ValueIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectLinkedOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectMaps$EmptyMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectMaps.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap$EntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap$FastEntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap$MapEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectSortedMap$FastSortedEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/Long2ObjectSortedMap.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongArrays$ArrayHashStrategy.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongArrays$Segment.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongArrays.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongArraySet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongBidirectionalIterable.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongBidirectionalIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongCollection.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongCollections$EmptyCollection.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongCollections$SynchronizedCollection.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongCollections$UnmodifiableCollection.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongIterable.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongObjectPair.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongOpenHashSet$SetIterator.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongOpenHashSet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSets$EmptySet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSets$SynchronizedSet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSets$UnmodifiableSet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSets.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSortedSet.class</include>
+                <include>it/unimi/dsi/fastutil/longs/LongSpliterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2FloatFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2FloatMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2IntFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2IntMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2LongFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2LongMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObject2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectCollection.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectList$ObjectRandomAccessSubList.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectList$ObjectSubList.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectList.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractObjectSortedSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractReference2IntFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractReference2IntMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractReference2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractReference2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractReferenceCollection.class</include>
+                <include>it/unimi/dsi/fastutil/objects/AbstractReferenceSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2FloatFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2FloatMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2FloatMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2FloatOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntFunctions$EmptyFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntMaps$EmptyMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntMaps.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$EntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$FastEntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$MapEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2IntOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongFunctions$EmptyFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongMaps$EmptyMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongMaps.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongOpenHashMap$FastEntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongOpenHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongOpenHashMap$MapEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongOpenHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2LongOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectFunctions$EmptyFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectMaps$EmptyMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectMaps.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenCustomHashMap$EntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenCustomHashMap$KeySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenCustomHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenCustomHashMap$MapEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenCustomHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenCustomHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$1.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$EntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$FastEntryIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$KeyIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$KeySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$MapEntry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$MapEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$MapIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap$ValueIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrayList.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrays$ArrayHashStrategy.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrays$ForkJoinQuickSort2.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrays$ForkJoinQuickSort.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrays$ForkJoinQuickSortComp.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrays$ForkJoinQuickSortIndirect.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArrays.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectArraySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectBidirectionalIterable.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectBidirectionalIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectCollection.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectIntPair.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectIterable.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectLinkedOpenCustomHashSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectList.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectListIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectLongPair.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectOpenCustomHashSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectOpenHashSet$SetIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectOpenHashSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectSortedSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectSpliterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2IntFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2IntMap$Entry.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2IntMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2IntMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2IntOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2ObjectFunction.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2ObjectMap$FastEntrySet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2ObjectMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/Reference2ObjectOpenHashMap.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ReferenceCollection.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ReferenceOpenHashSet$SetIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ReferenceOpenHashSet.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ReferenceSet.class</include>
+                <include>it/unimi/dsi/fastutil/Pair.class</include>
+                <include>it/unimi/dsi/fastutil/Stack.class</include>
                 <include>messages/CoreBundle.properties</include>
                 <include>META-INF/Core.xml</include>
                 <include>misc/registry.properties</include>
+                <include>net/n3/nanoxml/IXMLBuilder.class</include>
                 <include>org/jdom/ImmutableAttribute.class</include>
                 <include>org/jdom/ImmutableCDATA.class</include>
                 <include>org/jdom/ImmutableElement.class</include>

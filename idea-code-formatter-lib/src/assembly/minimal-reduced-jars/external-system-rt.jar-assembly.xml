@@ -14,7 +14,7 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/openapi/externalSystem/model/ExternalSystemException.class</include>
                 <!-- END generated includes -->
             </includes>
