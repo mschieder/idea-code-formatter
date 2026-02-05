@@ -15,7 +15,7 @@
             <includes>
                 <include>META-INF/**</include>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/openapi/application/PathMacroFilter.class</include>
                 <include>com/intellij/openapi/components/ExpandMacroToPathMap.class</include>
                 <include>com/intellij/openapi/components/PathMacroMap.class</include>
@@ -51,6 +51,8 @@
                 </include>
                 <include>org/jetbrains/jps/model/serialization/JpsElementExtensionSerializerBase.class</include>
                 <include>org/jetbrains/jps/model/serialization/JpsProjectExtensionSerializer.class</include>
+                <include>org/jetbrains/jps/model/serialization/JpsProjectExtensionWithExternalDataSerializer.class
+                </include>
                 <include>org/jetbrains/jps/model/serialization/PathMacroUtil.class</include>
                 <include>org/jetbrains/jps/plugin/JpsPluginManager.class</include>
                 <include>org/jetbrains/jps/service/impl/JpsServiceManagerImpl$SingleClassLoaderPluginManager.class

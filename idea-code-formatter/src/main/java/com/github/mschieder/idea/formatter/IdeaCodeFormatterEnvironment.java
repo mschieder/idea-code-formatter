@@ -1,6 +1,7 @@
 package com.github.mschieder.idea.formatter;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -115,7 +116,9 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
             // idea libs and idea plugins are in classpath
             command.add(buildClasspath(ClasspathType.IDEA_FULL));
             // we don't need idea home path, everything is accessible via class path
-            command.add("-Didea.home.path=" + Files.createTempDirectory("ideaHome").toAbsolutePath());
+            var tmpHomeDir = Files.createTempDirectory("ideaHome");
+            tmpHomeDir.toFile().deleteOnExit();
+            command.add("-Didea.home.path=" + tmpHomeDir.toAbsolutePath());
 
         } else {
             // idea libs are in classpath, idea plugin are loaded from the plugins directory
@@ -139,72 +142,46 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
 
         command.add("-Didea.vendor.name=JetBrains");
-        command.add("-Didea.paths.selector=IdeaIC2023.1");
+        command.add("-Didea.paths.selector=IdeaFormatter");
         command.add("-Djna.nosys=true");
         command.add("-Djna.noclasspath=true");
         command.add("-Didea.platform.prefix=Idea");
         command.add("-Dsplash=false");
 
-
-        command.add("--add-opens=java.base/java.io=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.lang=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.lang.ref=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.net=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.nio=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.nio.charset=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.text=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.time=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.util=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.util.concurrent=ALL-UNNAMED");
-        command.add("--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED");
-        command.add("--add-opens=java.base/jdk.internal.vm=ALL-UNNAMED");
-        command.add("--add-opens=java.base/sun.nio.ch=ALL-UNNAMED");
-        command.add("--add-opens=java.base/sun.nio.fs=ALL-UNNAMED");
-        command.add("--add-opens=java.base/sun.security.ssl=ALL-UNNAMED");
-        command.add("--add-opens=java.base/sun.security.util=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/java.awt=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/java.awt.dnd.peer=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/java.awt.event=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/java.awt.image=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/java.awt.peer=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/java.awt.font=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/javax.swing=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/javax.swing.text.html=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.awt.datatransfer=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.awt.image=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.awt.windows=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.awt=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.font=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.java2d=ALL-UNNAMED");
-        command.add("--add-opens=java.desktop/sun.swing=ALL-UNNAMED");
-        command.add("--add-opens=jdk.attach/sun.tools.attach=ALL-UNNAMED");
-        command.add("--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED");
-        command.add("--add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED");
-        command.add("--add-opens=jdk.jdi/com.sun.tools.jdi=ALL-UNNAMED");
-
+        // add all add-opens
+        try (var reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("/add-opens.txt"), StandardCharsets.UTF_8))) {
+            command.addAll(reader.lines().toList());
+        }
 
         command.add("com.intellij.idea.Main");
-        command.add("format");
-        command.addAll(Arrays.asList(args));
+
+        final List<String> argList = Arrays.stream(args).map(String::trim).distinct().toList();
+        if (!argList.contains("format")) {
+            command.add("format");
+        }
+        command.addAll(argList);
 
         ProcessBuilder builder = new ProcessBuilder(command);
         builder.environment().put("APPDATA", appdata);
         builder.environment().put("LOCALAPPDATA", localAppdata);
 
         long started = System.currentTimeMillis();
+        final Path errorLog = formatterRoot.resolve("error.log");
         Process process = builder
                 .redirectInput(ProcessBuilder.Redirect.INHERIT)
                 .redirectOutput(ProcessBuilder.Redirect.PIPE)
-                .redirectError(ProcessBuilder.Redirect.to(formatterRoot.resolve("error.log").toFile()))
+                .redirectError(ProcessBuilder.Redirect.to(errorLog.toFile()))
                 .start();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             process.waitFor();
             reader.lines().forEach(outputLines::add);
             log.log(Level.FINE, "process finished after {0} ms", System.currentTimeMillis() - started);
-            return process.exitValue();
+            int exitValue = process.exitValue();
+            if (exitValue != 0 && Files.exists(errorLog)) {
+                outputLines.addAll(Files.readAllLines(errorLog));
+            }
+            return exitValue;
         }
     }
 
