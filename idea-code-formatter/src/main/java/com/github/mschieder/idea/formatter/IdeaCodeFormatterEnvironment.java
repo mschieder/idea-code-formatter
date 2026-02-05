@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -102,6 +103,11 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     }
 
     private int doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
+        if (this.getClass().getResource("/dev.properties") != null) {
+            Properties properties = new Properties();
+            properties.load(this.getClass().getResourceAsStream("/dev.properties"));
+            properties.forEach((k, v) -> System.setProperty(k.toString(), v.toString()));
+        }
 
         String javaBin = System.getProperty("java.home") + "/bin/java";
         String appdata = formatterRoot.resolve("appdata").toString();
