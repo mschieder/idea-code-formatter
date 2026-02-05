@@ -184,7 +184,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
             reader.lines().forEach(outputLines::add);
             log.log(Level.FINE, "process finished after {0} ms", System.currentTimeMillis() - started);
             int exitValue = process.exitValue();
-            if (exitValue != 0 && Files.exists(errorLog)) {
+            if ("always".equals(System.getProperty("idea.logErrors", "exitStatus"))
+                    || (exitValue != 0 && Files.exists(errorLog))) {
                 outputLines.addAll(Files.readAllLines(errorLog));
             }
             return exitValue;
