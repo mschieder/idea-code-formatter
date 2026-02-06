@@ -1,11 +1,16 @@
 package com.github.mschieder.idea.formatter;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Properties;
 import java.util.function.Consumer;
@@ -92,7 +97,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         try (var allFiles = Files.walk(tmpFormatterRoot.resolve(classpathType.getDir()))) {
             allFiles.map(Path::toString)
                     .filter(string -> string.endsWith(".jar"))
-                    .sorted()
+                    .sorted(Comparator.reverseOrder())
                     .forEach(classpath::add);
             log.fine(("built classpath: " + classpath));
             return String.join(":", classpath);

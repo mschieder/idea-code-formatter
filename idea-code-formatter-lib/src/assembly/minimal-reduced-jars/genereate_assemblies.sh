@@ -66,7 +66,7 @@ do
 
 
   echo "$INDENT<!-- generated with $0 - DO NOT EDIT - -->" > includes.xml
-  grep $jarfilename $LOG_DIR/idea_loaded_classes_and_resources.txt | cut -f1 -d " " |  sort -u | sed "s/^/$INDENT<include>/g" | sed "s/$/<\/include>/g" >> includes.xml
+  grep $jarfilename $LOG_DIR/idea_loaded_classes_and_resources.txt | cut -f1 -d "|" |  sort -u | sed "s/^/$INDENT<include>/g" | sed "s/$/<\/include>/g" >> includes.xml
   sed -i -ne "/<!-- BEGIN generated includes -->/ {p; r includes.xml" -e ":a; n; /<!-- END generated includes -->/ {p; b}; ba}; p" $jarfilename-assembly.xml
   rm includes.xml
 done < ../minimal-jars.txt

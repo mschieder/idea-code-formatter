@@ -4,8 +4,13 @@ IDEA_DIR=target/idea
 REPACKAGED_IDEA_DIR=../idea-code-formatter/target/repackaged
 
 # extract all idea lib jars and all jars of following plugins: java | java-ide-customization
-echo unzipping idea plugin files
 mkdir -p $IDEA_DIR
+
+echo unzipping lib jars
+unzip -o $DOWNLOAD_FILE "lib/*.jar" -d $IDEA_DIR
+unzip -o $DOWNLOAD_FILE "lib/*/*.jar" -d $IDEA_DIR
+
+echo unzipping idea plugin files
 echo extracting all required plugins
 while IFS="" read -r plugin || [ -n "$plugin" ]
 do
