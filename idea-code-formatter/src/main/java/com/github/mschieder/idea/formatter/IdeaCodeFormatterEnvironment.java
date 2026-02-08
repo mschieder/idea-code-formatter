@@ -2,6 +2,7 @@ package com.github.mschieder.idea.formatter;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -67,26 +68,26 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         return tmpFormatterRoot;
     }
 
-    public int format(String[] args) throws Exception {
+    public FormatterResult format(String[] args) throws Exception {
         return this.format(args, outputLines -> outputLines.forEach(System.out::println));
     }
 
-    public int format(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
+    public FormatterResult format(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
         List<String> outputLines = new ArrayList<>();
-        int returnCode =
+        FormatterResult result =
                 doFormat(tmpFormatterRoot, args, outputLines);
         outputLinePrinter.accept(outputLines);
-        return returnCode;
+        return result;
     }
 
-    public int validate(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
+    public FormatterResult validate(String[] args, Consumer<List<String>> outputLinePrinter) throws Exception {
         List<String> argsList = new ArrayList<>(Arrays.asList(args));
         if (!argsList.contains("-d") && !argsList.contains("-dry")) {
             argsList.add(0, "-dry");
         }
 
         List<String> outputLines = new ArrayList<>();
-        int returnCode = doFormat(tmpFormatterRoot, argsList.toArray(new String[0]), outputLines);
+        FormatterResult result = doFormat(tmpFormatterRoot, argsList.toArray(new String[0]), outputLines);
 
         boolean validationOk = true;
         outputLinePrinter.accept(outputLines);
@@ -98,10 +99,10 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
             }
         }
 
-        if (returnCode == 0) {
-            return validationOk ? 0 : -1;
+        if (result.exitCode() == 0) {
+            return validationOk ? result : result.withExitCode(-1);
         }
-        return returnCode;
+        return result;
     }
 
     private String buildClasspath(ClasspathType classpathType) {
@@ -116,7 +117,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
                     .sorted(Comparator.reverseOrder())
                     .forEach(classpath::add);
             log.fine(("built classpath: " + classpath));
-            return String.join(":", classpath);
+            return String.join(File.pathSeparatorChar + "", classpath);
 
         } catch (IOException e) {
             throw new UncheckedIOException(e);
@@ -124,7 +125,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
     }
 
 
-    private int doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
+    private FormatterResult doFormat(Path formatterRoot, String[] args, List<String> outputLines) throws Exception {
         if (this.getClass().getResource("/dev.properties") != null) {
             Properties properties = new Properties();
             properties.load(this.getClass().getResourceAsStream("/dev.properties"));
@@ -227,7 +228,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
         log.log(Level.FINE, "process finished after {0} ms", System.currentTimeMillis() - started);
 
-        return exitCode;
+        return FormatterResult.parse(outputLines).withExitCode(exitCode);
 
     }
 
@@ -242,7 +243,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
             if (process.isAlive()) {
                 readlines(process, outputLines);
-                summaryPrinted = summaryPrinted || FormatterSummary.parse(outputLines).isReady();
+                summaryPrinted = summaryPrinted || FormatterResult.parse(outputLines).isReady();
 
             }
             if (summaryPrinted && totalWaitTimeAfterSummaryInMillis >= 2000) {
@@ -251,7 +252,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
                 log.warning("process destroyed after 2000 ms");
 
                 // calculate the exit code from the summary
-                FormatterSummary result = FormatterSummary.parse(outputLines);
+                FormatterResult result = FormatterResult.parse(outputLines);
                 if (result.wellFormed() != -1 && result.checked() != result.wellFormed()) {
                     // dry run: not all files are well formed
                     return 1;

@@ -39,15 +39,15 @@ public class ValidateMojo extends AbstractMojo {
         getLog().debug("charset: " + charset);
         getLog().debug("masks: " + masks);
 
-        var returnCode = -1;
+        FormatterResult result;
         try (IdeaCodeFormatterEnvironment environment = new IdeaCodeFormatterEnvironment()) {
-            returnCode = environment.validate(new IdeaFormatterArgsBuilder().recursive(recursive).charset(charset).masks(masks)
+            result = environment.validate(new IdeaFormatterArgsBuilder().recursive(recursive).charset(charset).masks(masks)
                             .dryRun(true).directories(directories).codestyleSettingsFile(codestyleSettingsFile).build(),
                     outputLines -> outputLines.forEach(System.out::println));
         } catch (Exception e) {
             throw new MojoExecutionException(e);
         }
-        if (returnCode != 0) {
+        if (result.exitCode() != 0) {
             throw new MojoExecutionException("some files are not clean.");
         }
     }
