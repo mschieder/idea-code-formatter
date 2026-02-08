@@ -16,7 +16,8 @@
                 <include>com/intellij/**/*.class</include>
 
                 <!-- needed on macos -->
-                <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorageUtils</include>
+                <include>io/opentelemetry/sdk/metrics/internal/state/MetricStorageUtils.class</include>
+                <include>com/github/benmanes/caffeine/cache/BoundedBuffer$RingBuffer.class</include>
                 <!-- BEGIN generated includes -->
                 <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>ai/grazie/DataHolder$Key.class</include>
