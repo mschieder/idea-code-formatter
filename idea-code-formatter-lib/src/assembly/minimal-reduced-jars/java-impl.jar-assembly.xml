@@ -33,21 +33,12 @@
                 <include>
                     com/intellij/codeInsight/daemon/problems/pass/ProjectProblemFileSelectionListener$MyStartupActivity.class
                 </include>
-                <include>com/intellij/codeInsight/ExternalAnnotationsManagerImpl.class</include>
-                <include>com/intellij/codeInsight/guess/GuessManager.class</include>
-                <include>com/intellij/codeInsight/guess/impl/GuessManagerImpl.class</include>
-                <include>com/intellij/codeInsight/InferredAnnotationsManagerImpl.class</include>
-                <include>com/intellij/codeInsight/JavaProjectCodeInsightSettings.class</include>
-                <include>com/intellij/codeInsight/ModCommandAwareExternalAnnotationsManager.class</include>
-                <include>com/intellij/codeInsight/NullableNotNullManagerImpl.class</include>
-                <include>com/intellij/codeInsight/ReadableExternalAnnotationsManager.class</include>
                 <include>com/intellij/codeInspection/AbstractBaseJavaLocalInspectionTool$1.class</include>
                 <include>com/intellij/codeInspection/AbstractBaseJavaLocalInspectionTool.class</include>
                 <include>com/intellij/codeInspection/bytecodeAnalysis/BytecodeAnalysisIndex$1.class</include>
                 <include>com/intellij/codeInspection/bytecodeAnalysis/BytecodeAnalysisIndex$HKeyDescriptor.class
                 </include>
                 <include>com/intellij/codeInspection/bytecodeAnalysis/BytecodeAnalysisIndex.class</include>
-                <include>com/intellij/codeInspection/bytecodeAnalysis/ProjectBytecodeAnalysis.class</include>
                 <include>com/intellij/codeInspection/dataFlow/ConstantValueInspection$1.class</include>
                 <include>com/intellij/codeInspection/dataFlow/ConstantValueInspection.class</include>
                 <include>com/intellij/codeInspection/dataFlow/ConstantValueInspectionMerger.class</include>
@@ -75,7 +66,6 @@
                 <include>com/intellij/codeInspection/deadCode/UnusedParametersInspection$1.class</include>
                 <include>com/intellij/codeInspection/deadCode/UnusedParametersInspection.class</include>
                 <include>com/intellij/codeInspection/ex/EntryPointsManagerBase.class</include>
-                <include>com/intellij/codeInspection/ex/impl/EntryPointsManagerImpl.class</include>
                 <include>com/intellij/codeInspection/ExplicitArrayFillingInspectionMerger.class</include>
                 <include>com/intellij/codeInspection/GlobalJavaBatchInspectionTool.class</include>
                 <include>com/intellij/codeInspection/java18api/Java8MapApiInspectionMerger.class</include>
@@ -100,46 +90,27 @@
                 <include>com/intellij/codeInspection/unusedSymbol/UnusedSymbolLocalInspection.class</include>
                 <include>com/intellij/codeInspection/util/RefFilter.class</include>
                 <include>com/intellij/codeInspection/visibility/EntryPointWithVisibilityLevel.class</include>
-                <include>com/intellij/compiler/actions/ArtifactAwareProjectSettingsService.class</include>
-                <include>com/intellij/compiler/backwardRefs/CompilerReferenceServiceBase.class</include>
-                <include>com/intellij/compiler/backwardRefs/CompilerReferenceServiceEx.class</include>
-                <include>com/intellij/compiler/backwardRefs/CompilerReferenceServiceImpl.class</include>
                 <include>com/intellij/compiler/CompilerConfiguration.class</include>
                 <include>com/intellij/compiler/CompilerConfigurationImpl$1.class</include>
                 <include>com/intellij/compiler/CompilerConfigurationImpl$2.class</include>
                 <include>com/intellij/compiler/CompilerConfigurationImpl$CompiledPattern.class</include>
                 <include>com/intellij/compiler/CompilerConfigurationImpl$State.class</include>
                 <include>com/intellij/compiler/CompilerConfigurationImpl.class</include>
-                <include>com/intellij/compiler/CompilerConfigurationSettings.class</include>
-                <include>com/intellij/compiler/CompilerEncodingService.class</include>
-                <include>com/intellij/compiler/CompilerManagerImpl.class</include>
-                <include>com/intellij/compiler/CompilerReferenceService.class</include>
-                <include>com/intellij/compiler/CompilerWorkspaceConfiguration$JavaBuildWorkspaceConfiguration.class
-                </include>
                 <include>com/intellij/compiler/ExternalCompilerConfigurationStorage$Companion.class</include>
                 <include>com/intellij/compiler/ExternalCompilerConfigurationStorage.class</include>
                 <include>com/intellij/compiler/ExternalCompilerConfigurationStorageKt.class</include>
-                <include>com/intellij/compiler/impl/CompilerEncodingServiceImpl.class</include>
                 <include>com/intellij/compiler/impl/javaCompiler/BackendCompiler$1.class</include>
                 <include>com/intellij/compiler/impl/javaCompiler/BackendCompiler.class</include>
                 <include>com/intellij/compiler/impl/javaCompiler/eclipse/EclipseCompiler.class</include>
-                <include>com/intellij/compiler/impl/javaCompiler/eclipse/EclipseCompilerConfiguration.class</include>
                 <include>com/intellij/compiler/impl/javaCompiler/javac/JavacCompiler.class</include>
                 <include>com/intellij/compiler/impl/javaCompiler/javac/JavacConfigurationMacroFilter.class</include>
                 <include>com/intellij/compiler/impl/KotlinCompilerArgumentsMacroFilter.class</include>
-                <include>com/intellij/compiler/impl/ProblemsViewImpl.class</include>
-                <include>com/intellij/compiler/impl/rmiCompiler/RmicConfiguration.class</include>
                 <include>com/intellij/compiler/impl/TranslatingCompilerFilesMonitor$1.class</include>
                 <include>com/intellij/compiler/impl/TranslatingCompilerFilesMonitor$2.class</include>
                 <include>com/intellij/compiler/impl/TranslatingCompilerFilesMonitor$3.class</include>
                 <include>com/intellij/compiler/impl/TranslatingCompilerFilesMonitor$FileProcessor.class</include>
                 <include>com/intellij/compiler/impl/TranslatingCompilerFilesMonitor.class</include>
                 <include>com/intellij/compiler/MalformedPatternException.class</include>
-                <include>
-                    com/intellij/compiler/options/ValidationConfiguration$ExcludedFromValidationConfiguration.class
-                </include>
-                <include>com/intellij/compiler/options/ValidationConfiguration.class</include>
-                <include>com/intellij/compiler/ProblemsView.class</include>
                 <include>com/intellij/compiler/server/AutoMakeMessageHandler.class</include>
                 <include>com/intellij/compiler/server/BuildCommandLineBuilder.class</include>
                 <include>com/intellij/compiler/server/BuilderMessageHandler.class</include>
@@ -148,7 +119,6 @@
                 <include>com/intellij/compiler/server/BuildManager$3.class</include>
                 <include>com/intellij/compiler/server/BuildManager$4.class</include>
                 <include>com/intellij/compiler/server/BuildManager$6.class</include>
-                <include>com/intellij/compiler/server/BuildManager$7.class</include>
                 <include>com/intellij/compiler/server/BuildManager$BuildManagerPeriodicTask.class</include>
                 <include>com/intellij/compiler/server/BuildManager$BuildManagerStartupActivity.class</include>
                 <include>com/intellij/compiler/server/BuildManager$MyDocumentListener.class</include>
@@ -160,31 +130,15 @@
                 <include>com/intellij/compiler/server/DefaultMessageHandler.class</include>
                 <include>com/intellij/compiler/server/impl/BuildProcessClasspathManager$Companion.class</include>
                 <include>com/intellij/compiler/server/impl/BuildProcessClasspathManager.class</include>
-                <include>com/intellij/compiler/server/impl/BuildProcessCustomPluginsConfiguration.class</include>
-                <include>com/intellij/compiler/server/impl/BuildProcessPreloadedStateClearer$ChangeProcessor$1.class
-                </include>
-                <include>com/intellij/compiler/server/impl/BuildProcessPreloadedStateClearer$ChangeProcessor.class
-                </include>
-                <include>com/intellij/compiler/server/impl/BuildProcessPreloadedStateClearer.class</include>
-                <include>com/intellij/compiler/server/InternedPath.class</include>
                 <include>com/intellij/core/JavaPsiBundle.class</include>
-                <include>com/intellij/debugger/DebuggerManager.class</include>
-                <include>com/intellij/debugger/DebuggerManagerEx.class</include>
                 <include>com/intellij/debugger/engine/PositionManagerImpl$JavaSourcePosition.class</include>
                 <include>com/intellij/debugger/engine/RemappedSourcePosition.class</include>
                 <include>com/intellij/debugger/engine/requests/LocatableEventRequestor.class</include>
-                <include>com/intellij/debugger/engine/requests/SuspendingRequestor.class</include>
-                <include>com/intellij/debugger/impl/DebuggerManagerImpl.class</include>
                 <include>com/intellij/debugger/InstanceFilter.class</include>
                 <include>com/intellij/debugger/JavaDebuggerBundle.class</include>
-                <include>com/intellij/debugger/jdi/MethodBytecodeUtil$InstructionOffsetReader.class</include>
                 <include>com/intellij/debugger/requests/ClassPrepareRequestor.class</include>
                 <include>com/intellij/debugger/requests/Requestor.class</include>
-                <include>com/intellij/debugger/settings/DebuggerProjectSettings.class</include>
                 <include>com/intellij/debugger/SourcePosition.class</include>
-                <include>com/intellij/debugger/statistics/ThreadDumpTriggeringExceptionValidator$Companion.class
-                </include>
-                <include>com/intellij/debugger/statistics/ThreadDumpTriggeringExceptionValidator.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/AddFieldBreakpointDialog.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/AnyExceptionBreakpoint.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/Breakpoint.class</include>
@@ -204,7 +158,6 @@
                 <include>com/intellij/debugger/ui/breakpoints/JavaExceptionBreakpointType.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/JavaFieldBreakpointType$1.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/JavaFieldBreakpointType.class</include>
-                <include>com/intellij/debugger/ui/breakpoints/JavaLineBreakpointType$1Visitor.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/JavaLineBreakpointTypeBase.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/JavaLineBreakpointType.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/JavaMethodBreakpointType.class</include>
@@ -214,40 +167,25 @@
                 <include>com/intellij/debugger/ui/breakpoints/MethodBreakpoint.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/MethodBreakpointPropertiesPanel.class</include>
                 <include>com/intellij/debugger/ui/breakpoints/WildcardMethodBreakpoint.class</include>
-                <include>com/intellij/debugger/ui/HotSwapUI.class</include>
-                <include>com/intellij/debugger/ui/HotSwapUIImpl.class</include>
                 <include>com/intellij/debugger/ui/overhead/OverheadProducer.class</include>
                 <include>com/intellij/execution/AlternativeSdkRootsProvider$Companion.class</include>
                 <include>com/intellij/execution/AlternativeSdkRootsProvider.class</include>
-                <include>com/intellij/execution/codeInspection/TestFailedLineManagerImpl.class</include>
                 <include>com/intellij/execution/configuration/JavaRunConfigurationPathMacroFilter.class</include>
-                <include>com/intellij/execution/filters/ExceptionAnalysisProvider.class</include>
                 <include>com/intellij/execution/jshell/JShellRootType.class</include>
-                <include>com/intellij/execution/testDiscovery/JavaAutoRunManager.class</include>
                 <include>com/intellij/execution/testDiscovery/TestDiscoveryIndex$MyPostStartUpActivity.class</include>
-                <include>com/intellij/facet/impl/ui/FacetEditorsStateManager.class</include>
-                <include>com/intellij/facet/impl/ui/FacetEditorsStateManagerImpl.class</include>
                 <include>com/intellij/ide/highlighter/JavaClassFileType.class</include>
                 <include>com/intellij/ide/highlighter/JavaFileType.class</include>
                 <include>com/intellij/ide/highlighter/JShellFileType.class</include>
                 <include>com/intellij/ide/JavaLanguageCodeStyleSettingsProvider.class</include>
                 <include>com/intellij/ide/LibraryAddedListener.class</include>
                 <include>com/intellij/ide/ProjectLoadedListener.class</include>
-                <include>com/intellij/ide/projectView/impl/JavaProjectViewDirectoryHelper.class</include>
-                <include>com/intellij/ide/projectWizard/generators/SdkPreIndexingRequiredForSmartModeActivity.class
-                </include>
                 <include>com/intellij/ide/SetupJavaProjectFromSourcesActivity.class</include>
-                <include>com/intellij/ide/todo/nodes/TodoJavaTreeHelper.class</include>
                 <include>com/intellij/ide/util/projectWizard/JavaModuleBuilder.class</include>
                 <include>com/intellij/ide/util/projectWizard/SourcePathsBuilder.class</include>
-                <include>com/intellij/ide/util/TreeClassChooserFactory.class</include>
-                <include>com/intellij/ide/util/TreeClassChooserFactoryImpl.class</include>
-                <include>com/intellij/internal/statistic/LibraryNameValidationRule.class</include>
                 <include>com/intellij/jarRepository/JarRepositoryManager$1.class</include>
                 <include>com/intellij/jarRepository/JarRepositoryManager$3.class</include>
                 <include>com/intellij/jarRepository/JarRepositoryManager$4.class</include>
                 <include>com/intellij/jarRepository/JarRepositoryManager.class</include>
-                <include>com/intellij/jarRepository/RemoteRepositoriesConfiguration.class</include>
                 <include>com/intellij/jarRepository/RepositoryLibraryChangeListener.class</include>
                 <include>com/intellij/jarRepository/RepositoryLibrarySettings$Companion.class</include>
                 <include>com/intellij/jarRepository/RepositoryLibrarySettings$Defaults.class</include>
@@ -259,17 +197,9 @@
                 <include>com/intellij/jarRepository/RepositoryLibraryType.class</include>
                 <include>com/intellij/jarRepository/RepositoryLibraryUtils$Companion.class</include>
                 <include>com/intellij/jarRepository/RepositoryLibraryUtils.class</include>
-                <include>com/intellij/jarRepository/services/MavenRepositoryServicesManager.class</include>
                 <include>com/intellij/jarRepository/SyncLoadingKt.class</include>
                 <include>com/intellij/java/analysis/JavaAnalysisBundle.class</include>
-                <include>com/intellij/java/analysis/OuterModelsModificationTrackerManager.class</include>
-                <include>com/intellij/java/debugger/impl/backend/BackendJavaDebuggerLuxActionsApi.class</include>
-                <include>com/intellij/java/debugger/impl/backend/BackendJavaDebuggerManagerApi.class</include>
-                <include>com/intellij/java/debugger/impl/backend/BackendJavaDebuggerRemoteApiProvider.class</include>
-                <include>com/intellij/java/debugger/impl/backend/BackendJavaDebuggerSessionApi$Companion.class</include>
-                <include>com/intellij/java/debugger/impl/backend/BackendJavaDebuggerSessionApi.class</include>
                 <include>com/intellij/java/JavaBundle.class</include>
-                <include>com/intellij/java/JavaLibrarySourcesExcludingIndexFilterExtension.class</include>
                 <include>com/intellij/java/library/LibraryWithMavenCoordinatesProperties.class</include>
                 <include>com/intellij/lang/java/JavaFormattingModelBuilder.class</include>
                 <include>com/intellij/lang/java/JavaLanguage.class</include>
@@ -333,9 +263,7 @@
                 <include>com/intellij/lang/jvm/types/JvmReferenceType.class</include>
                 <include>com/intellij/lang/jvm/types/JvmType.class</include>
                 <include>com/intellij/lang/jvm/types/JvmWildcardType.class</include>
-                <include>com/intellij/lang/OuterModelsModificationTrackerManagerImpl.class</include>
                 <include>com/intellij/lang/spi/SPILanguage.class</include>
-                <include>com/intellij/openapi/compiler/CompilerManager.class</include>
                 <include>com/intellij/openapi/compiler/JavaCompilerBundle.class</include>
                 <include>com/intellij/openapi/compiler/options/ExcludedEntriesConfiguration.class</include>
                 <include>com/intellij/openapi/compiler/options/ExcludedEntriesListener.class</include>
@@ -344,7 +272,6 @@
                 <include>com/intellij/openapi/module/impl/JavaAwareModuleTypeManagerImpl.class</include>
                 <include>com/intellij/openapi/module/JavaModuleType.class</include>
                 <include>com/intellij/openapi/module/StdModuleTypes.class</include>
-                <include>com/intellij/openapi/module/WebModuleTypeRegistrar$1.class</include>
                 <include>com/intellij/openapi/module/WebModuleTypeRegistrar.class</include>
                 <include>com/intellij/openapi/projectRoots/impl/JavaAwareProjectJdkTableImpl.class</include>
                 <include>com/intellij/openapi/projectRoots/JavaSdkVersion.class</include>
@@ -352,29 +279,13 @@
                 </include>
                 <include>com/intellij/openapi/roots/impl/CompilerProjectExtensionImpl.class</include>
                 <include>com/intellij/openapi/roots/impl/ExcludeCompilerOutputPolicy.class</include>
-                <include>com/intellij/openapi/roots/impl/JavaEntitiesWsmUtils.class</include>
                 <include>com/intellij/openapi/roots/impl/JavaLanguageLevelPusher.class</include>
-                <include>com/intellij/openapi/roots/impl/JavaProjectModelModificationServiceImpl.class</include>
-                <include>com/intellij/openapi/roots/impl/LanguageLevelChangedListener.class</include>
                 <include>com/intellij/openapi/roots/impl/LanguageLevelProjectExtensionImpl$1.class</include>
                 <include>com/intellij/openapi/roots/impl/LanguageLevelProjectExtensionImpl.class</include>
-                <include>com/intellij/openapi/roots/impl/ProjectPackageIndexImpl.class</include>
-                <include>com/intellij/openapi/roots/JavaProjectModelModificationService.class</include>
                 <include>com/intellij/openapi/roots/LanguageLevelProjectExtension$LanguageLevelChangeListener.class
                 </include>
                 <include>com/intellij/openapi/roots/LanguageLevelProjectExtension.class</include>
                 <include>com/intellij/openapi/roots/NativeLibraryOrderRootType.class</include>
-                <include>com/intellij/openapi/roots/ui/configuration/IdeaProjectSettingsService.class</include>
-                <include>
-                    com/intellij/openapi/roots/ui/configuration/projectRoot/daemon/ProjectStructureProblemsSettingsBase.class
-                </include>
-                <include>
-                    com/intellij/openapi/roots/ui/configuration/projectRoot/daemon/ProjectStructureProblemsSettings.class
-                </include>
-                <include>
-                    com/intellij/openapi/roots/ui/configuration/projectRoot/daemon/ProjectStructureProblemsSettingsImpl.class
-                </include>
-                <include>com/intellij/openapi/roots/ui/configuration/ProjectStructureConfigurable.class</include>
                 <include>com/intellij/openapi/vfs/impl/jrt/JrtFileSystemImpl.class</include>
                 <include>com/intellij/openapi/vfs/impl/jrt/JrtHandler.class</include>
                 <include>com/intellij/openapi/vfs/jrt/JrtFileSystem.class</include>
@@ -386,19 +297,14 @@
                 <include>com/intellij/packaging/artifacts/ArtifactPointerManager.class</include>
                 <include>com/intellij/packaging/artifacts/ArtifactPropertiesProvider.class</include>
                 <include>com/intellij/packaging/artifacts/ArtifactType.class</include>
-                <include>com/intellij/packaging/artifacts/LegacyBridgeJpsArtifactEntitySourceFactory.class</include>
                 <include>com/intellij/packaging/elements/ManifestFileProvider.class</include>
                 <include>com/intellij/packaging/elements/PackagingElementResolvingContext.class</include>
                 <include>com/intellij/packaging/elements/PackagingElementType.class</include>
-                <include>com/intellij/packaging/impl/artifacts/ArtifactBySourceFileFinder.class</include>
-                <include>com/intellij/packaging/impl/artifacts/ArtifactBySourceFileFinderImpl.class</include>
                 <include>com/intellij/packaging/impl/artifacts/ArtifactPointerManagerImpl$1.class</include>
                 <include>com/intellij/packaging/impl/artifacts/ArtifactPointerManagerImpl.class</include>
                 <include>com/intellij/packaging/impl/artifacts/ArtifactVirtualFileListener$1.class</include>
                 <include>com/intellij/packaging/impl/artifacts/ArtifactVirtualFileListener.class</include>
                 <include>com/intellij/packaging/impl/artifacts/DefaultPackagingElementResolvingContext.class</include>
-                <include>com/intellij/packaging/impl/artifacts/LegacyBridgeJpsArtifactEntitySourceFactoryImpl.class
-                </include>
                 <include>com/intellij/packaging/impl/artifacts/PackagingElementProcessor.class</include>
                 <include>com/intellij/packaging/impl/artifacts/workspacemodel/ArtifactManagerBridge$Companion.class
                 </include>
@@ -470,11 +376,8 @@
                 <include>com/intellij/psi/impl/compiled/ClassFileStubBuilder.class</include>
                 <include>com/intellij/psi/impl/compiled/ClsDecompilerImpl$MyClsStubBuilder.class</include>
                 <include>com/intellij/psi/impl/compiled/ClsDecompilerImpl.class</include>
-                <include>com/intellij/psi/impl/CompositeShortNamesCache.class</include>
-                <include>com/intellij/psi/impl/file/impl/JavaFileManagerImpl.class</include>
                 <include>com/intellij/psi/impl/file/PsiJavaDirectoryFactory.class</include>
                 <include>com/intellij/psi/impl/file/PsiJavaDirectoryImpl.class</include>
-                <include>com/intellij/psi/impl/JavaCodeFragmentFactoryImpl.class</include>
                 <include>com/intellij/psi/impl/java/JavaBinaryPlusExpressionIndex$1.class</include>
                 <include>com/intellij/psi/impl/java/JavaBinaryPlusExpressionIndex$2.class</include>
                 <include>com/intellij/psi/impl/java/JavaBinaryPlusExpressionIndex.class</include>
@@ -492,11 +395,9 @@
                 <include>com/intellij/psi/impl/java/stubs/index/JavaAutoModuleNameIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaFieldNameIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaFullClassNameIndex.class</include>
-                <include>com/intellij/psi/impl/java/stubs/index/JavaImplicitClassIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaMethodNameIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaMethodParameterTypesIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaModuleNameIndex.class</include>
-                <include>com/intellij/psi/impl/java/stubs/index/JavaRecordComponentNameIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaShortClassNameIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaSourceModuleNameIndex.class</include>
                 <include>com/intellij/psi/impl/java/stubs/index/JavaStaticMemberNameIndex.class</include>
@@ -591,7 +492,6 @@
                 <include>com/intellij/psi/impl/source/codeStyle/ImportHelper.class</include>
                 <include>com/intellij/psi/impl/source/codeStyle/ImportPostFormatProcessor.class</include>
                 <include>com/intellij/psi/impl/source/codeStyle/ImportsFormatter.class</include>
-                <include>com/intellij/psi/impl/source/codeStyle/JavaCodeStyleManagerImpl.class</include>
                 <include>com/intellij/psi/impl/source/codeStyle/javadoc/CommentFormatter.class</include>
                 <include>com/intellij/psi/impl/source/codeStyle/javadoc/JDClassComment.class</include>
                 <include>com/intellij/psi/impl/source/codeStyle/javadoc/JDComment.class</include>
@@ -806,27 +706,18 @@
                 <include>com/intellij/psi/scope/processor/MethodCandidatesProcessor.class</include>
                 <include>com/intellij/psi/scope/processor/MethodResolverProcessor.class</include>
                 <include>com/intellij/psi/scope/processor/MethodsProcessor.class</include>
-                <include>com/intellij/psi/search/PsiShortNamesCache.class</include>
                 <include>com/intellij/psi/stubs/PsiClassHolderFileStub.class</include>
                 <include>com/intellij/psi/tree/java/IJavaDocElementType.class</include>
                 <include>com/intellij/psi/tree/java/IJavaElementType.class</include>
                 <include>com/intellij/psi/tree/java/IKeywordElementType.class</include>
-                <include>com/intellij/psi/UastAnnotationCacheOwnerNormalizer.class</include>
                 <include>com/intellij/psi/util/MethodSignature.class</include>
                 <include>com/intellij/psi/util/PsiUtil.class</include>
-                <include>com/intellij/refactoring/JavaRefactoringFactory.class</include>
-                <include>com/intellij/refactoring/listeners/impl/JavaRefactoringListenerManagerImpl.class</include>
-                <include>com/intellij/refactoring/listeners/JavaRefactoringListenerManager.class</include>
-                <include>com/intellij/refactoring/openapi/impl/JavaRefactoringFactoryImpl.class</include>
-                <include>com/intellij/refactoring/RefactoringManager.class</include>
-                <include>com/intellij/slicer/DataflowExceptionAnalysisProvider.class</include>
                 <include>com/intellij/spi/parsing/SPILexer.class</include>
                 <include>com/intellij/spi/parsing/SPIParserDefinition.class</include>
                 <include>com/intellij/spi/SPIFileType.class</include>
                 <include>com/intellij/uast/UastMetaLanguage$Holder.class</include>
                 <include>com/intellij/uast/UastMetaLanguage.class</include>
                 <include>com/intellij/ui/classFilter/ClassFilter.class</include>
-                <include>com/intellij/usages/impl/rules/PackageGroupingRule.class</include>
                 <include>com/siyeh/ig/abstraction/UseOfConcreteClassMerger.class</include>
                 <include>com/siyeh/ig/bugs/ObjectEqualityInspectionMerger.class</include>
                 <include>com/siyeh/ig/bugs/ThrowableNeverThrownInspectionMerger.class</include>
@@ -882,13 +773,9 @@
                 <include>com/siyeh/ig/threading/WaitNotifyNotInSynchronizedContextInspectionMerger.class</include>
                 <include>com/siyeh/ig/visibility/MethodOverridesInaccessibleMethodMerger.class</include>
                 <include>idea/JavaActions.xml</include>
-                <include>intellij.java.debugger.impl.backend.xml</include>
                 <include>intellij.java.featuresTrainer.xml</include>
-                <include>intellij.java.performancePlugin.xml</include>
                 <include>intellij.java.remoteServers.impl.xml</include>
                 <include>intellij.java.structuralSearch.xml</include>
-                <include>intellij.java.terminal.xml</include>
-                <include>intellij.jvm.dfa.analysis.ui.xml</include>
                 <include>messages/JavaAnalysisBundle.properties</include>
                 <include>messages/JavaBundle.properties</include>
                 <include>messages/JavaCompilerBundle.properties</include>
@@ -896,7 +783,6 @@
                 <include>messages/JavaPsiBundle.properties</include>
                 <include>messages/JavaUiBundle.properties</include>
                 <include>messages/ManifestBundle.properties</include>
-                <include>META-INF/community-integration.xml</include>
                 <include>META-INF/DesignerCorePlugin.xml</include>
                 <include>META-INF/images-integration.xml</include>
                 <include>META-INF/InspectionGadgets.xml</include>
@@ -910,7 +796,6 @@
                 <include>META-INF/libraryJarUsage.xml</include>
                 <include>META-INF/ManifestSupport.xml</include>
                 <include>META-INF/TypeMigration.xml</include>
-                <include>META-INF/UsageData.xml</include>
                 <include>org/jetbrains/idea/maven/utils/library/RepositoryLibraryProperties.class</include>
                 <include>org/jetbrains/java/debugger/breakpoints/JavaBreakpointFiltersPanel.class</include>
                 <include>org/jetbrains/java/debugger/breakpoints/properties/JavaBreakpointProperties.class</include>

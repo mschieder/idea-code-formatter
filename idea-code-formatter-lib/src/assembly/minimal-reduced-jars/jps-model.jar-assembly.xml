@@ -51,8 +51,6 @@
                 </include>
                 <include>org/jetbrains/jps/model/serialization/JpsElementExtensionSerializerBase.class</include>
                 <include>org/jetbrains/jps/model/serialization/JpsProjectExtensionSerializer.class</include>
-                <include>org/jetbrains/jps/model/serialization/JpsProjectExtensionWithExternalDataSerializer.class
-                </include>
                 <include>org/jetbrains/jps/model/serialization/PathMacroUtil.class</include>
                 <include>org/jetbrains/jps/plugin/JpsPluginManager.class</include>
                 <include>org/jetbrains/jps/service/impl/JpsServiceManagerImpl$SingleClassLoaderPluginManager.class
