@@ -18,6 +18,7 @@
                 <include>org/jetbrains/jps/api/CmdlineRemoteProto$Message.class</include>
                 <include>org/jetbrains/jps/api/CmdlineRemoteProto$MessageOrBuilder.class</include>
                 <include>org/jetbrains/jps/api/RequestFuture$CancelAction.class</include>
+                <include>org/jetbrains/jps/api/TaskFutureAdapter.class</include>
                 <include>org/jetbrains/jps/api/TaskFuture.class</include>
                 <include>org/jetbrains/jps/builders/impl/java/EclipseCompilerTool.class</include>
                 <!-- END generated includes -->
