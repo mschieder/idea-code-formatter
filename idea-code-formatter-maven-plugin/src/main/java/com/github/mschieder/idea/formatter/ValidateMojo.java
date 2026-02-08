@@ -42,7 +42,8 @@ public class ValidateMojo extends AbstractMojo {
         var returnCode = -1;
         try (IdeaCodeFormatterEnvironment environment = new IdeaCodeFormatterEnvironment()) {
             returnCode = environment.validate(new IdeaFormatterArgsBuilder().recursive(recursive).charset(charset).masks(masks)
-                    .dryRun(true).directories(directories).codestyleSettingsFile(codestyleSettingsFile).build());
+                            .dryRun(true).directories(directories).codestyleSettingsFile(codestyleSettingsFile).build(),
+                    outputLines -> outputLines.forEach(System.out::println));
         } catch (Exception e) {
             throw new MojoExecutionException(e);
         }
