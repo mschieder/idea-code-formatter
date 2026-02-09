@@ -717,7 +717,10 @@
                 <include>kotlin/io/FilesKt__FileTreeWalkKt.class</include>
                 <include>kotlin/io/FilesKt__UtilsKt.class</include>
                 <include>kotlin/io/FileSystemException.class</include>
+                <include>kotlin/io/FileTreeWalk$DirectoryState.class</include>
                 <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator$SingleFileState.class</include>
+                <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator$TopDownDirectoryState.class</include>
+                <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator$WhenMappings.class</include>
                 <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator.class</include>
                 <include>kotlin/io/FileTreeWalk$WalkState.class</include>
                 <include>kotlin/io/FileTreeWalk.class</include>
@@ -3001,7 +3004,6 @@
                 <include>kotlin/reflect/jvm/internal/impl/utils/DFS$Visited.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/utils/DFS$VisitedWithSet.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/utils/DFS.class</include>
-                <include>kotlin/reflect/jvm/internal/impl/utils/ExceptionUtilsKt.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/utils/FunctionsKt$ALWAYS_NULL$1.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/utils/FunctionsKt$ALWAYS_TRUE$1.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/utils/FunctionsKt$DO_NOTHING$1.class</include>
@@ -3297,6 +3299,7 @@
                 <include>kotlinx/coroutines/channels/RendezvousChannel.class</include>
                 <include>kotlinx/coroutines/channels/SendChannel.class</include>
                 <include>kotlinx/coroutines/channels/Send.class</include>
+                <include>kotlinx/coroutines/channels/SendElement.class</include>
                 <include>kotlinx/coroutines/ChildContinuation.class</include>
                 <include>kotlinx/coroutines/ChildHandle.class</include>
                 <include>kotlinx/coroutines/ChildHandleNode.class</include>
@@ -3487,7 +3490,6 @@
                 <include>kotlinx/coroutines/internal/UndeliveredElementException.class</include>
                 <include>kotlinx/coroutines/intrinsics/CancellableKt.class</include>
                 <include>kotlinx/coroutines/intrinsics/UndispatchedKt.class</include>
-                <include>kotlinx/coroutines/InvokeOnCancel.class</include>
                 <include>kotlinx/coroutines/InvokeOnCancelling.class</include>
                 <include>kotlinx/coroutines/InvokeOnCompletion.class</include>
                 <include>kotlinx/coroutines/Job$DefaultImpls.class</include>
@@ -3512,6 +3514,7 @@
                 <include>kotlinx/coroutines/NonDisposableHandle.class</include>
                 <include>kotlinx/coroutines/NotCompleted.class</include>
                 <include>kotlinx/coroutines/ParentJob.class</include>
+                <include>kotlinx/coroutines/RemoveOnCancel.class</include>
                 <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/Attacher.class</include>
                 <include>
                     kotlinx/coroutines/repackaged/net/bytebuddy/agent/ByteBuddyAgent$AgentProvider$ForByteBuddyAgent.class

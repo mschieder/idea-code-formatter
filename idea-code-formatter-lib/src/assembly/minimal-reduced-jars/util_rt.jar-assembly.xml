@@ -21,11 +21,9 @@
                 <include>com/intellij/openapi/util/Condition$3.class</include>
                 <include>com/intellij/openapi/util/Condition.class</include>
                 <include>com/intellij/openapi/util/Couple.class</include>
-                <include>com/intellij/openapi/util/io/ContentTooBigException.class</include>
                 <include>com/intellij/openapi/util/io/DataInputOutputUtilRt.class</include>
                 <include>com/intellij/openapi/util/io/FileTooBigException.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$1.class</include>
-                <include>com/intellij/openapi/util/io/FileUtilRt$2.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$FilesToDeleteHolder$1.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$FilesToDeleteHolder.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$RepeatableIOOperation.class</include>
@@ -45,7 +43,6 @@
                 <include>com/intellij/util/containers/EmptyIterator.class</include>
                 <include>com/intellij/util/containers/Stack.class</include>
                 <include>com/intellij/util/ExceptionUtilRt$1.class</include>
-                <include>com/intellij/util/ExceptionUtilRt$RethrownStack.class</include>
                 <include>com/intellij/util/ExceptionUtilRt.class</include>
                 <include>com/intellij/util/Function$Mono.class</include>
                 <include>com/intellij/util/Function.class</include>

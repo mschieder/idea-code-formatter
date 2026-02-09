@@ -16,43 +16,18 @@
                 <!-- BEGIN generated includes -->
                 <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/internal/statistic/collectors/fus/ClassNameRuleValidator.class</include>
-                <include>com/intellij/internal/statistic/collectors/fus/LangCustomRuleValidator.class</include>
                 <include>com/intellij/internal/statistic/collectors/fus/MethodNameRuleValidator.class</include>
-                <include>com/intellij/internal/statistic/collectors/fus/PluginIdRuleValidator.class</include>
                 <include>com/intellij/internal/statistic/collectors/fus/PluginInfoValidationRule.class</include>
-                <include>com/intellij/internal/statistic/collectors/fus/ProductCodeRuleValidator.class</include>
-                <include>com/intellij/internal/statistic/config/eventLog/EventLogBuildType.class</include>
-                <include>com/intellij/internal/statistic/config/EventLogOptions.class</include>
-                <include>com/intellij/internal/statistic/config/StatisticsStringUtil.class</include>
                 <include>com/intellij/internal/statistic/DeviceIdManager$DeviceIdToken.class</include>
                 <include>com/intellij/internal/statistic/DeviceIdManager$InvalidDeviceIdTokenException.class</include>
                 <include>com/intellij/internal/statistic/DeviceIdManager.class</include>
                 <include>com/intellij/internal/statistic/eventLog/AnonymizedIdsCache.class</include>
                 <include>com/intellij/internal/statistic/eventLog/AtomicLazyValue.class</include>
                 <include>com/intellij/internal/statistic/eventLog/connection/EventLogSendListener.class</include>
-                <include>com/intellij/internal/statistic/eventLog/connection/EventLogSettingsClient.class</include>
-                <include>com/intellij/internal/statistic/eventLog/connection/EventLogStatisticsService.class</include>
-                <include>com/intellij/internal/statistic/eventLog/connection/EventLogUploadSettingsClient.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/connection/metadata/EventLogMetadataLoadException$EventLogMetadataLoadErrorType.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/connection/metadata/StatsConnectionSettings.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/connection/metadata/StatsProxyInfo$StatsProxyAuthProvider.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/connection/metadata/StatsProxyInfo.class</include>
-                <include>com/intellij/internal/statistic/eventLog/connection/StatisticsResult$ResultCode.class</include>
                 <include>com/intellij/internal/statistic/eventLog/connection/StatisticsService.class</include>
-                <include>com/intellij/internal/statistic/eventLog/DataCollectorDebugLogger.class</include>
-                <include>com/intellij/internal/statistic/eventLog/DataCollectorSystemEventLogger.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EmptyStatisticsEventLogger.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogApplicationInfo.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogConfigOptionsListener.class</include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/EventLogConfigOptionsService$EventLogThresholdConfigOptionsListener.class
-                </include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogConfigOptionsService.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogConfiguration$build$2.class</include>
                 <include>
@@ -60,14 +35,7 @@
                 </include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogConfiguration$Companion.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogConfiguration.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogFileWriter.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogGroup.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogInternalApplicationInfo$1.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogInternalApplicationInfo.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogListenersManager$2.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogListenersManager$4.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogListenersManager$Companion.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogListenersManager.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogRecorderConfigOptionsListener.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogRecorderConfiguration$1.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogRecorderConfiguration$2.class</include>
@@ -80,23 +48,14 @@
                 </include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogRecorderConfiguration.class</include>
                 <include>com/intellij/internal/statistic/eventLog/EventLogSendConfig.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogSystemCollector$Companion.class</include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogSystemCollector$EntriesMappings.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/EventLogSystemCollector.class</include>
-                <include>com/intellij/internal/statistic/eventLog/events/AnonymizedListEventField.class</include>
-                <include>com/intellij/internal/statistic/eventLog/events/BaseEventFieldsKt.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/BaseEventId.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/BooleanEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/ClassEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EnumEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventField.class</include>
-                <include>com/intellij/internal/statistic/eventLog/events/EventFieldIds.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventFields$ActionPlace$1.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventFields$AnonymizedId$1.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventFields$AnonymizedPath$1.class</include>
-                <include>com/intellij/internal/statistic/eventLog/events/EventFields$AutomatedPluginVersion$1.class
-                </include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventFields$CodeWithMeClientId$1.class
                 </include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventFields$CurrentFile$1.class</include>
@@ -124,11 +83,9 @@
                 <include>com/intellij/internal/statistic/eventLog/events/EventFields.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventId1.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventId2.class</include>
-                <include>com/intellij/internal/statistic/eventLog/events/EventId3.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventId.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/EventPair.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/IntEventField.class</include>
-                <include>com/intellij/internal/statistic/eventLog/events/IntListEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/ListEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/LongEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/ObjectEventData.class</include>
@@ -136,9 +93,6 @@
                 <include>com/intellij/internal/statistic/eventLog/events/ObjectListEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/PrimitiveEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/RoundedIntEventField.class</include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/events/scheme/RegisteredLogDescriptionsProcessor.class
-                </include>
                 <include>
                     com/intellij/internal/statistic/eventLog/events/StringEventField$ValidatedByAllowedValues.class
                 </include>
@@ -152,34 +106,11 @@
                 <include>com/intellij/internal/statistic/eventLog/events/StringListEventField.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/VarargEventId$Companion.class</include>
                 <include>com/intellij/internal/statistic/eventLog/events/VarargEventId.class</include>
-                <include>com/intellij/internal/statistic/eventLog/ExternalEventLogListenerProvider.class</include>
-                <include>com/intellij/internal/statistic/eventLog/ExternalEventLogListenerProviderExtension.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/ExternalEventLogSettings.class</include>
                 <include>com/intellij/internal/statistic/eventLog/FeatureUsageData$Companion.class</include>
                 <include>com/intellij/internal/statistic/eventLog/FeatureUsageData.class</include>
-                <include>com/intellij/internal/statistic/eventLog/FileData.class</include>
-                <include>com/intellij/internal/statistic/eventLog/FilteredEventMergeStrategy.class</include>
                 <include>com/intellij/internal/statistic/eventLog/fus/FeatureUsageEventLoggerProvider.class</include>
                 <include>com/intellij/internal/statistic/eventLog/fus/FeatureUsageLogger.class</include>
-                <include>com/intellij/internal/statistic/eventLog/InternalDataCollectorDebugLogger.class</include>
-                <include>com/intellij/internal/statistic/eventLog/LocalStatisticsFileEventLogger$FusEvent.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/LocalStatisticsFileEventLogger.class</include>
-                <include>com/intellij/internal/statistic/eventLog/logger/EventsRateResult.class</include>
-                <include>com/intellij/internal/statistic/eventLog/logger/EventsRateResultType.class</include>
-                <include>com/intellij/internal/statistic/eventLog/logger/StatisticsEventLogThrottleWriter$1.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/logger/StatisticsEventLogThrottleWriter.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/MachineId.class</include>
-                <include>com/intellij/internal/statistic/eventLog/mp/MarketplaceEventLoggerProvider.class</include>
-                <include>com/intellij/internal/statistic/eventLog/QodanaEventsData.class</include>
-                <include>com/intellij/internal/statistic/eventLog/QodanaEventsDataKt.class</include>
-                <include>com/intellij/internal/statistic/eventLog/RecorderOptionProvider.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsEventLogFileWriter.class</include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLogger.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsEventLoggerProvider$1.class</include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLoggerProvider$actualLogger$2.class
                 </include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLoggerProvider$Companion.class
@@ -187,7 +118,6 @@
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLoggerProvider$emptyLogger$2.class
                 </include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLoggerProvider.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsEventLoggerProviderExt.class</include>
                 <include>
                     com/intellij/internal/statistic/eventLog/StatisticsEventLogProvidersHolder$getAllEventLogProviders$1.class
                 </include>
@@ -196,105 +126,14 @@
                 </include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLogProvidersHolder.class</include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsEventLogProviderUtil.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsEventLogWriter.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsEventMergeStrategy.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsFileEventLogger$FusEvent.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsFileEventLogger.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsFileEventLoggerKt.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsRegionSettingsService$Companion.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/StatisticsRegionSettingsService$StatisticsRegionSettingsServiceFallBack.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/StatisticsRegionSettingsService.class</include>
                 <include>com/intellij/internal/statistic/eventLog/StatisticsSystemEventIdProvider.class</include>
-                <include>com/intellij/internal/statistic/eventLog/StatsAppConnectionSettings.class</include>
-                <include>com/intellij/internal/statistic/eventLog/trace/TraceEventLoggerProvider$Companion.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/trace/TraceEventLoggerProvider.class</include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/uploader/EventLogUploadException$EventLogUploadErrorType.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/IntellijSensitiveDataValidator$BlindSensitiveDataValidator.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/validator/IntellijSensitiveDataValidator.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/rules/impl/AllowedItemsResourceWeakRefStorage.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/validator/rules/impl/ComposerValidationRule.class
-                </include>
                 <include>com/intellij/internal/statistic/eventLog/validator/rules/impl/CustomValidationRule.class
                 </include>
                 <include>
-                    com/intellij/internal/statistic/eventLog/validator/rules/impl/CustomValidationRuleFactory.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/validator/rules/impl/ExtensionIdValidationRule.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/rules/impl/LocalFileCustomValidationRule.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/validator/rules/impl/TestModeValidationRule.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/validator/rules/utils/CustomRuleProducer.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$BundledJvmFileStorage.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$FusComponents.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$FusJacksonSerializer.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$10.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$1.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$2.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$3.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$4.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$5.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$6.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$7.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$8.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToMetadataEvents$9.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$listenToOptionsChanges$1.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$loadErrorToEventLogMetadataUpdateError$1.class
-                </include>
-                <include>
-                    com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider$WhenMappings.class
-                </include>
-                <include>com/intellij/internal/statistic/eventLog/validator/storage/FusComponentProvider.class</include>
-                <include>
                     com/intellij/internal/statistic/eventLog/validator/storage/persistence/EventLogMetadataSettingsPersistence.class
                 </include>
-                <include>com/intellij/internal/statistic/FeaturedPluginsInfoProvider.class</include>
                 <include>com/intellij/internal/statistic/IdeActivityDefinition$Companion.class</include>
                 <include>com/intellij/internal/statistic/IdeActivityDefinition.class</include>
-                <include>com/intellij/internal/statistic/IdeActivityState.class</include>
                 <include>com/intellij/internal/statistic/local/ActionExtendedSummary.class</include>
                 <include>com/intellij/internal/statistic/local/ActionsLocalSummary.class</include>
                 <include>com/intellij/internal/statistic/local/ActionsLocalSummaryState.class</include>
@@ -307,37 +146,18 @@
                 <include>com/intellij/internal/statistic/service/fus/collectors/FUStateUsagesLogger$1.class</include>
                 <include>com/intellij/internal/statistic/service/fus/collectors/FUStateUsagesLogger$Companion.class
                 </include>
-                <include>
-                    com/intellij/internal/statistic/service/fus/collectors/FUStateUsagesLogger$logApplicationStateRegularly$1.class
-                </include>
                 <include>com/intellij/internal/statistic/service/fus/collectors/FUStateUsagesLogger.class</include>
-                <include>com/intellij/internal/statistic/service/fus/collectors/FUStateUsagesLoggerKt.class</include>
                 <include>com/intellij/internal/statistic/service/fus/collectors/ProjectFUStateUsagesLogger$1.class
                 </include>
                 <include>com/intellij/internal/statistic/service/fus/collectors/ProjectFUStateUsagesLogger.class
                 </include>
                 <include>com/intellij/internal/statistic/service/fus/collectors/ProjectUsagesCollector.class</include>
                 <include>com/intellij/internal/statistic/service/fus/collectors/UsagesCollectorConsumer.class</include>
-                <include>com/intellij/internal/statistic/StatisticsServiceApplicationScope.class</include>
-                <include>com/intellij/internal/statistic/StatisticsServiceScope$Companion.class</include>
-                <include>com/intellij/internal/statistic/StatisticsServiceScope.class</include>
-                <include>com/intellij/internal/statistic/StructuredIdeActivity$Companion.class</include>
-                <include>com/intellij/internal/statistic/StructuredIdeActivity.class</include>
-                <include>com/intellij/internal/statistic/StructuredIdeActivityKt.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$1.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$2$1.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$2$2.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$2$3.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$2$4.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$2$5.class</include>
                 <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$2.class</include>
                 <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$3.class</include>
                 <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$4.class</include>
                 <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$5.class</include>
                 <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler$execute$6.class</include>
-                <include>
-                    com/intellij/internal/statistic/updater/StatisticsJobsScheduler$runEventLogStatisticsService$1.class
-                </include>
                 <include>com/intellij/internal/statistic/updater/StatisticsJobsScheduler.class</include>
                 <include>
                     com/intellij/internal/statistic/updater/StatisticsJobsSchedulerKt$checkPreviousExternalUploadResult$1.class
@@ -355,23 +175,12 @@
                     com/intellij/internal/statistic/updater/StatisticsStateCollectorsScheduler$MyStartupActivity.class
                 </include>
                 <include>com/intellij/internal/statistic/updater/StatisticsStateCollectorsScheduler.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsStateCollectorsSchedulerKt.class</include>
-                <include>com/intellij/internal/statistic/updater/StatisticsValidationUpdatedService.class</include>
-                <include>com/intellij/internal/statistic/uploader/EventLogExternalSendConfig$ParseErrorType.class
-                </include>
-                <include>com/intellij/internal/statistic/utils/EventDescriptor.class</include>
-                <include>com/intellij/internal/statistic/utils/EventRateThrottleResult.class</include>
-                <include>com/intellij/internal/statistic/utils/EventsIdentityWindowThrottle.class</include>
-                <include>com/intellij/internal/statistic/utils/EventsRateWindowThrottle.class</include>
                 <include>com/intellij/internal/statistic/utils/PluginInfo.class</include>
                 <include>com/intellij/internal/statistic/utils/PluginInfoDetectorKt.class</include>
                 <include>com/intellij/internal/statistic/utils/PluginType.class</include>
                 <include>com/intellij/internal/statistic/utils/StatisticsRecorderUtil.class</include>
                 <include>com/intellij/internal/statistic/utils/StatisticsUploadAssistant.class</include>
                 <include>com/intellij/internal/statistic/utils/StatisticsUtil.class</include>
-                <include>com/intellij/platform/experiment/ab/impl/statistic/ABExperimentOptionIdValidationRule.class
-                </include>
-                <include>intellij.platform.experiment.xml</include>
                 <include>messages/StatisticsBundle.properties</include>
                 <!-- END generated includes -->
             </includes>
