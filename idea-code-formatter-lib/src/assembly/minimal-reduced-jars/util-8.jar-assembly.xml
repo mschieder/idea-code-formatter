@@ -18,7 +18,7 @@
                 <include>org/jetbrains/**/*.class</include>
                 <include>it/unimi/**/*.class</include>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/util/UrlUtilRt.class</include>
                 <include>com/intellij/util/xml/dom/NoOpXmlInterner.class</include>
                 <include>com/intellij/util/xml/dom/StaxFactory.class</include>
@@ -272,6 +272,8 @@
                 <include>it/unimi/dsi/fastutil/objects/ObjectIntPair.class</include>
                 <include>it/unimi/dsi/fastutil/objects/ObjectIterable.class</include>
                 <include>it/unimi/dsi/fastutil/objects/ObjectIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectIterators$EmptyIterator.class</include>
+                <include>it/unimi/dsi/fastutil/objects/ObjectIterators.class</include>
                 <include>it/unimi/dsi/fastutil/objects/ObjectLinkedOpenHashSet$SetIterator.class</include>
                 <include>it/unimi/dsi/fastutil/objects/ObjectLinkedOpenHashSet.class</include>
                 <include>it/unimi/dsi/fastutil/objects/ObjectList.class</include>

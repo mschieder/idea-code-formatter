@@ -14,7 +14,7 @@
             <outputDirectory>/</outputDirectory>
             <includes>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/openapi/util/Comparing.class</include>
                 <include>com/intellij/openapi/util/Condition$1.class</include>
                 <include>com/intellij/openapi/util/Condition$2.class</include>
@@ -24,7 +24,6 @@
                 <include>com/intellij/openapi/util/io/DataInputOutputUtilRt.class</include>
                 <include>com/intellij/openapi/util/io/FileTooBigException.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$1.class</include>
-                <include>com/intellij/openapi/util/io/FileUtilRt$2.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$FilesToDeleteHolder$1.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$FilesToDeleteHolder.class</include>
                 <include>com/intellij/openapi/util/io/FileUtilRt$RepeatableIOOperation.class</include>

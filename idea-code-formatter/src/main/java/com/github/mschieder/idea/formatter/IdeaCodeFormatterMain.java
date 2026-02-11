@@ -4,11 +4,11 @@ package com.github.mschieder.idea.formatter;
 public class IdeaCodeFormatterMain {
 
     public static void main(String[] args) throws Exception {
-        int exitStatus;
+        FormatterResult result;
         try (IdeaCodeFormatterEnvironment formatter = new IdeaCodeFormatterEnvironment()) {
-            exitStatus = formatter.format(args, lines -> lines.forEach(System.out::println));
+            result = formatter.format(args, lines -> lines.forEach(System.out::println));
         }
-        System.exit(exitStatus);
+        System.exit(result.exitCode());
     }
 
 }

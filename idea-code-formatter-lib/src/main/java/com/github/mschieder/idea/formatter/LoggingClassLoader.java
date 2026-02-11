@@ -24,7 +24,7 @@ public class LoggingClassLoader extends ClassLoader {
                 try {
                     log.info("total number of loaded classes and resources: " + ClassPath.getLoadedClasses().size());
                     Files.write(Path.of(LogLoadedClasses.getInstance().getLogDir() + "/idea_loaded_classes_and_resources.txt"),
-                            ClassPath.getLoadedClasses().stream().map(e -> e.getKey() + " " + e.getValue()).toList(), CREATE, APPEND);
+                            ClassPath.getLoadedClasses().stream().map(e -> e.getKey() + "|" + e.getValue()).toList(), CREATE, APPEND);
                 } catch (Throwable e) {
                     log.severe("error while proc " + e.getMessage());
                 }

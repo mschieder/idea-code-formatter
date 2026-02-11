@@ -16,7 +16,7 @@
                 <include>com/intellij/**/*.class</include>
                 <include>org/jetbrains/**/*.class</include>
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/intellij/AbstractBundle$MyResourceControl.class</include>
                 <include>com/intellij/AbstractBundle.class</include>
                 <include>com/intellij/BundleBase.class</include>
@@ -1005,7 +1005,6 @@
                 <include>com/intellij/util/containers/HashSetQueue$QueueEntry.class</include>
                 <include>com/intellij/util/containers/HashSetQueue.class</include>
                 <include>com/intellij/util/containers/IdentityHashingStrategy.class</include>
-                <include>com/intellij/util/containers/ImmutableList$1.class</include>
                 <include>com/intellij/util/containers/ImmutableList$Itr.class</include>
                 <include>com/intellij/util/containers/ImmutableList$Singleton.class</include>
                 <include>com/intellij/util/containers/ImmutableList$SubList.class</include>
@@ -1160,7 +1159,6 @@
                 <include>com/intellij/util/indexing/containers/BitSetAsRAIntContainer.class</include>
                 <include>com/intellij/util/indexing/containers/ChangeBufferingList$ChangesIterator.class</include>
                 <include>com/intellij/util/indexing/containers/ChangeBufferingList.class</include>
-                <include>com/intellij/util/indexing/containers/IntHashSetAsRAIntContainer$MyIterator.class</include>
                 <include>com/intellij/util/indexing/containers/IntHashSetAsRAIntContainer.class</include>
                 <include>com/intellij/util/indexing/containers/IntIdsIterator.class</include>
                 <include>com/intellij/util/indexing/containers/RandomAccessIntContainer.class</include>
@@ -1352,7 +1350,6 @@
                 <include>com/intellij/util/io/PersistentHashMapValueStorage$MyCompressedAppendableFile.class</include>
                 <include>com/intellij/util/io/PersistentHashMapValueStorage$RAReader.class</include>
                 <include>com/intellij/util/io/PersistentHashMapValueStorage$ReaderOverCompressedFile.class</include>
-                <include>com/intellij/util/io/PersistentHashMapValueStorage$ReaderOverFileChannelCache.class</include>
                 <include>com/intellij/util/io/PersistentHashMapValueStorage$ReadResult.class</include>
                 <include>
                     com/intellij/util/io/PersistentHashMapValueStorage$SyncAbleBufferedOutputStreamOverCachedFileChannel$OutputStreamOverRandomAccessFileCache.class
@@ -1391,7 +1388,6 @@
                 <include>com/intellij/util/io/stats/PersistentHashMapStatistics.class</include>
                 <include>com/intellij/util/io/stats/StorageStatsRegistrar.class</include>
                 <include>com/intellij/util/io/storage/AbstractRecordsTable.class</include>
-                <include>com/intellij/util/io/storage/AbstractStorage$AppenderStream.class</include>
                 <include>com/intellij/util/io/storage/AbstractStorage$StorageDataOutput.class</include>
                 <include>com/intellij/util/io/storage/AbstractStorage.class</include>
                 <include>com/intellij/util/io/storage/CapacityAllocationPolicy$1.class</include>

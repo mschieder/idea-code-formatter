@@ -26,7 +26,7 @@
                 <include>jtermios/**</include>
 
                 <!-- BEGIN generated includes -->
-                <!-- generated with ./genereate_includes.sh - DO NOT EDIT - -->
+                <!-- generated with ./genereate_assemblies.sh - DO NOT EDIT - -->
                 <include>com/fasterxml/aalto/impl/CommonConfig.class</include>
                 <include>com/fasterxml/aalto/impl/IoStreamException.class</include>
                 <include>com/fasterxml/aalto/impl/StreamExceptionBase.class</include>
@@ -697,6 +697,7 @@
                 <include>kotlin/coroutines/jvm/internal/RestrictedSuspendLambda.class</include>
                 <include>kotlin/coroutines/jvm/internal/SuspendFunction.class</include>
                 <include>kotlin/coroutines/jvm/internal/SuspendLambda.class</include>
+                <include>kotlin/Deprecated.class</include>
                 <include>kotlin/enums/EnumEntries.class</include>
                 <include>kotlin/Function.class</include>
                 <include>kotlin/InitializedLazyImpl.class</include>
@@ -716,7 +717,10 @@
                 <include>kotlin/io/FilesKt__FileTreeWalkKt.class</include>
                 <include>kotlin/io/FilesKt__UtilsKt.class</include>
                 <include>kotlin/io/FileSystemException.class</include>
+                <include>kotlin/io/FileTreeWalk$DirectoryState.class</include>
                 <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator$SingleFileState.class</include>
+                <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator$TopDownDirectoryState.class</include>
+                <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator$WhenMappings.class</include>
                 <include>kotlin/io/FileTreeWalk$FileTreeWalkIterator.class</include>
                 <include>kotlin/io/FileTreeWalk$WalkState.class</include>
                 <include>kotlin/io/FileTreeWalk.class</include>
@@ -961,7 +965,12 @@
                 <include>kotlin/reflect/jvm/internal/impl/builtins/StandardNames.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/annotations/Annotated.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/annotations/AnnotatedImpl.class</include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/descriptors/annotations/AnnotationDescriptor$DefaultImpls.class
+                </include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/annotations/AnnotationDescriptor.class</include>
+                <include>kotlin/reflect/jvm/internal/impl/descriptors/annotations/AnnotationDescriptorImpl.class
+                </include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/annotations/Annotations$Companion$EMPTY$1.class
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/annotations/Annotations$Companion.class</include>
@@ -1296,6 +1305,9 @@
                     kotlin/reflect/jvm/internal/impl/descriptors/runtime/structure/ReflectJavaEnumValueAnnotationArgument.class
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/runtime/structure/ReflectJavaField.class</include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/descriptors/runtime/structure/ReflectJavaLiteralAnnotationArgument.class
+                </include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/runtime/structure/ReflectJavaMember.class
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/descriptors/runtime/structure/ReflectJavaMethod.class
@@ -1386,6 +1398,12 @@
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/load/java/components/JavaAnnotationDescriptor.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/load/java/components/JavaAnnotationMapper.class</include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/java/components/JavaDeprecatedAnnotationDescriptor$allValueArguments$2.class
+                </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/java/components/JavaDeprecatedAnnotationDescriptor.class
+                </include>
                 <include>
                     kotlin/reflect/jvm/internal/impl/load/java/components/JavaPropertyInitializerEvaluator$DoNothing.class
                 </include>
@@ -1516,6 +1534,12 @@
                 </include>
                 <include>
                     kotlin/reflect/jvm/internal/impl/load/java/lazy/descriptors/LazyJavaClassMemberScope$computeNonDeclaredFunctions$4.class
+                </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/java/lazy/descriptors/LazyJavaClassMemberScope$computeNonDeclaredProperties$1.class
+                </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/java/lazy/descriptors/LazyJavaClassMemberScope$computeNonDeclaredProperties$2.class
                 </include>
                 <include>
                     kotlin/reflect/jvm/internal/impl/load/java/lazy/descriptors/LazyJavaClassMemberScope$constructors$1.class
@@ -1682,6 +1706,8 @@
                 <include>kotlin/reflect/jvm/internal/impl/load/java/structure/JavaEnumValueAnnotationArgument.class
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/load/java/structure/JavaField.class</include>
+                <include>kotlin/reflect/jvm/internal/impl/load/java/structure/JavaLiteralAnnotationArgument.class
+                </include>
                 <include>kotlin/reflect/jvm/internal/impl/load/java/structure/JavaLoadingKt.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/load/java/structure/JavaMember.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/load/java/structure/JavaMethod.class</include>
@@ -1859,7 +1885,19 @@
                 <include>
                     kotlin/reflect/jvm/internal/impl/load/kotlin/AbstractBinaryClassAnnotationAndConstantLoader.class
                 </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/kotlin/AbstractBinaryClassAnnotationLoader$loadClassAnnotations$1.class
+                </include>
                 <include>kotlin/reflect/jvm/internal/impl/load/kotlin/AbstractBinaryClassAnnotationLoader.class
+                </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/kotlin/BinaryClassAnnotationAndConstantLoaderImpl$AbstractAnnotationArgumentVisitor$visitArray$1.class
+                </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/kotlin/BinaryClassAnnotationAndConstantLoaderImpl$AbstractAnnotationArgumentVisitor.class
+                </include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/load/kotlin/BinaryClassAnnotationAndConstantLoaderImpl$loadAnnotation$1.class
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/load/kotlin/BinaryClassAnnotationAndConstantLoaderImpl.class
                 </include>
@@ -2275,6 +2313,10 @@
                 <include>kotlin/reflect/jvm/internal/impl/resolve/constants/ArrayValue.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/resolve/constants/ByteValue.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/resolve/constants/ConstantValue.class</include>
+                <include>
+                    kotlin/reflect/jvm/internal/impl/resolve/constants/ConstantValueFactory$createArrayValue$1.class
+                </include>
+                <include>kotlin/reflect/jvm/internal/impl/resolve/constants/ConstantValueFactory.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/resolve/constants/EnumValue.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/resolve/constants/IntegerLiteralTypeConstructor.class
                 </include>
@@ -2656,6 +2698,7 @@
                 </include>
                 <include>kotlin/reflect/jvm/internal/impl/serialization/deserialization/TypeDeserializer.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/serialization/SerializerExtensionProtocol.class</include>
+                <include>kotlin/reflect/jvm/internal/impl/SpecialJvmAnnotations.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/storage/CacheWithNotNullValues.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/storage/CacheWithNullableValues.class</include>
                 <include>kotlin/reflect/jvm/internal/impl/storage/DefaultSimpleLock.class</include>
@@ -3240,6 +3283,7 @@
                 <include>kotlinx/coroutines/channels/Channel.class</include>
                 <include>kotlinx/coroutines/channels/ChannelCoroutine.class</include>
                 <include>kotlinx/coroutines/channels/ChannelKt.class</include>
+                <include>kotlinx/coroutines/channels/ChannelResult$Closed.class</include>
                 <include>kotlinx/coroutines/channels/ChannelResult$Companion.class</include>
                 <include>kotlinx/coroutines/channels/ChannelResult$Failed.class</include>
                 <include>kotlinx/coroutines/channels/ChannelResult.class</include>
@@ -3255,6 +3299,7 @@
                 <include>kotlinx/coroutines/channels/RendezvousChannel.class</include>
                 <include>kotlinx/coroutines/channels/SendChannel.class</include>
                 <include>kotlinx/coroutines/channels/Send.class</include>
+                <include>kotlinx/coroutines/channels/SendElement.class</include>
                 <include>kotlinx/coroutines/ChildContinuation.class</include>
                 <include>kotlinx/coroutines/ChildHandle.class</include>
                 <include>kotlinx/coroutines/ChildHandleNode.class</include>
@@ -3469,6 +3514,7 @@
                 <include>kotlinx/coroutines/NonDisposableHandle.class</include>
                 <include>kotlinx/coroutines/NotCompleted.class</include>
                 <include>kotlinx/coroutines/ParentJob.class</include>
+                <include>kotlinx/coroutines/RemoveOnCancel.class</include>
                 <include>kotlinx/coroutines/repackaged/net/bytebuddy/agent/Attacher.class</include>
                 <include>
                     kotlinx/coroutines/repackaged/net/bytebuddy/agent/ByteBuddyAgent$AgentProvider$ForByteBuddyAgent.class

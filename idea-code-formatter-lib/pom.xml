@@ -84,6 +84,7 @@
                             <appendAssemblyId>false</appendAssemblyId>
                         </configuration>
                         <executions>
+                            <!-- BEGIN generated executions -->
                             <execution>
                                 <id>3rd-party-rt</id>
                                 <phase>package</phase>
@@ -96,6 +97,20 @@
                                         </descriptor>
                                     </descriptors>
                                     <finalName>3rd-party-rt</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>app</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/app.jar-assembly.xml</descriptor>
+                                    </descriptors>
+                                    <finalName>app</finalName>
                                     <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
                                 </configuration>
                             </execution>
@@ -131,64 +146,6 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>util</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>src/assembly/minimal-reduced-jars/util.jar-assembly.xml</descriptor>
-                                    </descriptors>
-                                    <finalName>util</finalName>
-                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>util-8</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>src/assembly/minimal-reduced-jars/util-8.jar-assembly.xml
-                                        </descriptor>
-                                    </descriptors>
-                                    <finalName>util-8</finalName>
-                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>util_rt</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>src/assembly/minimal-reduced-jars/util_rt.jar-assembly.xml
-                                        </descriptor>
-                                    </descriptors>
-                                    <finalName>util_rt</finalName>
-                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>app</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>src/assembly/minimal-reduced-jars/app.jar-assembly.xml</descriptor>
-                                    </descriptors>
-                                    <finalName>app</finalName>
-                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <id>jps-model</id>
                                 <phase>package</phase>
                                 <goals>
@@ -219,18 +176,64 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>java-impl</id>
+                                <id>util-8</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>single</goal>
                                 </goals>
                                 <configuration>
                                     <descriptors>
-                                        <descriptor>src/assembly/minimal-reduced-jars/java-impl.jar-assembly.xml
+                                        <descriptor>src/assembly/minimal-reduced-jars/util-8.jar-assembly.xml
                                         </descriptor>
                                     </descriptors>
-                                    <finalName>java-impl</finalName>
-                                    <outputDirectory>${project.build.directory}/idea-reduced/plugins/java/lib
+                                    <finalName>util-8</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>util</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/util.jar-assembly.xml</descriptor>
+                                    </descriptors>
+                                    <finalName>util</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>util_rt</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/util_rt.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>util_rt</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/lib</outputDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>java-ide-customization</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>
+                                            src/assembly/minimal-reduced-jars/java-ide-customization.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>java-ide-customization</finalName>
+                                    <outputDirectory>
+                                        ${project.build.directory}/idea-reduced/plugins/java-ide-customization/lib
                                     </outputDirectory>
                                 </configuration>
                             </execution>
@@ -252,17 +255,17 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>jps-builders</id>
+                                <id>java-impl</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>single</goal>
                                 </goals>
                                 <configuration>
                                     <descriptors>
-                                        <descriptor>src/assembly/minimal-reduced-jars/jps-builders.jar-assembly.xml
+                                        <descriptor>src/assembly/minimal-reduced-jars/java-impl.jar-assembly.xml
                                         </descriptor>
                                     </descriptors>
-                                    <finalName>jps-builders</finalName>
+                                    <finalName>java-impl</finalName>
                                     <outputDirectory>${project.build.directory}/idea-reduced/plugins/java/lib
                                     </outputDirectory>
                                 </configuration>
@@ -284,6 +287,22 @@
                                 </configuration>
                             </execution>
                             <execution>
+                                <id>jps-builders</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <configuration>
+                                    <descriptors>
+                                        <descriptor>src/assembly/minimal-reduced-jars/jps-builders.jar-assembly.xml
+                                        </descriptor>
+                                    </descriptors>
+                                    <finalName>jps-builders</finalName>
+                                    <outputDirectory>${project.build.directory}/idea-reduced/plugins/java/lib
+                                    </outputDirectory>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>protobuf-java6</id>
                                 <phase>package</phase>
                                 <goals>
@@ -299,24 +318,7 @@
                                     </outputDirectory>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>java-ide-customization</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>single</goal>
-                                </goals>
-                                <configuration>
-                                    <descriptors>
-                                        <descriptor>
-                                            src/assembly/minimal-reduced-jars/java-ide-customization.jar-assembly.xml
-                                        </descriptor>
-                                    </descriptors>
-                                    <finalName>java-ide-customization</finalName>
-                                    <outputDirectory>
-                                        ${project.build.directory}/idea-reduced/plugins/java-ide-customization/lib
-                                    </outputDirectory>
-                                </configuration>
-                            </execution>
+                            <!-- END generated executions -->
                         </executions>
 
                     </plugin>
