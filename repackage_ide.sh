@@ -15,7 +15,7 @@ if test -f "$DOWNLOAD_DIR/$DOWNLOAD_FILE"; then
 
 else
      mkdir $DOWNLOAD_DIR
-     wget --progress=bar:force:noscroll https://download-cdn.jetbrains.com/idea/$DOWNLOAD_FILE -O $DOWNLOAD_DIR/$DOWNLOAD_FILE
+     curl --output $DOWNLOAD_DIR/$DOWNLOAD_FILE https://download-cdn.jetbrains.com/idea/$DOWNLOAD_FILE
 fi
  cp $DOWNLOAD_DIR/$DOWNLOAD_FILE $DOWNLOAD_FILE2
 
