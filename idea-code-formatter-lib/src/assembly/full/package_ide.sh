@@ -13,7 +13,6 @@ unzip -o $DOWNLOAD_FILE "lib/*/*.jar" -d $IDEA_DIR
 echo unzipping idea plugin files
 echo extracting all required plugins
 while read plugin; do
-do
   echo extracting plugin dir $plugin
   unzip -oq $DOWNLOAD_FILE "plugins/$plugin/**/*.jar" -d $IDEA_DIR
 done < src/assembly/plugin_dirs.txt
