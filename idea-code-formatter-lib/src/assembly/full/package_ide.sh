@@ -14,9 +14,9 @@ echo unzipping idea plugin files
 echo extracting all required plugins
 #while IFS="" read -r plugin || [ -n "$plugin" ]
 while read plugin; do
-  plugin="$(echo "$plugin"|tr -d '\n')"
+  jarfiles=$(echo "plugins/$plugin/**/*.jar"|tr -d '\n'|tr -d '\r')
   echo extracting plugin dir $plugin
-  unzip -oq $DOWNLOAD_FILE "plugins/$plugin/**/*.jar" -d $IDEA_DIR
+  unzip -o $DOWNLOAD_FILE jarfiles -d $IDEA_DIR
 done < src/assembly/plugin_dirs.txt
 
 mkdir -p $REPACKAGED_IDEA_DIR
