@@ -140,7 +140,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
         if (System.getProperty("idea.classpath.type", "FULL").equals("FULL")) {
             // idea libs and idea plugins are in classpath
-            command.add(buildClasspath(ClasspathType.IDEA_FULL));
+            command.add('"' + buildClasspath(ClasspathType.IDEA_FULL) + '"');
             // we don't need idea home path, everything is accessible via class path
             Path tmpHomeDir = Files.createTempDirectory("ideaHome");
             tmpHomeDir.toFile().deleteOnExit();
@@ -148,7 +148,7 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
 
         } else {
             // idea libs are in classpath, idea plugin are loaded from the plugins directory
-            command.add(buildClasspath(ClasspathType.IDEA_LIB));
+            command.add('"' + buildClasspath(ClasspathType.IDEA_LIB) + '"');
             // we need the idea home to get access to the plugin directory to load the jars later
             command.add("-Didea.home.path=" + tmpFormatterRoot.resolve("idea").toAbsolutePath());
         }
