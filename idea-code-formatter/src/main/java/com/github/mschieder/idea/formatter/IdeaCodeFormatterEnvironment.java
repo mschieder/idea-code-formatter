@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -109,7 +111,11 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
         List<String> classpath = new ArrayList<>();
         if (!Utils.isPackagedInJar()) {
             // add the classpath to run inside IDEA
-            classpath.add(Utils.class.getProtectionDomain().getCodeSource().getLocation().toString());
+            try {
+                classpath.add(Paths.get(Utils.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toString());
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
         }
         try (var allFiles = Files.walk(tmpFormatterRoot.resolve(classpathType.getDir()))) {
             allFiles.map(Path::toString)
