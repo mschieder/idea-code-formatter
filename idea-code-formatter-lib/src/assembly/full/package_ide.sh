@@ -12,7 +12,7 @@ unzip -o $DOWNLOAD_FILE "lib/*/*.jar" -d $IDEA_DIR
 
 echo unzipping idea plugin files
 echo extracting all required plugins
-while IFS="" read -r plugin || [ -n "$plugin" ]
+while read plugin; do
 do
   echo extracting plugin dir $plugin
   unzip -oq $DOWNLOAD_FILE "plugins/$plugin/**/*.jar" -d $IDEA_DIR
