@@ -40,11 +40,12 @@ jobs:
 
     - name: test (format a single .java file)
       # try to format a single .java file
+      shell: bash
       run: |
         echo "public class Test{    }" > Test.java
         java -jar idea-code-formatter/target/idea-code-formatter-*.jar -allowDefaults Test.java
         echo "d48d83fd8ed599c6da79ea93ace6f90f Test.java" > Test.java.formatted.md5
-        if (md5sum -c Test.java.formatted.md5); then 
+        if md5sum -c Test.java.formatted.md5; then 
            TEST_EXITCODE=0
         else 
            TEST_EXITCODE=1
