@@ -7,16 +7,18 @@ REPACKAGED_IDEA_DIR=../idea-code-formatter/target/repackaged
 mkdir -p $IDEA_DIR
 
 echo unzipping lib jars
-unzip -o $DOWNLOAD_FILE "lib/*.jar" -d $IDEA_DIR
-unzip -o $DOWNLOAD_FILE "lib/*/*.jar" -d $IDEA_DIR
+7z x $DOWNLOAD_FILE -r "lib/*.jar" -o$IDEA_DIR -aoa
+#unzip -o $DOWNLOAD_FILE "lib/*.jar" -d $IDEA_DIR
+#unzip -o $DOWNLOAD_FILE "lib/*/*.jar" -d $IDEA_DIR
 
 echo unzipping idea plugin files
 echo extracting all required plugins
 while IFS="" read -r plugin || [ -n "$plugin" ]
 do
-  jarfiles=$(echo "plugins/$plugin/*/*.jar"|tr -d '\n'|tr -d '\r')
+  jarfiles=$(echo "plugins/$plugin/*.jar"|tr -d '\n'|tr -d '\r')
   echo extracting plugin dir $plugin
-  unzip -o $DOWNLOAD_FILE $jarfiles -d $IDEA_DIR
+  #unzip -o $DOWNLOAD_FILE $jarfiles -d $IDEA_DIR
+  7z x $DOWNLOAD_FILE -r "$jarfiles" -o$IDEA_DIR -aoa
 done < src/assembly/plugin_dirs.txt
 
 mkdir -p $REPACKAGED_IDEA_DIR
