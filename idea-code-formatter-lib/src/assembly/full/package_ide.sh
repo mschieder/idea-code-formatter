@@ -26,5 +26,6 @@ pushd target
 cp *.jar idea/lib #include also idea-code-formatter-lib
 #zip -rq idea.zip idea
 7z a -r idea.zip idea
+unzip -l idea.zip
 popd
 mv target/idea.zip $REPACKAGED_IDEA_DIR
