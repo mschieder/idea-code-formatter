@@ -122,9 +122,8 @@ public class IdeaCodeFormatterEnvironment implements AutoCloseable {
                     .filter(string -> string.endsWith(".jar"))
                     .sorted(Comparator.reverseOrder())
                     .forEach(classpath::add);
-            String classpathString = String.join(File.pathSeparatorChar + "", classpath);
-            System.out.println(("built classpath: " + classpathString.replace(";", String.format(";%n"))));
-            return classpathString;
+            log.fine("built classpath: " + classpath);
+            return String.join(File.pathSeparatorChar + "", classpath);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
