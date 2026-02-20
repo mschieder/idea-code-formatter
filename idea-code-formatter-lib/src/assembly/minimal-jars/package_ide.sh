@@ -7,13 +7,15 @@ echo unzipping minimal idea lib and plugin files
 mkdir -p $IDEA_DIR
 while IFS="" read -r jar || [ -n "$jar" ]
 do
-  unzip -o $DOWNLOAD_FILE "$jar" -d $IDEA_DIR
+  #unzip -o $DOWNLOAD_FILE "$jar" -d $IDEA_DIR
+  7z x $DOWNLOAD_FILE -r "$jar" -o$IDEA_DIR -aoa
 done < src/assembly/minimal-jars.txt
 
 echo packaging ide with minimal jars
 mkdir -p $REPACKAGED_IDEA_DIR
 pushd target
 cp *.jar idea/lib  #include also idea-code-formatter-lib
-zip -r idea.zip idea
+#zip -r idea.zip idea
+7z a -r idea.zip idea
 popd
 mv target/idea.zip $REPACKAGED_IDEA_DIR
